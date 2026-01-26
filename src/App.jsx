@@ -1,17 +1,12 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import Navbar from "./Components/Header/Navbar";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="bg-gray-900 text-white min-h-screen">
-      <h1 className="text-3xl font-bold">Welcome to CineNest</h1>
+    <div className="">
+      <Navbar />
     </div>
-
-  )
+  );
 }
 
-export default App
+export default App;
