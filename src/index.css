@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-primary: #e60a0d;
+  --color-background-light: #f8f5f5;
+  --color-background-dark: #0a0505;
+  --color-card-dark: #1a0c0c;
+
+  /* Font */
+  --font-display: "Inter", sans-serif;
+  /* Border Radius */
+  --radius: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+}
+@layer components {
+  .glass-nav {
+    @apply backdrop-blur-md border-b-[rgba(230,10,13,0.1)] border-b border-solid;
+    background: rgba(10, 5, 5, 0.7);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
