@@ -8,7 +8,7 @@ export default function HeroSection() {
           backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuC8CIaDKDe7W-5YV49Xy-X_WOR5q_vQbVgBVtj4G_DBgHv_GqFXglH9sojUwlQ1isJgMW4PeRnSzoJwY0KcPk_OaK8ZNY692a1YoQSslpp65TefQ4I5bADVDJ743K29T3CSc6-grigszWHygM_pKsLFL9IQ134Pw80_6iz6l2T_0x00kCWZ5QJzWFu_BnKcId1O6yGlKi8yvwIiqX9MD64UYUrSDeVaU2z5ZIx6mV9BEexIM_RaTx3nZ9hlvHlE9KFRIVUCxQaWBhsr")`,
         }}
       ></div>
-      <div className="absolute inset-0 hero-gradient"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_top,#0a0505_0%,rgba(10,5,5,0.4)_50%,rgba(10,5,5,0.1)_100%)]"></div>
       <div className="relative h-full max-w-[1440px] mx-auto px-6 flex flex-col justify-end pb-32">
         <div className="max-w-2xl space-y-6">
           <div className="flex items-center gap-3">

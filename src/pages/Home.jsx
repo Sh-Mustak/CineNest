@@ -1,9 +1,13 @@
 import HeroSection from "../components/movie/HeroSection";
+import MovieRow from "../components/movie/MovieRow";
 
 export default function Home() {
   return (
-    <div className="relative">
+    <main className="relative">
       <HeroSection />
-    </div>
+      <MovieRow />
+      <MovieRow />
+      <MovieRow />
+    </main>
   );
 }
