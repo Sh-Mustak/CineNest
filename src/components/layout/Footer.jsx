@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="border-t border-primary/10 bg-background-dark py-12 px-6">
-      <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8 px-6">
         <div className="flex items-center gap-2">
           <span className="material-symbols-outlined text-primary text-2xl font-bold">
             movie

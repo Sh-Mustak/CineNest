@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <nav className="fixed left-0 top-0 w-full z-50 bg-[#0a0505]/70 backdrop-blur-md border-b border-primary/10">
@@ -12,30 +13,30 @@ export default function Navbar() {
             </h1>
           </div>
           <div className="hidden md:flex items-center gap-8">
-            <a
+            <Link
               className="text-white hover:text-primary transition-colors text-sm font-semibold border-b-2 border-primary pb-1"
-              href="#"
+              to="/"
             >
               Home
-            </a>
-            <a
+            </Link>
+            <Link
               className="text-slate-400 hover:text-white transition-colors text-sm font-medium"
-              href="#"
+              to="/movies"
             >
               Movies
-            </a>
-            <a
+            </Link>
+            <Link
               className="text-slate-400 hover:text-white transition-colors text-sm font-medium"
               href="#"
             >
               TV Series
-            </a>
-            <a
+            </Link>
+            <Link
               className="text-slate-400 hover:text-white transition-colors text-sm font-medium"
               href="#"
             >
               Watchlist
-            </a>
+            </Link>
           </div>
         </div>
         <div className="flex items-center gap-6">
