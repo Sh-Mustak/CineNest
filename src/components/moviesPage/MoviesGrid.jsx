@@ -1,4 +1,5 @@
 import MovieCard from "../movie/MovieCard";
+import MovieCardSkeleton from "../Skeleton/MovieCardSkeleton";
 export default function MoviesGrid(){
     return (
         <div className="flex flex-col items-center justify-center py-20 gap-4">
@@ -6,11 +7,10 @@ export default function MoviesGrid(){
             <MovieCard />
             <MovieCard />
             <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
+            <MovieCardSkeleton />
+            <MovieCardSkeleton />
+            <MovieCardSkeleton />
+            <MovieCardSkeleton />
         </div>
     );
 }

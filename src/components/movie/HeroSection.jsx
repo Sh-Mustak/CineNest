@@ -1,6 +1,6 @@
 export default function HeroSection() {
   return (
-    <section className="relative h-[90vh] w-full overflow-hidden">
+    <section className="relative h-[95vh] w-full overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
         data-alt="Cinematic deep space background with stars and nebula"
