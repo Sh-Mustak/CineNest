@@ -1,6 +1,6 @@
 export default function MovieCard() {
   return (
-    <div className="flex gap-8 overflow-x-auto hide-scrollbar pb-8 snap-x pt-6 scroll-pl-10 pl-10">
+    <div className="flex gap-8 overflow-x-auto hide-scrollbar pb-8 snap-x pt-6 scroll-pl-6 pl-6">
       {/* <!-- Movie Card 1 --> */}
       <div className="flex-none w-56 group cursor-pointer snap-start">
         <div className="relative aspect-[2/3] rounded-xl overflow-hidden mb-3 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(230,10,13,0.3)]">
