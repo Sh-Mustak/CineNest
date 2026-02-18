@@ -6,7 +6,16 @@ export default function MovieRow() {
     <div class="relative -mt-24 space-y-16 pb-20">
       <section className="">
         <SectionHeader />
-        <MovieCard />
+        <div className="flex gap-8 overflow-x-auto hide-scrollbar pb-8 snap-x pt-6 scroll-pl-6 pl-6 pr-6 ">
+          <MovieCard />
+          <MovieCard />
+          <MovieCard />
+          <MovieCard />
+          <MovieCard />
+          <MovieCard />
+          <MovieCard />
+          <MovieCard />
+        </div>
       </section>
     </div>
   );

@@ -1,6 +1,6 @@
 export default function FilterMovies() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-5 mb-10 glass rounded-2xl border border-white/5">
+    <div className=" max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 p-5 mb-10 glass rounded-2xl border border-white/5">
       <div className="flex flex-col gap-2">
         <label className="text-xs font-bold uppercase tracking-widest text-slate-500 px-1">
           Genre
