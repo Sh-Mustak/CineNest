@@ -1,44 +1,56 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+
 export default function Navbar() {
+  const [openMenu, setOpenMenu] = useState(false);
+  const location = useLocation();
+
+  const HandleMenu = () => {
+    setOpenMenu(!openMenu);
+  };
+
+  const navLinks = [
+    { label: "Home", to: "/" },
+    { label: "Movies", to: "/movies" },
+    { label: "TV Series", to: "/tv-series" },
+    { label: "Watchlist", to: "/watchlist" },
+  ];
+
   return (
     <nav className="fixed left-0 top-0 w-full z-50 bg-[#0a0505]/70 backdrop-blur-md border-b border-primary/10">
       <div className="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between">
-        <div className="flex items-center gap-12">
-          <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-3xl font-bold">
-              movie
-            </span>
-            <h1 className="text-primary text-2xl font-black tracking-tighter uppercase">
-              CineNest
-            </h1>
-          </div>
-          <div className="hidden md:flex items-center gap-8">
-            <Link
-              className="text-white hover:text-primary transition-colors text-sm font-semibold border-b-2 border-primary pb-1"
-              to="/"
-            >
-              Home
-            </Link>
-            <Link
-              className="text-slate-400 hover:text-white transition-colors text-sm font-medium"
-              to="/movies"
-            >
-              Movies
-            </Link>
-            <Link
-              className="text-slate-400 hover:text-white transition-colors text-sm font-medium"
-              href="#"
-            >
-              TV Series
-            </Link>
-            <Link
-              className="text-slate-400 hover:text-white transition-colors text-sm font-medium"
-              href="#"
-            >
-              Watchlist
-            </Link>
-          </div>
+        
+        {/* Logo */}
+        <div className="flex items-center gap-2">
+          <span className="material-symbols-outlined text-primary text-3xl font-bold">
+            movie
+          </span>
+          <h1 className="text-primary text-2xl font-black tracking-tighter uppercase">
+            CineNest
+          </h1>
         </div>
+
+        {/* Desktop Links - Centered */}
+        <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.to;
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`transition-colors text-sm font-medium pb-1 border-b-2 ${
+                  isActive
+                    ? "text-primary border-primary font-semibold"
+                    : "text-slate-400 hover:text-white border-transparent"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Right Icons */}
         <div className="flex items-center gap-6">
           <div className="relative group hidden lg:block">
             <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">
@@ -53,16 +65,50 @@ export default function Navbar() {
           <button className="p-2 rounded-xl bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
             <span className="material-symbols-outlined">dark_mode</span>
           </button>
-          <div className="h-10 w-10 rounded-full border-2 border-primary/20 overflow-hidden cursor-pointer hover:border-primary transition-colors">
-            <img
-              alt="Profile"
-              className="w-full h-full object-cover"
-              data-alt="User profile avatar illustration"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdDmAk2eE_re8awmoyNQynNHI9nZVyQ0_3u9OQGVQlLCP-Hva10z5GhakF1P2c_t1oMGyIui3h4aDXfgA_vR_LLuoZeHv8TuL-vfbFV2D7zd38tE-IMmt-SsDZjOinA5bjKdNiwIPXb3ZMUdcMDkCUXO81lLW7smWJKQD7_fN_QBKJCj46UD66ZCVtoKj2_iUjgX8U-sdeDUCl8Fjvhi5mUsaa6tihka-hXwaeJdwQLLJMYVCQUUnnCh_FPxxmOAdZ5tYThA0goHwl"
-            />
+          <div
+            onClick={HandleMenu}
+            className="p-2 rounded-xl bg-primary/10 text-primary hover:bg-primary/20 transition-colors md:hidden cursor-pointer"
+          >
+            <span className="material-symbols-outlined text-white">
+              {openMenu ? "close" : "menu"}
+            </span>
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {openMenu && (
+        <div className="md:hidden bg-[#0a0505]/95 backdrop-blur-md border-t border-primary/10 px-6 py-4 flex flex-col items-center gap-4">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.to;
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                onClick={HandleMenu}
+                className={`transition-colors text-sm font-medium pb-1 border-b-2 w-fit ${
+                  isActive
+                    ? "text-primary border-primary font-semibold"
+                    : "text-slate-400 hover:text-white border-transparent"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+          {/* Mobile Search */}
+          <div className="relative group mt-2 w-full">
+            <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">
+              search
+            </span>
+            <input
+              className="bg-primary/5 border-none rounded-xl pl-10 pr-4 py-2 w-full text-sm focus:ring-1 focus:ring-primary/50 text-white placeholder:text-slate-500"
+              placeholder="Search movies, actors..."
+              type="text"
+            />
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
