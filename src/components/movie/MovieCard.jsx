@@ -1,6 +1,6 @@
 export default function MovieCard() {
   return (
-    <div className="flex-none w-65 group cursor-pointer snap-start mb-4">
+    <div className="flex-none w-75 group cursor-pointer snap-start mb-4">
       <div className="relative aspect-2/3 rounded-xl overflow-hidden mb-3 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(230,10,13,0.3)]">
         <img
           alt="Dune"
