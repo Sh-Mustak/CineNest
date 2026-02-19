@@ -15,7 +15,7 @@ export default function CastDetails() {
               }}
             ></div>
             <div>
-              <p className="font-bold text-sm">Elena Rodriguez</p>
+              <p className="font-bold text-sm text-white">Elena Rodriguez</p>
               <p className="text-xs text-white/50">Captain Sarah Chen</p>
             </div>
           </div>
@@ -28,7 +28,7 @@ export default function CastDetails() {
               }}
             ></div>
             <div>
-              <p className="font-bold text-sm">Marcus Thorne</p>
+              <p className="font-bold text-sm text-white">Marcus Thorne</p>
               <p className="text-xs text-white/50">Officer Kaelen</p>
             </div>
           </div>
@@ -41,7 +41,7 @@ export default function CastDetails() {
               }}
             ></div>
             <div>
-              <p className="font-bold text-sm">Aria Vance</p>
+              <p className="font-bold text-sm text-white">Aria Vance</p>
               <p className="text-xs text-white/50">The Echo (Voice)</p>
             </div>
           </div>
@@ -51,9 +51,9 @@ export default function CastDetails() {
         <p className="text-xs text-white/40 uppercase font-bold mb-2">
           Director
         </p>
-        <p className="font-bold text-sm mb-4">Christopher Nolan</p>
+        <p className="font-bold text-sm mb-4 text-white">Christopher Nolan</p>
         <p className="text-xs text-white/40 uppercase font-bold mb-2">Studio</p>
-        <p className="font-bold text-sm">Nebula Pictures</p>
+        <p className="font-bold text-sm text-white">Nebula Pictures</p>
       </div>
     </div>
   );
