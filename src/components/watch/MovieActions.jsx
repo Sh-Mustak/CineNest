@@ -1,7 +1,7 @@
 export default function MovieActions() {
   return (
     <div className="flex flex-wrap gap-4 pt-4">
-      <button className="flex items-center gap-2 px-6 py-3 bg- rounded-xl font-bold hover:bg-primary/90 transition-all active:scale-95">
+      <button className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-primary hover:bg-primary/90 transition-all text-white active:scale-95">
         <span
           className="material-symbols-outlined"
           style={{ fontVariationSettings: '"FILL" 1' }}
@@ -10,7 +10,7 @@ export default function MovieActions() {
         </span>
         Resume Movie
       </button>
-      <button className="flex items-center gap-2 px-6 py-3 bg-white/10 rounded-xl font-bold hover:bg-white/20 transition-all">
+      <button className="flex items-center gap-2 px-6 py-3 bg-white/10 rounded-xl font-bold bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm text-white transition-all">
         <span className="material-symbols-outlined">add</span>
         Watchlist
       </button>
