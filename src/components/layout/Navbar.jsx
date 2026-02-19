@@ -12,6 +12,7 @@ export default function Navbar() {
   const navLinks = [
     { label: "Home", to: "/" },
     { label: "Movies", to: "/movies" },
+    { label: "Watch", to: "/watch" },
     { label: "TV Series", to: "/tv-series" },
     { label: "Watchlist", to: "/watchlist" },
   ];
