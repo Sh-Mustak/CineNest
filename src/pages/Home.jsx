@@ -5,9 +5,9 @@ export default function Home() {
   return (
     <main className="relative">
       <HeroSection />
-      <MovieRow />
-      <MovieRow />
-      <MovieRow />
+      <MovieRow rowheader="Trending Now" />
+      <MovieRow rowheader="Popular Movies" />
+      <MovieRow rowheader="Top Rated" />
     </main>
   );
 }

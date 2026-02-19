@@ -6,7 +6,7 @@ import MovieMeta from "./MovieMeta";
 
 export default function MovieDetailsSection() {
   return (
-    <div className="max-w-[1440px] mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-3 gap-12">
+    <div className="max-w-[1440px] mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-3 gap-12 mb-25">
       <div className="lg:col-span-2 space-y-6">
         <MovieHeader />
         <MovieMeta />
