@@ -10,25 +10,25 @@ export default function MovieActions() {
         </span>
         Resume Movie
       </button>
-      <button className="flex items-center gap-2 px-6 py-3 bg-white/10 rounded-xl font-bold bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm text-white transition-all">
+      <button className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm text-white transition-all">
         <span className="material-symbols-outlined">add</span>
         Watchlist
       </button>
       <div className="h-12 w-px bg-white/10 mx-2"></div>
       <button
-        className="p-3 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+        className="p-3 bg-white/8 hover:bg-white/20 text-primary rounded-xl hover:bg-white/5 transition-colors"
         title="Download"
       >
         <span className="material-symbols-outlined">download</span>
       </button>
       <button
-        className="p-3 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+        className="p-3 bg-white/8 hover:bg-white/20 text-primary rounded-xl hover:bg-white/5 transition-colors"
         title="Share"
       >
         <span className="material-symbols-outlined">share</span>
       </button>
       <button
-        className="p-3 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+        className="p-3 bg-white/8 hover:bg-white/20 text-primary rounded-xl hover:bg-white/5 transition-colors"
         title="Favorite"
       >
         <span className="material-symbols-outlined">favorite</span>
