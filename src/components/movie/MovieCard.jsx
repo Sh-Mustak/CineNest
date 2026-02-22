@@ -1,12 +1,13 @@
-export default function MovieCard() {
+import { getImageUrl } from "../../utils/helper";
+export default function MovieCard({ movie }) {
   return (
     <div className="flex-none w-70 group cursor-pointer snap-start mb-4">
       <div className="relative aspect-2/3 rounded-xl overflow-hidden mb-3 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(230,10,13,0.3)]">
         <img
-          alt="Dune"
+          alt={movie.title}
           className="w-full h-full object-cover"
           data-alt="Cinematic movie poster of a desert planet"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgzPODX0W5B-cVV5jK4tMFyVILx27VKGblp-eijjo_DUk1PM5uDOnCEEE9lCoaEcFxwvsepWryWGc9kv8Ll8I84dpcXScGcwJOEHm3_VTevikNxJaVKJyKilYjkBDaY1UVJpxOk9Q2EPdplgAU0LbQGxsTfMNojyT0Nm81X05A4wGb8VCDq4I0HlY--6YDL9Q3og43AqHQotLde4ntCF-PM51MHC6jBep4Js0YhpgSuxQMYOGDSeAt66JyBdxABgeJf8f3B3VhQz9e"
+          src={getImageUrl(movie.poster_path)}
         />
         <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
           <div className="bg-primary p-3 rounded-full text-white shadow-lg">
@@ -22,14 +23,14 @@ export default function MovieCard() {
           <span className="material-symbols-outlined text-[12px] fill-current">
             star
           </span>
-          9.2
+          {movie.vote_average.toFixed(1)}
         </div>
       </div>
       <h3 className="text-white font-bold group-hover:text-primary transition-colors">
-        Dune: Part Two
+        {movie.title}
       </h3>
       <p className="text-slate-500 text-xs font-medium uppercase tracking-wider ">
-        Sci-Fi • 2024
+        {movie.release_date}
       </p>
     </div>
   );
