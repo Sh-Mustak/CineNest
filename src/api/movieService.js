@@ -11,4 +11,13 @@ export const movieService = {
       throw error;
     }
   },
+  getPopularMovies: async () => {
+    try {
+      const response = await axiosInstance.get(endpoints.popular);
+      return response.data.results;
+    } catch (error) {
+      console.error("Error fetching popular movies:", error);
+      throw error;
+    }
+  }
 };

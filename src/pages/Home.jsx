@@ -4,12 +4,13 @@ import { useMovies } from "../hooks/useMovies";
 
 export default function Home() {
   const {trending, loading,error} = useMovies();
-  console.log(trending, loading, error);
+  const {popular} = useMovies();
+  console.log(popular, loading, error);
   return (
     <main className="relative">
       <HeroSection />
       <MovieRow movies={trending} rowheader="Trending Now" />
-      <MovieRow rowheader="Popular Movies" />
+      <MovieRow movies={popular} rowheader="Popular Movies" />
       <MovieRow rowheader="Top Rated" />
     </main>
   );

@@ -1,28 +1,39 @@
 import { useEffect, useState } from "react";
-import { movieService } from "../api/movieService";
+import {
+  fetchPopularMovies,
+  fetchTrendingMovies,
+} from "../services/movieFetcher";
 import { MovieContext } from "./MovieContextDefinition";
 
 export const MovieProvider = ({ children }) => {
   const [trending, setTrending] = useState([]);
+  const [popular, setPopular] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchTrendingMovies = async () => {
-      try {
-        setLoading(true);
-        const response = await movieService.getTrendingMovies();
-        setTrending(response);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
+    const loadMovies = async () => {
+      setLoading(true);
+
+      const [
+        { trendingMovies, trendingError },
+        { popularMovies, popularError },
+      ] = await Promise.all([fetchTrendingMovies(), fetchPopularMovies()]);
+
+      if (trendingError || popularError) {
+        setError(trendingError || popularError);
+      } else {
+        setTrending(trendingMovies);
+        setPopular(popularMovies);
       }
+
+      setLoading(false);
     };
-    fetchTrendingMovies();
+
+    loadMovies();
   }, []);
   return (
-    <MovieContext.Provider value={{ trending, loading, error }}>
+    <MovieContext.Provider value={{ trending, popular, loading, error }}>
       {children}
     </MovieContext.Provider>
   );
