@@ -29,4 +29,13 @@ export const movieService = {
       throw error;
     }
   },
+  getUpcomingMovies: async () => {
+    try {
+      const response = await axiosInstance.get(endpoints.upcoming);
+      return response.data.results;
+    } catch (error) {
+      console.error("Error fetching upcoming movies:", error);
+      throw error;
+    }
+  }
 };

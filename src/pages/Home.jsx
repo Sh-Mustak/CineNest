@@ -3,7 +3,7 @@ import MovieRow from "../components/movie/MovieRow";
 import { useMovieContext } from "../context/useMovieContext";
 
 export default function Home() {
-  const { trending, popular, topRated, loading, error } = useMovieContext();
+  const { trending, popular, topRated, upcoming, loading, error } = useMovieContext();
   return (
     <main className="relative">
       <HeroSection />
@@ -24,6 +24,12 @@ export default function Home() {
         loading={loading}
         error={error}
         rowheader="Top Rated"
+      />
+      <MovieRow
+        movies={upcoming}
+        loading={loading}
+        error={error}
+        rowheader="Upcoming Movies"
       />
     </main>
   );

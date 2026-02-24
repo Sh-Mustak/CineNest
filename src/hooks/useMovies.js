@@ -3,6 +3,7 @@ import {
   fetchPopularMovies,
   fetchTrendingMovies,
   fetchTopRatedMovies,
+  fetchUpcomingMovies,
 } from "../services/movieFetcher";
 
 export const useMovies = () => {
@@ -19,14 +20,16 @@ export const useMovies = () => {
         { trendingMovies, error: trendingError },
         { popularMovies, error: popularError },
         { topRatedMovies, error: topRatedError },
-      ] = await Promise.all([fetchTrendingMovies(), fetchPopularMovies(), fetchTopRatedMovies()]);
+        { upcomingMovies, error: upcomingError },
+      ] = await Promise.all([fetchTrendingMovies(), fetchPopularMovies(), fetchTopRatedMovies(), fetchUpcomingMovies()]);
 
       setMovies({
         trending: trendingMovies,
         popular: popularMovies,
         topRated: topRatedMovies,
+        upcoming: upcomingMovies,
         loading: false,
-        error: trendingError || popularError || topRatedError,
+        error: trendingError || popularError || topRatedError || upcomingError,
       });
     };
 

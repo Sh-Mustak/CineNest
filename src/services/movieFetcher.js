@@ -28,3 +28,12 @@ export const fetchTopRatedMovies = async () => {
     return { topRatedMovies: [], topRatedError: error.message };
   }
 };
+
+export const fetchUpcomingMovies = async () => {
+  try {
+    const upcomingMovies = await movieService.getUpcomingMovies();
+    return { upcomingMovies, upcomingError: null };
+  } catch (error) {
+    return { upcomingMovies: [], upcomingError: error.message };
+  }
+};
