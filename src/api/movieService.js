@@ -19,5 +19,14 @@ export const movieService = {
       console.error("Error fetching popular movies:", error);
       throw error;
     }
-  }
+  },
+  getTopRatedMovies: async () => {
+    try {
+      const response = await axiosInstance.get(endpoints.topRated);
+      return response.data.results;
+    } catch (error) {
+      console.error("Error fetching top rated movies:", error);
+      throw error;
+    }
+  },
 };
