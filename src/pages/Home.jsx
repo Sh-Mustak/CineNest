@@ -1,11 +1,10 @@
 import HeroSection from "../components/movie/HeroSection";
 import MovieRow from "../components/movie/MovieRow";
-import { useMovies } from "../hooks/useMovies";
+import {useContext} from "react";
+import {MovieContext} from "../context/MovieContextDefinition"
 
 export default function Home() {
-  const {trending, loading,error} = useMovies();
-  const {popular} = useMovies();
-  console.log(popular, loading, error);
+  const {trending, popular} = useContext(MovieContext);
   return (
     <main className="relative">
       <HeroSection />
