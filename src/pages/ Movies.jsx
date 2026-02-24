@@ -1,13 +1,15 @@
 import FilterMovies from "../components/moviesPage/FilterMovies";
 import MoviesGrid from "../components/moviesPage/MoviesGrid";
 import PageHeader from "../components/moviesPage/PageHeader";
+import { useMovieContext } from "../context/useMovieContext";
 
 export default function Movies() {
+  const { trending, popular, topRated, upcoming, loading, error } = useMovieContext();
   return (
-    <div className="mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="mx-auto py-8">
       <PageHeader />
       <FilterMovies />
-      <MoviesGrid />
+      <MoviesGrid movies={trending} loading={loading} error={error} />
     </div>
   );
 }
