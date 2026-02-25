@@ -1,15 +1,15 @@
 import { getImageUrl } from "../../utils/helper";
 
 export default function MovieCard({ movie, fullWidth }) {
-  const releaseYear = movie.release_date
-    ? new Date(movie.release_date).getFullYear()
-    : "N/A";
+  // const releaseYear = movie.release_date
+  //   ? new Date(movie.release_date).getFullYear()
+  //   : "N/A";
 
   return (
     <div
       className={`${fullWidth ? "w-full" : "flex-none w-38"} group cursor-pointer snap-start mb-2`}
     >
-      <div className="relative aspect-[2/3] rounded-2xl overflow-hidden bg-slate-800 shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-2">
+      <div className="relative aspect-[2/3] rounded-2xl overflow-hidden bg-slate-800 shadow-lg transition-all duration-300 group-hover:shadow-2xl ">
         {/* Poster */}
         <img
           src={getImageUrl(movie.poster_path)}
@@ -42,10 +42,10 @@ export default function MovieCard({ movie, fullWidth }) {
         </div>
         {/* Bottom Info */}
         <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-          <h3 className="font-semibold text-sm line-clamp-2 group-hover:text-primary transition">
+          <h3 className="font-semibold text-sm line-clamp-2  transition">
             {movie.title}
           </h3>
-          <p className="text-xs text-slate-300 mt-1">{releaseYear}</p>
+          {/* <p className="text-xs text-slate-300 mt-1">{releaseYear}</p> */}
         </div>
       </div>
     </div>
