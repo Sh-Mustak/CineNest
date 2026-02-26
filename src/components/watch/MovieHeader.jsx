@@ -11,7 +11,7 @@ export default function MovieHeader({ movieDetails }) {
         >
           star
         </span>
-        <span className="font-bold text-yellow-400">{movieDetails?.vote_average || "N/A"}</span>
+        <span className="font-bold text-yellow-400">{movieDetails?.vote_average.toFixed(1) || "N/A"}</span>
         <span className="text-yellow-400 text-sm font-normal">/ 10</span>
       </div>
     </div>
