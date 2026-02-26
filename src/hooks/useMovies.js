@@ -10,6 +10,8 @@ export const useMovies = () => {
   const [movies, setMovies] = useState({
     trending: [],
     popular: [],
+    topRated: [],
+    upcoming: [],
     loading: true,
     error: null,
   });

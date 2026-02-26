@@ -1,4 +1,5 @@
 import { getImageUrl } from "../../utils/helper";
+import { Link } from "react-router-dom";
 
 export default function MovieCard({ movie, fullWidth }) {
   // const releaseYear = movie.release_date
@@ -6,7 +7,8 @@ export default function MovieCard({ movie, fullWidth }) {
   //   : "N/A";
 
   return (
-    <div
+    <Link
+        to={`/watch/${movie.id}`}
       className={`${fullWidth ? "w-full" : "flex-none w-38"} group cursor-pointer snap-start mb-2`}
     >
       <div className="relative aspect-[2/3] rounded-2xl overflow-hidden bg-slate-800 shadow-lg transition-all duration-300 group-hover:shadow-2xl ">
@@ -48,6 +50,6 @@ export default function MovieCard({ movie, fullWidth }) {
           {/* <p className="text-xs text-slate-300 mt-1">{releaseYear}</p> */}
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

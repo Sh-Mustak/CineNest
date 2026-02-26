@@ -1,8 +1,8 @@
-export default function MovieHeader() {
+export default function MovieHeader({ movieDetails }) {
   return (
     <div className="flex flex-wrap items-center gap-4">
       <h1 className="text-4xl md:text-5xl text-white font-bold tracking-tight">
-        The Midnight Echo
+        {movieDetails?.title || "Unknown Movie"}
       </h1>
       <div className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-lg">
         <span
@@ -11,7 +11,7 @@ export default function MovieHeader() {
         >
           star
         </span>
-        <span className="font-bold text-yellow-400">8.4</span>
+        <span className="font-bold text-yellow-400">{movieDetails?.vote_average || "N/A"}</span>
         <span className="text-yellow-400 text-sm font-normal">/ 10</span>
       </div>
     </div>

@@ -37,5 +37,15 @@ export const movieService = {
       console.error("Error fetching upcoming movies:", error);
       throw error;
     }
+  },
+  getMovieDetails: async (movieId) => {
+    try {
+      const response = await axiosInstance.get(endpoints.watch.replace("{movie_id}", movieId));
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching movie details:", error);
+      throw error;
+    }
   }
+
 };

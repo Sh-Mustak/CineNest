@@ -4,7 +4,7 @@ import PageHeader from "../components/moviesPage/PageHeader";
 import { useMovieContext } from "../context/useMovieContext";
 
 export default function Movies() {
-  const { trending, popular, topRated, upcoming, loading, error } = useMovieContext();
+  const { trending, loading, error } = useMovieContext();
   return (
     <div className="mx-auto py-8">
       <PageHeader />
