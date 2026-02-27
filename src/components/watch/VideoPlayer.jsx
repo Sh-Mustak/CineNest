@@ -17,13 +17,13 @@ export default function VideoPlayer() {
         </div>
         <div className="flex gap-1.5">
           <div className="flex items-center gap-1 bg-black/65 backdrop-blur-md border border-white/[0.13] rounded-[7px] px-2 py-1 text-[9px] sm:text-[11px] font-semibold text-gold">
-            <span className="mi text-[11px] sm:text-[13px]">
+            <span className="material-symbols-outlined  text-[11px] sm:text-[13px]">
               closed_caption
             </span>
             <span className="hidden sm:inline">CC</span>
           </div>
           <div className="flex items-center gap-1 bg-black/65 backdrop-blur-md border border-white/[0.13] rounded-[7px] px-2 py-1 text-[9px] sm:text-[11px] font-semibold text-gold">
-            <span className="mi text-[11px] sm:text-[13px]">hd</span>
+            <span className="material-symbols-outlined material-symbols-outlined text-[11px] sm:text-[13px]">hd</span>
             <span className="hidden sm:inline">IMAX</span>
           </div>
         </div>
@@ -33,7 +33,7 @@ export default function VideoPlayer() {
         // onclick="this.style.display='none'"
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-red/90 flex items-center justify-center shadow-[0_0_0_10px_rgba(232,21,26,.15),0_0_50px_rgba(232,21,26,.4)] hover:scale-110 hover:shadow-[0_0_0_16px_rgba(232,21,26,.2),0_0_70px_rgba(232,21,26,.5)] transition-all border-none"
       >
-        <span className="mi text-white text-[28px] sm:text-[36px] ml-1">
+        <span className="material-symbols-outlined text-white text-[28px] sm:text-[36px] ml-1">
           play_arrow
         </span>
       </button>
@@ -45,21 +45,21 @@ export default function VideoPlayer() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 sm:gap-3">
             <button className="text-white/65 hover:text-white transition-colors border-none bg-transparent p-0">
-              <span className="mi text-[16px] sm:text-[19px]">
+              <span className="material-symbols-outlined text-[16px] sm:text-[19px]">
                 skip_previous
               </span>
             </button>
             <button className="bg-red/20 rounded-[6px] px-2 py-1 border-none">
-              <span className="mi text-white text-[20px] sm:text-[22px]">
+              <span className="material-symbols-outlined text-white text-[20px] sm:text-[22px]">
                 play_arrow
               </span>
             </button>
             <button className="text-white/65 hover:text-white transition-colors border-none bg-transparent p-0">
-              <span className="mi text-[16px] sm:text-[19px]">skip_next</span>
+              <span className="material-symbols-outlined text-[16px] sm:text-[19px]">skip_next</span>
             </button>
             <div className="hidden sm:flex items-center gap-2">
               <button className="text-white/65 hover:text-white border-none bg-transparent p-0">
-                <span className="mi text-[18px]">volume_up</span>
+                <span className="material-symbols-outlined text-[18px]">volume_up</span>
               </button>
               <div className="w-[52px] h-[3px] bg-white/20 rounded-full">
                 <div className="h-full w-3/4 bg-white rounded-full"></div>
@@ -71,13 +71,13 @@ export default function VideoPlayer() {
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
             <button className="text-white/65 hover:text-white border-none bg-transparent p-0 hidden sm:block">
-              <span className="mi text-[18px]">subtitles</span>
+              <span className="material-symbols-outlined text-[18px]">subtitles</span>
             </button>
             <button className="text-white/65 hover:text-white border-none bg-transparent p-0 hidden sm:block">
-              <span className="mi text-[18px]">settings</span>
+              <span className="material-symbols-outlined text-[18px]">settings</span>
             </button>
             <button className="text-white/65 hover:text-white border-none bg-transparent p-0">
-              <span className="mi text-[18px] sm:text-[19px]">fullscreen</span>
+              <span className="material-symbols-outlined text-[18px] sm:text-[19px]">fullscreen</span>
             </button>
           </div>
         </div>

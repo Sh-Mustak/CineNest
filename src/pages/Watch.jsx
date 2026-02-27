@@ -27,7 +27,7 @@ export default function Watch() {
   return (
     <main className=" max-w-[1440px] mx-auto px-3 sm:px-5 pt-4 sm:pt-6 pb-20 min-h-screen mt-20">
       <VideoPlayer />
-      
+      <ServerBar /> 
       <MovieDetailsSection movieDetails={movieDetails} />
 
       <MovieRow rowheader="More Like This" />
