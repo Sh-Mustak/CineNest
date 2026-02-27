@@ -1,59 +1,111 @@
 export default function CastDetails() {
   return (
-    <div className="space-y-8">
-      <div>
-        <h3 className="text-sm uppercase tracking-widest text-white/40 font-bold mb-4">
-          Top Cast
+    <div className="mt-10 sm:mt-12">
+      <div className="flex justify-between items-center mb-4">
+        <h3 className="font-display text-base sm:text-[19px] font-bold flex items-center gap-2">
+          <span className="mi text-red text-[18px]">groups</span>Top Cast
         </h3>
-        <div className="space-y-4">
-          <div className="flex items-center gap-4">
-            <div
-              className="size-10 rounded-full bg-cover bg-center"
-              data-alt="Headshot of actor 1"
-              style={{
-                backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuBZt9aFi13UWZwPuYphXA30XFn19iZY0ggPqXseXrjUxEFgjjZzDp6e5bCZ3D-SpK92NjGkNoysLFo15-zEE2VxHGQH5ecUI_MO1qKdmIZD70C-_kcU-96EVxbuThTcKR6yAtziDCp_mOdJCUGbLvy3841vxOoXepq1DRh3E6HoCa8IpjRESAUo_JmM3JvaUeWUMCsjHsnc4ctuCUoRC2tWJzvy_EypwJ9f3q-pTBofrNKLaoVjXeEqq8w9j3JZBWguBsRGUhASrMD4")`,
-              }}
-            ></div>
-            <div>
-              <p className="font-bold text-sm text-white">Elena Rodriguez</p>
-              <p className="text-xs text-white/50">Captain Sarah Chen</p>
-            </div>
+        <a
+          href="#"
+          className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-red hover:opacity-70 transition-opacity"
+        >
+          Full Cast →
+        </a>
+      </div>
+      <div className="flex gap-3 overflow-x-auto noscroll pb-2">
+        <div className="cast-c flex-shrink-0 w-[88px] sm:w-[100px] text-center cursor-pointer">
+          <div
+            className="cast-img-ring w-[72px] sm:w-[84px] h-[72px] sm:h-[84px] rounded-full overflow-hidden border-2 border-white/[.07] mx-auto mb-2 transition-all duration-300"
+            style={{ filter: "grayscale(20%)" }}
+          >
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqd47xN2Ajzr2BCj96zBURelZBK6kn7FuOTxjEW7G8h5UQQEAAxspS-B9dKOjgSxbnqUBnXtrg3s7-c-VERets4kbC4TkUTfFfFGKrnO-ozVbqDmfIb0I4lhbt9mtAAJKDip4dzkH3fG1wvHVM6R5_jf0apCD-97FY-9r7aLW6Tf8BVl1XL7xSUY7bP0gBI1yBxXsAa_zP0HSAO14_dKPwjDiHTa-_DIX850MZEK_2r1TRVnzBRcOvFWH6es_gO0Bx34GZgrTjxi-G"
+              alt=""
+              className="w-full h-full object-cover"
+            />
           </div>
-          <div className="flex items-center gap-4">
-            <div
-              className="size-10 rounded-full bg-cover bg-center"
-              data-alt="Headshot of actor 2"
-              style={{
-                backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuDGjowcboSby5yJ-zq8xA4ftrBIcX7USL0X_pviUvykB1hDZzBHYtk5b6HRMIKPKUu3zifPITiL54n_CQnwdBMkLqZOITrzfPKWo-YJ3doJWy67OU2fBxLTsiFgk_IWyvkJcaAuifJDq4cLolflA7eQ7T-dI64hjRnQg2a8vrwkmSyOSrBmuJ6tWAJTDBceNoYYYXPzSnw_VzPVfWDJNGqlM32yZfLicbMjWKZYWHsW3VbWW6yp1f85_rQ0vc4wChuVK4fy3f4JYNyk")`,
-              }}
-            ></div>
-            <div>
-              <p className="font-bold text-sm text-white">Marcus Thorne</p>
-              <p className="text-xs text-white/50">Officer Kaelen</p>
-            </div>
+          <div className="cast-name text-[10px] sm:text-xs font-semibold mb-0.5 transition-colors">
+            David Chen
           </div>
-          <div className="flex items-center gap-4">
-            <div
-              className="size-10 rounded-full bg-cover bg-center"
-              data-alt="Headshot of actor 3"
-              style={{
-                backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuAUGt9JFSetVNM3O2mv5yrtK3_Io0Afmcj2N-KLxOn8iewcdPD0t-uSOydpWMY5nr_2hMkLHdFC2QESjt7ZInmHiDUCSCOokOu-Ndlbb_cRJe6U_k8hMV-5Q0O3E1HXkmD-OYGJtoRjdyie-Gcn_I_35hbRxegUoBxTAijq7W7nPW6o6xSCWi7ZymGJpPWUXawjuqLJyWNB1QbfhRzi3VkjJMuhqP_6WCcji68-O3xfaPyC-EpBljVcpp71sIvPqhS5dUupUN0TsJcw")`,
-              }}
-            ></div>
-            <div>
-              <p className="font-bold text-sm text-white">Aria Vance</p>
-              <p className="text-xs text-white/50">The Echo (Voice)</p>
-            </div>
+          <div className="text-[9px] sm:text-[10px] text-ctm">Capt. Miller</div>
+        </div>
+        <div className="cast-c flex-shrink-0 w-[88px] sm:w-[100px] text-center cursor-pointer">
+          <div
+            className="cast-img-ring w-[72px] sm:w-[84px] h-[72px] sm:h-[84px] rounded-full overflow-hidden border-2 border-white/[.07] mx-auto mb-2 transition-all duration-300"
+            style={{ filter: "grayscale(20%)" }}
+          >
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbq-2Bhwsb7VwTxRL3N0DZ9obC8a4KhlgqfbY3RTfbx9ilGlVia_bex2NkW6ZksmceijHU1jjXGsfNQ9Av6OZ3_inxHEilkt8XYzzqij3y5Aeird0B8WbMnzEn2QGRyAa1FYsJ9s1eO_XVhN1FZdsx79yuwNy3Z7eitzpAlu3SJ63O_rIDf-8t2ZGDZVvJcWd1CUeaLE2vJbF4vBQfmiulASJp7dC1adk0GP0w9gOwx9fCrnxhcbqFbmQlNQs7bh381XomrfOROHDp"
+              alt=""
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="cast-name text-[10px] sm:text-xs font-semibold mb-0.5 transition-colors">
+            Sarah J. Parker
+          </div>
+          <div className="text-[9px] sm:text-[10px] text-ctm">
+            Dr. Amelia Voss
           </div>
         </div>
-      </div>
-      <div className="p-4 bg-surface-dark/30 rounded-xl border border-white/5">
-        <p className="text-xs text-white/40 uppercase font-bold mb-2">
-          Director
-        </p>
-        <p className="font-bold text-sm mb-4 text-white">Christopher Nolan</p>
-        <p className="text-xs text-white/40 uppercase font-bold mb-2">Studio</p>
-        <p className="font-bold text-sm text-white">Nebula Pictures</p>
+        <div className="cast-c flex-shrink-0 w-[88px] sm:w-[100px] text-center cursor-pointer">
+          <div
+            className="cast-img-ring w-[72px] sm:w-[84px] h-[72px] sm:h-[84px] rounded-full overflow-hidden border-2 border-white/[.07] mx-auto mb-2 transition-all duration-300"
+            style={{ filter: "grayscale(20%)" }}
+          >
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC79D_7FoqeuQm3Kv7QAt9UaNVz-nFou7xnLEULvK0XVmYir58LTeoSDXuqifruP1oQyRz-M46Qajk2AN9zK8sGcQbkXIlQw5SqYgxRaYmEPR_Jr54fSiKxlfncrHCfYnP357zwrhbt5YaOOcx8Jy4HWIi58bn15d0ARJbuZa69HQeC0q2NbOZ2S6YpfkmlK1stUNf6pkq8o5uraN37XnoIW9UOh2HuFZVAAQSgW8X3CWjoWt6droc5jhMeE4e_m9mmTuMJjtjCqZUZ"
+              alt=""
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="cast-name text-[10px] sm:text-xs font-semibold mb-0.5 transition-colors">
+            Marcus Stone
+          </div>
+          <div className="text-[9px] sm:text-[10px] text-ctm">The Pilot</div>
+        </div>
+        <div className="cast-c flex-shrink-0 w-[88px] sm:w-[100px] text-center cursor-pointer">
+          <div
+            className="cast-img-ring w-[72px] sm:w-[84px] h-[72px] sm:h-[84px] rounded-full overflow-hidden border-2 border-white/[.07] mx-auto mb-2 transition-all duration-300"
+            style={{ filter: "grayscale(20%)" }}
+          >
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5Mfpokktvr5GzlQgDGnmnk-2b_2K0GGJ8CYEXOJ3817glO7BJzkAc5nUjThdQfrmm8zGs8M7VW_CF2EK34Xq-J4LyqLrLSTyfi8jvW3IcyBQa1TAxRlqZMovahMKKpxbNgP6UCZe7vu7_ZGiSYamDLpEoIHnxSaYDRypOaMnWGgs2xVlcJ0vVsoiOVtm5dUNZeDniOLBjCIyBWQOc4RigMX3z98qqmjOD5MewtsTT1vfVma3D7PCxwOhrFWtBg2PkPPrDMg1PIzo8"
+              alt=""
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="cast-name text-[10px] sm:text-xs font-semibold mb-0.5 transition-colors">
+            Elena Rose
+          </div>
+          <div className="text-[9px] sm:text-[10px] text-ctm">
+            Mission Control
+          </div>
+        </div>
+        <div className="cast-c flex-shrink-0 w-[88px] sm:w-[100px] text-center cursor-pointer">
+          <div
+            className="cast-img-ring w-[72px] sm:w-[84px] h-[72px] sm:h-[84px] rounded-full overflow-hidden border-2 border-white/[.07] mx-auto mb-2 transition-all duration-300"
+            style={{ filter: "grayscale(20%)" }}
+          >
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAatJLpZOqEp5HADM3EjENskDo-sAQ8szleEiYjquJGf4MKGTmcLgG2SlI76H7qBiIXiMrYN9_7umZEywmuPTqylxZyjC6-BJHqRmdRC8l5f3XxrhERuqvM0iuzIDh1BkegrIvtjzJD9K6v6LlsK0IijhWJqsQr7pOA3NS9DqTxs_8XVeiWbNye82bf84MUNp5RYmo96KTVwiCUJTlNwHzs9dIkUGrTon--pnIT8DRsI_-P1r9wDPqnc1o2qVpwKUiuMArES1CW1cLd"
+              alt=""
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="cast-name text-[10px] sm:text-xs font-semibold mb-0.5 transition-colors">
+            Johnathan Blake
+          </div>
+          <div className="text-[9px] sm:text-[10px] text-ctm">Dr. Mann</div>
+        </div>
+        <div className="cast-c flex-shrink-0 w-[88px] sm:w-[100px] text-center cursor-pointer">
+          <div className="cast-img-ring w-[72px] sm:w-[84px] h-[72px] sm:h-[84px] rounded-full overflow-hidden border-2 border-white/[.07] bg-s3 flex items-center justify-center mx-auto mb-2 transition-all duration-300">
+            <span className="mi text-ctm text-[28px]">person</span>
+          </div>
+          <div className="cast-name text-[10px] sm:text-xs font-semibold mb-0.5 transition-colors">
+            Nadia Okafor
+          </div>
+          <div className="text-[9px] sm:text-[10px] text-ctm">Engineer</div>
+        </div>
       </div>
     </div>
   );

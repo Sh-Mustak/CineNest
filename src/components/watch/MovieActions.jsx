@@ -1,37 +1,24 @@
 export default function MovieActions() {
   return (
-    <div className="flex flex-wrap gap-4 pt-4">
-      <button className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-primary hover:bg-primary/90 transition-all text-white active:scale-95">
-        <span
-          className="material-symbols-outlined"
-          style={{ fontVariationSettings: '"FILL" 1' }}
-        >
-          play_arrow
-        </span>
-        Resume Movie
+    <div className="flex flex-wrap gap-2">
+      <button className="flex items-center gap-1.5 sm:gap-2 px-4 sm:px-7 py-2.5 sm:py-3 rounded-[9px] bg-red border-none text-white text-xs sm:text-[13px] font-bold shadow-[0_6px_24px_rgba(232,21,26,.3)] hover:bg-[#ff2227] hover:-translate-y-px transition-all">
+        <span className="mi text-[16px] sm:text-[18px]">play_arrow</span> WATCH
+        NOW
       </button>
-      <button className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm text-white transition-all">
-        <span className="material-symbols-outlined">add</span>
-        Watchlist
-      </button>
-      <div className="h-12 w-px bg-white/10 mx-2"></div>
-      <button
-        className="p-3 bg-white/8 hover:bg-white/20 text-primary rounded-xl hover:bg-white/5 transition-colors"
-        title="Download"
-      >
-        <span className="material-symbols-outlined">download</span>
+      <button className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-3 rounded-[9px] bg-s2 border border-white/[0.13] text-ct text-xs sm:text-[13px] font-semibold hover:bg-s3 hover:border-white/25 transition-all">
+        <span className="mi text-[15px] sm:text-[17px]">add</span> Watchlist
       </button>
       <button
-        className="p-3 bg-white/8 hover:bg-white/20 text-primary rounded-xl hover:bg-white/5 transition-colors"
-        title="Share"
+        className="dl-btn-el flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-3 rounded-[9px] bg-s2 border border-white/[0.13] text-ct text-xs sm:text-[13px] font-semibold hover:bg-s3 transition-all relative overflow-hidden"
+        onclick="startDl(this)"
       >
-        <span className="material-symbols-outlined">share</span>
+        <span className="mi text-[15px] sm:text-[17px] dl-icon">download</span>
+        <span className="dl-lbl">Download</span>
+        <div className="dl-bar"></div>
+        <div className="dl-ripple-el absolute inset-0 pointer-events-none"></div>
       </button>
-      <button
-        className="p-3 bg-white/8 hover:bg-white/20 text-primary rounded-xl hover:bg-white/5 transition-colors"
-        title="Favorite"
-      >
-        <span className="material-symbols-outlined">favorite</span>
+      <button className="w-9 h-9 sm:w-[42px] sm:h-[42px] rounded-[9px] bg-s2 border border-white/[0.13] flex items-center justify-center text-ctd hover:border-white/25 hover:text-ct transition-all">
+        <span className="mi text-[16px] sm:text-[18px]">share</span>
       </button>
     </div>
   );
