@@ -27,7 +27,7 @@ export default function MovieMetaGrid() {
           </span>
         </div>
         <div className="bg-s1 px-3 sm:px-4 py-2.5 sm:py-3 flex flex-col gap-1">
-          <span className="text-[8px] sm:text-[9px] font-bold tracking-[.1em] uppercase text-ctm">
+          <span className="text-[8px] sm:text-[9px] font-bold tracking-[.1em] uppercase text-ctm text-white/60">
             Language
           </span>
           <span className="text-xs sm:text-[13px] font-semibold">EN / RU</span>
