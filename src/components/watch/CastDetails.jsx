@@ -3,7 +3,7 @@ export default function CastDetails() {
     <div className="mt-10 sm:mt-12">
       <div className="flex justify-between items-center mb-4">
         <h3 className="font-display text-base sm:text-[19px] font-bold flex items-center gap-2">
-          <span className="mi text-red text-[18px]">groups</span>Top Cast
+          <span className="material-symbols-outlined text-red text-[18px]">groups</span>Top Cast
         </h3>
         <a
           href="#"
@@ -13,7 +13,7 @@ export default function CastDetails() {
         </a>
       </div>
       <div className="flex gap-3 overflow-x-auto noscroll pb-2">
-        <div className="cast-c flex-shrink-0 w-[88px] sm:w-[100px] text-center cursor-pointer">
+        <div className="cast-c flex-shrink-0 w-[88px] sm:w-[100px] text-center cursor-pointer mt-2">
           <div
             className="cast-img-ring w-[72px] sm:w-[84px] h-[72px] sm:h-[84px] rounded-full overflow-hidden border-2 border-white/[.07] mx-auto mb-2 transition-all duration-300"
             style={{ filter: "grayscale(20%)" }}
@@ -29,7 +29,7 @@ export default function CastDetails() {
           </div>
           <div className="text-[9px] sm:text-[10px] text-ctm">Capt. Miller</div>
         </div>
-        <div className="cast-c flex-shrink-0 w-[88px] sm:w-[100px] text-center cursor-pointer">
+        <div className="cast-c flex-shrink-0 w-[88px] sm:w-[100px] text-center cursor-pointer mt-2">
           <div
             className="cast-img-ring w-[72px] sm:w-[84px] h-[72px] sm:h-[84px] rounded-full overflow-hidden border-2 border-white/[.07] mx-auto mb-2 transition-all duration-300"
             style={{ filter: "grayscale(20%)" }}
@@ -47,7 +47,7 @@ export default function CastDetails() {
             Dr. Amelia Voss
           </div>
         </div>
-        <div className="cast-c flex-shrink-0 w-[88px] sm:w-[100px] text-center cursor-pointer">
+        <div className="cast-c flex-shrink-0 w-[88px] sm:w-[100px] text-center cursor-pointer mt-2">
           <div
             className="cast-img-ring w-[72px] sm:w-[84px] h-[72px] sm:h-[84px] rounded-full overflow-hidden border-2 border-white/[.07] mx-auto mb-2 transition-all duration-300"
             style={{ filter: "grayscale(20%)" }}
@@ -63,7 +63,7 @@ export default function CastDetails() {
           </div>
           <div className="text-[9px] sm:text-[10px] text-ctm">The Pilot</div>
         </div>
-        <div className="cast-c flex-shrink-0 w-[88px] sm:w-[100px] text-center cursor-pointer">
+        <div className="cast-c flex-shrink-0 w-[88px] sm:w-[100px] text-center cursor-pointer mt-2">
           <div
             className="cast-img-ring w-[72px] sm:w-[84px] h-[72px] sm:h-[84px] rounded-full overflow-hidden border-2 border-white/[.07] mx-auto mb-2 transition-all duration-300"
             style={{ filter: "grayscale(20%)" }}
@@ -81,7 +81,7 @@ export default function CastDetails() {
             Mission Control
           </div>
         </div>
-        <div className="cast-c flex-shrink-0 w-[88px] sm:w-[100px] text-center cursor-pointer">
+        <div className="cast-c flex-shrink-0 w-[88px] sm:w-[100px] text-center cursor-pointer mt-2">
           <div
             className="cast-img-ring w-[72px] sm:w-[84px] h-[72px] sm:h-[84px] rounded-full overflow-hidden border-2 border-white/[.07] mx-auto mb-2 transition-all duration-300"
             style={{ filter: "grayscale(20%)" }}
@@ -97,16 +97,8 @@ export default function CastDetails() {
           </div>
           <div className="text-[9px] sm:text-[10px] text-ctm">Dr. Mann</div>
         </div>
-        <div className="cast-c flex-shrink-0 w-[88px] sm:w-[100px] text-center cursor-pointer">
-          <div className="cast-img-ring w-[72px] sm:w-[84px] h-[72px] sm:h-[84px] rounded-full overflow-hidden border-2 border-white/[.07] bg-s3 flex items-center justify-center mx-auto mb-2 transition-all duration-300">
-            <span className="mi text-ctm text-[28px]">person</span>
-          </div>
-          <div className="cast-name text-[10px] sm:text-xs font-semibold mb-0.5 transition-colors">
-            Nadia Okafor
-          </div>
-          <div className="text-[9px] sm:text-[10px] text-ctm">Engineer</div>
-        </div>
+        
       </div>
-    </div>
+    </div> 
   );
 }
