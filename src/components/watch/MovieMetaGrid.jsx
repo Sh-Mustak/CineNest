@@ -33,7 +33,7 @@ export default function MovieMetaGrid() {
           <span className="text-xs sm:text-[13px] font-semibold">EN / RU</span>
         </div>
       </div>
-      <p className="text-xs sm:text-[14px] leading-[1.75] text-ctd mb-5">
+      <p className="text-xs sm:text-[14px] leading-[1.75] text-[#f0ece48c] mb-5">
         In a future where Earth's resources are depleted, a team of astronauts
         embarks on a high-stakes mission across a wormhole in search of a new
         home for humanity. As they navigate the unknown reaches of space and
