@@ -1,21 +1,33 @@
-export default function MovieTabs() {
+import { motion } from "framer-motion";
+
+export default function MovieTabs({ tabs, activeTab, setActiveTab }) {
   return (
-    <div className="flex border-b border-white/[0.07] mb-6 sm:mb-8 overflow-x-auto noscroll text-white/60">
-      <button className="tab-item tab-act relative px-3 sm:px-5 py-3 bg-transparent border-none text-[10px] sm:text-[12px] font-bold tracking-[.1em] uppercase text-ct transition-colors whitespace-nowrap flex-shrink-0">
-        Info
-      </button>
-      <button className="tab-item relative px-3 sm:px-5 py-3 bg-transparent border-none text-[10px] sm:text-[12px] font-bold tracking-[.1em] uppercase text-ctm hover:text-ctd transition-colors whitespace-nowrap flex-shrink-0">
-        Episodes
-      </button>
-      <button className="tab-item relative px-3 sm:px-5 py-3 bg-transparent border-none text-[10px] sm:text-[12px] font-bold tracking-[.1em] uppercase text-ctm hover:text-ctd transition-colors whitespace-nowrap flex-shrink-0">
-        Similar
-      </button>
-      <button className="tab-item relative px-3 sm:px-5 py-3 bg-transparent border-none text-[10px] sm:text-[12px] font-bold tracking-[.1em] uppercase text-ctm hover:text-ctd transition-colors whitespace-nowrap flex-shrink-0">
-        Trailers
-      </button>
-      <button className="tab-item relative px-3 sm:px-5 py-3 bg-transparent border-none text-[10px] sm:text-[12px] font-bold tracking-[.1em] uppercase text-ctm hover:text-ctd transition-colors whitespace-nowrap flex-shrink-0">
-        Reviews
-      </button>
+    <div className="relative flex border-b border-white/[0.07] overflow-x-auto noscroll mb-5">
+      {tabs.map((tab) => (
+        <button
+          key={tab.id}
+          onClick={() => setActiveTab(tab.id)}
+          className={`relative px-4 sm:px-6 py-3 text-[11px] sm:text-[12px]
+          font-bold tracking-[.1em] uppercase whitespace-nowrap
+          transition-colors duration-200
+          ${
+            activeTab === tab.id
+              ? "text-white"
+              : "text-white/60 hover:text-white"
+          }`}
+        >
+          {tab.label}
+
+          {/* Sliding Indicator */}
+          {activeTab === tab.id && (
+            <motion.div
+              layoutId="tab-indicator"
+              className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary rounded-full"
+              transition={{ type: "spring", stiffness: 400, damping: 30 }}
+            />
+          )}
+        </button>
+      ))}
     </div>
   );
 }
