@@ -8,7 +8,7 @@ import { fetchMovieDetails } from "../services/movieFetcher";
 
 export default function Watch() {
   const { id } = useParams();
-  console.log("Movie ID from URL:", id);
+  
   const [movieDetails, setMovieDetails] = useState(null);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function Watch() {
       <VideoPlayer />
       <ServerBar />
       <MovieTabs />
-      <MovieInfo />
+      <MovieInfo movieDetails={movieDetails} />
     </main>
   );
 }

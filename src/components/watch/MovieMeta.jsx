@@ -1,6 +1,6 @@
 export default function MovieMeta() {
   return (
-    <div className="flex flex-wrap gap-3 sm:gap-4 items-center mb-4">
+    <div className="flex flex-wrap gap-3 sm:gap-4 items-center mb-4 border-1 p-3 border-primary/60 rounded-sm max-w-xl">
       <div className="flex flex-col gap-1">
         <span className="text-[9px] font-bold tracking-[.1em] uppercase text-white/60">
           Audience Score
@@ -14,37 +14,37 @@ export default function MovieMeta() {
           </span>
         </div>
       </div>
-      <div className="w-px h-5 bg-white/[.07]"></div>
+      <div className="w-px h-5 bg-primary"></div>
       <div className="flex flex-col gap-0.5">
         <span className="text-[9px] font-bold tracking-[.1em] uppercase text-white/60">
           Release Year
         </span>
         <span className="text-xs sm:text-[13px] font-medium">2024</span>
       </div>
-      <div className="w-px h-5 bg-white/[.07]"></div>
+      <div className="w-px h-5 bg-primary"></div>
       <div className="flex flex-col gap-0.5">
         <span className="text-[9px] font-bold tracking-[.1em] uppercase text-white/60">
           Runtime
         </span>
         <span className="text-xs sm:text-[13px] font-medium">2h 45m</span>
       </div>
-      <div className="w-px h-5 bg-white/[.07]"></div>
+      <div className="w-px h-5 bg-primary"></div>
       <div className="flex flex-col gap-0.5">
-        <span className="text-[9px] font-bold tracking-[.1em] uppercase text-ctm">
+        <span className="text-[9px] font-bold tracking-[.1em] uppercase text-white/60">
           Rated
         </span>
         <span className="text-xs sm:text-[13px] font-medium">PG-13</span>
       </div>
-      <div className="w-px h-5 bg-white/[.07]"></div>
+      <div className="w-px h-5 bg-primary"></div>
       <div className="flex flex-col gap-1">
         <span className="text-[9px] font-bold tracking-[.1em] uppercase text-white/60">
           Genre
         </span>
         <div className="flex gap-1.5">
-          <span className="px-2 py-0.5 rounded-[5px] text-[10px] sm:text-[11px] font-medium border border-white/[.07] text-white/80 transition-colors">
+          <span className="px-2 py-0.5 rounded-[5px] text-[10px] sm:text-[11px] font-medium border border-primabg-primary text-white/80 transition-colors">
             Sci-Fi
           </span>
-          <span className="px-2 py-0.5 rounded-[5px] text-[10px] sm:text-[11px] font-medium border border-white/[.07] text-white/80 transition-colors">
+          <span className="px-2 py-0.5 rounded-[5px] text-[10px] sm:text-[11px] font-medium border border-primabg-primary text-white/80 transition-colors">
             Drama
           </span>
         </div>
