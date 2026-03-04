@@ -1,6 +1,6 @@
 export default function VideoPlayer() {
   return (
-    <div className="relative w-full aspect-video h-[70vh]  rounded-2xl overflow-hidden bg-black shadow-[0_24px_70px_rgba(0,0,0,.75),0_0_0_1px_rgba(255,255,255,.07)] mb-3 group">
+    <div className="relative w-full aspect-video h-[50vh]  rounded-2xl overflow-hidden bg-black shadow-[0_24px_70px_rgba(0,0,0,.75),0_0_0_1px_rgba(255,255,255,.07)] mb-3 group">
       <div
         className="absolute inset-0 bg-cover bg-center opacity-55 group-hover:opacity-35 transition-opacity duration-500"
         style={{
