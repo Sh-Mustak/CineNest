@@ -2,8 +2,7 @@ import CastDetails from "./CastDetails";
 import MovieActions from "./MovieActions";
 import MovieMeta from "./MovieMeta";
 import MovieMetaGrid from "./MovieMetaGrid";
-export default function MovieInfo() {
-  return (
+export default function MovieInfo(  {movieDetails} ){
     <div className="panel act text-white" id="panel-info">
       <div className="grid grid-cols-1 md:grid-cols-[190px_1fr] gap-6 sm:gap-8">
         {/* <!-- Poster --> */}
@@ -24,10 +23,10 @@ export default function MovieInfo() {
         {/* <!-- Details --> */}
         <div>
           <h1 className="font-display font-black text-2xl sm:text-4xl lg:text-5xl leading-[1.05] mb-2">
-            The Cosmic Horizon
+            {movieDetails.original_title}
           </h1>
           <p className="font-display italic text-sm sm:text-base text-primary opacity-85 mb-4">
-            "Beyond the stars, lies our only hope."
+            {movieDetails.tagline}
           </p>
           {/* <!-- Meta --> */}
           <MovieMeta />
