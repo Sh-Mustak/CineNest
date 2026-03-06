@@ -7,5 +7,5 @@ export const endpoints = {
     popular: `${BASE_URL}/movie/popular?api_key=${API_KEY}`,
     topRated: `${BASE_URL}/movie/top_rated?api_key=${API_KEY}`,
     upcoming: `${BASE_URL}/movie/upcoming?api_key=${API_KEY}`,
-    watch: `${BASE_URL}/movie/{movie_id}?api_key=${API_KEY}`,
+    watch: `${BASE_URL}/movie/{movie_id}?api_key=${API_KEY}&append_to_response=credits,videos,recommendations`
 }
