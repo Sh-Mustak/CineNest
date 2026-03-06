@@ -8,13 +8,13 @@ export default function WatchContent({ activeTab, direction, movieDetails }) {
       case "info":
         return <MovieInfo movieDetails={movieDetails} />;
       case "episodes":
-        return <div className="p-4">Episodes</div>;
+        return <div className="p-4 text-white">Episodes</div>;
       case "similar":
-        return <div className="p-4">Similar</div>;
+        return <div className="p-4 text-white">Similar</div>;
       case "trailers":
-        return <div className="p-4">Trailers</div>;
+        return <div className="p-4 text-white">Trailers</div>;
       case "reviews":
-        return <div className="p-4">Reviews</div>;
+        return <div className="p-4 text-white">Reviews</div>;
       default:
         return null;
     }
