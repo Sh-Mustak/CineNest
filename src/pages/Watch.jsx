@@ -9,7 +9,8 @@ import { tabs } from "../utils/tabs";
 
 export default function Watch() {
   const { id } = useParams();
-  const { movieDetails } = useMovieDetails(id);
+  const { movieDetails ,loading } = useMovieDetails(id);
+  console.log(movieDetails)
 
   const [activeTab, setActiveTab] = useState("info");
   const [direction, setDirection] = useState(0);
@@ -37,6 +38,7 @@ export default function Watch() {
         activeTab={activeTab}
         direction={direction}
         movieDetails={movieDetails}
+        loading={loading}
       />
     </main>
   );
