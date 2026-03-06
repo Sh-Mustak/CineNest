@@ -20,9 +20,9 @@ export default function CastDetaislCircle({ cast }) {
       <div className="cast-name text-[10px] sm:text-xs font-semibold mb-0.5 transition-colors">
         {cast.name}
       </div>
-      <div className="text-[9px] sm:text-[10px] text-ctm">
+      {/* <div className="text-[9px] sm:text-[10px] text-ctm">
         {cast.character || "Unknown"}
-      </div>
+      </div> */}
     </div>
   );
 }
