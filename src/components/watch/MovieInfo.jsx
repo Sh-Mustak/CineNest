@@ -1,13 +1,12 @@
+import { getImageUrl } from "../../utils/helper";
 import CastDetails from "./CastDetails";
 import MovieActions from "./MovieActions";
 import MovieMeta from "./MovieMeta";
 import MovieMetaGrid from "./MovieMetaGrid";
-import { getImageUrl } from "../../utils/helper";
 export default function MovieInfo({ movieDetails }) {
   return (
     <div className="panel act text-white" id="panel-info">
       <div className="grid grid-cols-1 md:grid-cols-[190px_1fr] gap-6 sm:gap-8">
-
         {/* Poster */}
         <div>
           <div className="poster-wrap relative aspect-[2/3] rounded-xl2 overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,.65),0_0_0_1px_rgba(255,255,255,.07)] max-w-[160px] sm:max-w-none">
@@ -35,7 +34,7 @@ export default function MovieInfo({ movieDetails }) {
         </div>
       </div>
 
-      <CastDetails movieId={movieDetails?.id} />
+      <CastDetails movieDetails={movieDetails} />
     </div>
   );
 }
