@@ -1,10 +1,10 @@
 import axiosInstance from "./axiosInstance";
-import { endpoints } from "./endpoints";
+import { tmdb_endpoints } from "./endpoints";
 
 export const movieService = {
   getTrendingMovies: async () => {
     try {
-      const response = await axiosInstance.get(endpoints.trending);
+      const response = await axiosInstance.get(tmdb_endpoints.trending);
       return response.data.results;
     } catch (error) {
       console.error("Error fetching trending movies:", error);
@@ -13,7 +13,7 @@ export const movieService = {
   },
   getPopularMovies: async () => {
     try {
-      const response = await axiosInstance.get(endpoints.popular);
+      const response = await axiosInstance.get(tmdb_endpoints.popular);
       return response.data.results;
     } catch (error) {
       console.error("Error fetching popular movies:", error);
@@ -22,7 +22,7 @@ export const movieService = {
   },
   getTopRatedMovies: async () => {
     try {
-      const response = await axiosInstance.get(endpoints.topRated);
+      const response = await axiosInstance.get(tmdb_endpoints.topRated);
       return response.data.results;
     } catch (error) {
       console.error("Error fetching top rated movies:", error);
@@ -31,7 +31,7 @@ export const movieService = {
   },
   getUpcomingMovies: async () => {
     try {
-      const response = await axiosInstance.get(endpoints.upcoming);
+      const response = await axiosInstance.get(tmdb_endpoints.upcoming);
       return response.data.results;
     } catch (error) {
       console.error("Error fetching upcoming movies:", error);
@@ -40,12 +40,13 @@ export const movieService = {
   },
   getMovieDetails: async (movieId) => {
     try {
-      const response = await axiosInstance.get(endpoints.watch.replace("{movie_id}", movieId));
+      const response = await axiosInstance.get(
+        tmdb_endpoints.watch.replace("{movie_id}", movieId),
+      );
       return response.data;
     } catch (error) {
       console.error("Error fetching movie details:", error);
       throw error;
     }
-  }
-
+  },
 };
