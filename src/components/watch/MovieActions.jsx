@@ -51,7 +51,7 @@ export default function MovieActions({ movieDetails }) {
       {/* Modal Overlay */}
       {showDownload && (
         <div
-          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
           style={{
             backgroundColor: "rgba(0,0,0,0.75)",
             backdropFilter: "blur(4px)",
@@ -62,7 +62,7 @@ export default function MovieActions({ movieDetails }) {
         >
           {/* Modal Box */}
           <div
-            className="relative w-full sm:w-[90%] md:w-[75%] lg:w-[60%] xl:w-[50%] bg-s2 border border-white/[0.13] rounded-t-2xl sm:rounded-2xl overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.65)] flex flex-col"
+            className="relative w-full sm:w-[90%] md:w-[75%] lg:w-[60%] xl:w-[50%] bg-s2 border border-white/[0.13] rounded-2xl overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.65)] flex flex-col"
             style={{ maxHeight: "90vh" }}
           >
             {/* Modal Header */}
