@@ -1,4 +1,4 @@
-import { getDirector } from "../../utils/getDirector";
+import { getDirector } from "../../../utils/getDirector";
 
 export default function MovieMetaGrid({ movieDetails }) {
   return (

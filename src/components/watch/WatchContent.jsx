@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion";
-import MovieInfo from "./MovieInfo";
+import MovieInfo from "./movieInfo/MovieInfo.jsx";
 
 export default function WatchContent({ activeTab, direction, movieDetails }) {
   const renderContent = () => {

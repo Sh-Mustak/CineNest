@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useScrollLock } from "../../hooks/useScrollLock";
+import { useScrollLock } from "../../../hooks/useScrollLock";
 import DownloadModal from "./DownloadModal";
 
 export default function MovieActions({ movieDetails }) {

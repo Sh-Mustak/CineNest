@@ -1,8 +1,8 @@
-import { getImageUrl } from "../../utils/helper";
-import CastDetails from "./CastDetails";
-import MovieActions from "./MovieActions";
+import { getImageUrl } from "../../../utils/helper";
 import MovieMeta from "./MovieMeta";
 import MovieMetaGrid from "./MovieMetaGrid";
+import CastDetails from "./CastDetails";
+import MovieActions from "./MovieActions";
 export default function MovieInfo({ movieDetails }) {
   return (
     <div className="panel act text-white" id="panel-info">

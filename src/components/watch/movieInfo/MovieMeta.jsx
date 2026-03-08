@@ -1,4 +1,4 @@
-import { calculateHours } from "../../utils/minToHour";
+import { calculateHours } from "../../../utils/minToHour";
 import Genre from "./Genre";
 
 export default function MovieMeta({ movieDetails }) {
