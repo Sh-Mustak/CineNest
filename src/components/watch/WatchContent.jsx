@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion";
 import MovieInfo from "./movieInfo/MovieInfo.jsx";
+import Episodes from "./episodes/Episodes.jsx";
 
 export default function WatchContent({ activeTab, direction, movieDetails }) {
   const renderContent = () => {
@@ -8,7 +9,7 @@ export default function WatchContent({ activeTab, direction, movieDetails }) {
       case "info":
         return <MovieInfo movieDetails={movieDetails} />;
       case "episodes":
-        return <div className="p-4 text-white">Episodes</div>;
+        return <Episodes />;
       case "similar":
         return <div className="p-4 text-white">Similar</div>;
       case "trailers":
