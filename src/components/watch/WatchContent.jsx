@@ -2,6 +2,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import MovieInfo from "./movieInfo/MovieInfo.jsx";
 import Episodes from "./episodes/Episodes.jsx";
+import Similar from "./similar/Similar.jsx";
 
 export default function WatchContent({ activeTab, direction, movieDetails }) {
   const renderContent = () => {
@@ -11,7 +12,7 @@ export default function WatchContent({ activeTab, direction, movieDetails }) {
       case "episodes":
         return <Episodes />;
       case "similar":
-        return <div className="p-4 text-white">Similar</div>;
+        return <Similar/>;
       case "trailers":
         return <div className="p-4 text-white">Trailers</div>;
       case "reviews":
