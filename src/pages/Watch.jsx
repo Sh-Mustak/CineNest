@@ -16,6 +16,13 @@ export default function Watch() {
   const [activeTab, setActiveTab] = useState("info");
   const [direction, setDirection] = useState(0);
 
+  const filteredTabs = tabs.filter((tab) => {
+    if (tab.id === "similar") {
+      return movieDetails?.recommendations?.results?.length > 0;
+    }
+    return true;
+  });
+
   const handleTabChange = (newTab) => {
     const currentIndex = tabs.findIndex((t) => t.id === activeTab);
     const newIndex = tabs.findIndex((t) => t.id === newTab);
@@ -23,15 +30,13 @@ export default function Watch() {
     setDirection(newIndex > currentIndex ? 1 : -1);
     setActiveTab(newTab);
   };
-  console.log("Rerender watch page");
-
   return (
     <main className="max-w-[1440px] mx-auto px-3 sm:px-5 pt-4 sm:pt-6 pb-20 min-h-screen mt-20">
       <VideoPlayer playerUrl={playerUrl} />
       <ServerBar />
 
       <MovieTabs
-        tabs={tabs}
+        tabs={filteredTabs}
         activeTab={activeTab}
         setActiveTab={handleTabChange}
       />

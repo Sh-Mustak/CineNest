@@ -1,24 +1,40 @@
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion";
-import MovieInfo from "./movieInfo/MovieInfo.jsx";
 import Episodes from "./episodes/Episodes.jsx";
+import MovieInfo from "./movieInfo/MovieInfo.jsx";
+import AudienceReview from "./review/AudienceReview.jsx";
 import Similar from "./similar/Similar.jsx";
 import Trailers from "./trailers/Trailers.jsx";
-import AudienceReview from "./review/AudienceReview.jsx";
 
-export default function WatchContent({ activeTab, direction, movieDetails }) {
+export default function WatchContent({
+  activeTab,
+  direction,
+  movieDetails,
+  loading,
+}) {
+  console.log("Reco:",movieDetails?.recommendations?.results);
   const renderContent = () => {
     switch (activeTab) {
       case "info":
-        return <MovieInfo movieDetails={movieDetails} />;
+        return <MovieInfo movieDetails={movieDetails} loading={loading} />;
       case "episodes":
         return <Episodes />;
       case "similar":
-        return <Similar/>;
+        return (
+          <Similar
+            similarMovies={movieDetails?.recommendations?.results}
+            loading={loading}
+          />
+        );
       case "trailers":
-        return <Trailers/>;
+        return (
+          <Trailers
+            trailers={movieDetails?.videos?.results}
+            loading={loading}
+          />
+        );
       case "reviews":
-        return <AudienceReview/>
+        return <AudienceReview />;
       default:
         return null;
     }
