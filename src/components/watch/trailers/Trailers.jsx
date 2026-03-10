@@ -1,12 +1,17 @@
 import TrailersCard from "./TrailersCard";
 
-export default function Trailers() {
+export default function Trailers({ trailers }) {
+  console.log(trailers);
   return (
     <div className="">
       <h2 className="font-display text-lg font-bold mb-4 sm:mb-5 text-white">
         Trailers & Featurettes
       </h2>
-      <TrailersCard/>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        {trailers?.map((trailer) => (
+          <TrailersCard key={trailer.key} trailer={trailer} />
+        ))}
+      </div>
     </div>
   );
 }
