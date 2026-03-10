@@ -1,4 +1,4 @@
-import CastDetaislCircle from "../CastDetailsCircle";
+import CastDetaislCircle from "./CastDetailsCircle";
 
 export default function CastDetails({ movieDetails }) {
   return (

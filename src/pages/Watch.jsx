@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { embededService } from "../api/embedService";
 import MovieTabs from "../components/watch/MovieTabs";
 import ServerBar from "../components/watch/ServerBar";
 import VideoPlayer from "../components/watch/VideoPlayer";
 import WatchContent from "../components/watch/WatchContent";
 import { useMovieDetails } from "../hooks/useMovieDetails";
 import { tabs } from "../utils/tabs";
-import { embededService } from "../api/embedService";
 
 export default function Watch() {
   const { id } = useParams();
   const { movieDetails, loading } = useMovieDetails(id);
-  const playerUrl = embededService.getMoviePlayer(id)
+  const playerUrl = embededService.getMoviePlayer(id);
 
   const [activeTab, setActiveTab] = useState("info");
   const [direction, setDirection] = useState(0);
@@ -23,10 +23,11 @@ export default function Watch() {
     setDirection(newIndex > currentIndex ? 1 : -1);
     setActiveTab(newTab);
   };
+  console.log("Rerender watch page");
 
   return (
     <main className="max-w-[1440px] mx-auto px-3 sm:px-5 pt-4 sm:pt-6 pb-20 min-h-screen mt-20">
-      <VideoPlayer playerUrl={playerUrl}/>
+      <VideoPlayer playerUrl={playerUrl} />
       <ServerBar />
 
       <MovieTabs

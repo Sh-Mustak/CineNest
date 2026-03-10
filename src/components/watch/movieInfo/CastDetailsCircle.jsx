@@ -1,4 +1,4 @@
-import { getImageUrl } from "../../utils/helper";
+import { getImageUrl } from "../../../utils/helper";
 
 export default function CastDetaislCircle({ cast }) {
   return (
