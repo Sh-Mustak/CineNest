@@ -1,14 +1,12 @@
-import { useMovieContext } from "../../../context/useMovieContext";
 import MovieRow from "../../movie/MovieRow";
 
-export default function Similar() {
-  const { trending, loading, error } = useMovieContext();
+export default function Similar({similarMovies, loading}) {
   return (
-    <div className = "mt-25">
+    <div className="mt-25">
       <MovieRow
-        movies={trending}
+        movies={similarMovies}
         loading={loading}
-        error={error}
+        // error=""
         rowheader="More Like This"
       />
     </div>
