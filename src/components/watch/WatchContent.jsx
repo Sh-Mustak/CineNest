@@ -6,39 +6,23 @@ import AudienceReview from "./review/AudienceReview.jsx";
 import Similar from "./similar/Similar.jsx";
 import Trailers from "./trailers/Trailers.jsx";
 
+const TAB_COMPONENTS = {
+  info: MovieInfo,
+  episodes: Episodes,
+  similar: Similar,
+  trailers: Trailers,
+  reviews: AudienceReview,
+};
+
 export default function WatchContent({
   activeTab,
   direction,
   movieDetails,
   loading,
 }) {
-  console.log("Reco:",movieDetails?.recommendations?.results);
-  const renderContent = () => {
-    switch (activeTab) {
-      case "info":
-        return <MovieInfo movieDetails={movieDetails} loading={loading} />;
-      case "episodes":
-        return <Episodes />;
-      case "similar":
-        return (
-          <Similar
-            similarMovies={movieDetails?.recommendations?.results}
-            loading={loading}
-          />
-        );
-      case "trailers":
-        return (
-          <Trailers
-            trailers={movieDetails?.videos?.results}
-            loading={loading}
-          />
-        );
-      case "reviews":
-        return <AudienceReview />;
-      default:
-        return null;
-    }
-  };
+  const Component = TAB_COMPONENTS[activeTab];
+
+  if (!Component) return null;
 
   return (
     <motion.div layout className="relative mt-6 overflow-hidden">
@@ -51,7 +35,12 @@ export default function WatchContent({
           exit={{ opacity: 0, x: direction * -40 }}
           transition={{ duration: 0.25 }}
         >
-          {renderContent()}
+          <Component
+            movieDetails={movieDetails}
+            loading={loading}
+            similarMovies={movieDetails?.recommendations?.results}
+            trailers={movieDetails?.videos?.results}
+          />
         </motion.div>
       </AnimatePresence>
     </motion.div>

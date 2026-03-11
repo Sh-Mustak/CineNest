@@ -6,22 +6,17 @@ import ServerBar from "../components/watch/ServerBar";
 import VideoPlayer from "../components/watch/VideoPlayer";
 import WatchContent from "../components/watch/WatchContent";
 import { useMovieDetails } from "../hooks/useMovieDetails";
-import { tabs } from "../utils/tabs";
+import { createWatchTabs } from "../utils/watchTabs";
 
 export default function Watch() {
   const { id } = useParams();
   const { movieDetails, loading } = useMovieDetails(id);
   const playerUrl = embededService.getMoviePlayer(id);
 
+  const tabs = createWatchTabs(movieDetails, loading);
+
   const [activeTab, setActiveTab] = useState("info");
   const [direction, setDirection] = useState(0);
-
-  const filteredTabs = tabs.filter((tab) => {
-    if (tab.id === "similar") {
-      return movieDetails?.recommendations?.results?.length > 0;
-    }
-    return true;
-  });
 
   const handleTabChange = (newTab) => {
     const currentIndex = tabs.findIndex((t) => t.id === activeTab);
@@ -30,13 +25,14 @@ export default function Watch() {
     setDirection(newIndex > currentIndex ? 1 : -1);
     setActiveTab(newTab);
   };
+
   return (
     <main className="max-w-[1440px] mx-auto px-3 sm:px-5 pt-4 sm:pt-6 pb-20 min-h-screen mt-20">
       <VideoPlayer playerUrl={playerUrl} />
       <ServerBar />
 
       <MovieTabs
-        tabs={filteredTabs}
+        tabs={tabs}
         activeTab={activeTab}
         setActiveTab={handleTabChange}
       />
