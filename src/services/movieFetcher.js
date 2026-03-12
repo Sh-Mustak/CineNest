@@ -42,12 +42,14 @@ const movieDetailsCache = new Map();
 export const fetchMovieDetails = async (movieId) => {
   try {
     if (movieDetailsCache.has(movieId)) {
-      return { data: movieDetailsCache.get(movieId), error: null };
+      return { details: movieDetailsCache.get(movieId), detailsError: null };
     }
-    const data = await movieService.getMovieDetails(movieId);
-    movieDetailsCache.set(movieId, data);
-    return { data, error: null };
+
+    const details = await movieService.getMovieDetails(movieId);
+    movieDetailsCache.set(movieId, details);
+
+    return { details, detailsError: null };
   } catch (error) {
-    return { data: null, error: error.message };
+    return { details: null, detailsError: error.message };
   }
 };

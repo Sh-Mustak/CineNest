@@ -19,10 +19,12 @@ export default function Watch() {
       behavior: "smooth",
     });
   }, [id]);
-// useEffect(() => {
-//   window.scrollTo(0, 0);
-// }, [id]);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, [id]);
   const tabs = createWatchTabs(movieDetails, loading);
+
+  // console.log("movies", movieDetails);
 
   const [activeTab, setActiveTab] = useState("info");
   const [direction, setDirection] = useState(0);
@@ -34,6 +36,7 @@ export default function Watch() {
     setDirection(newIndex > currentIndex ? 1 : -1);
     setActiveTab(newTab);
   };
+  
 
   return (
     <main className="max-w-[1440px] mx-auto px-3 sm:px-5 pt-4 sm:pt-6 pb-20 min-h-screen mt-20">
@@ -47,9 +50,9 @@ export default function Watch() {
       />
 
       <WatchContent
+        movieDetails={movieDetails}
         activeTab={activeTab}
         direction={direction}
-        movieDetails={movieDetails}
         loading={loading}
       />
     </main>
