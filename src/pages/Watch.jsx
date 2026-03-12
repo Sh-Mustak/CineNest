@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { embededService } from "../api/embedService";
 import MovieTabs from "../components/watch/MovieTabs";
@@ -13,6 +13,15 @@ export default function Watch() {
   const { movieDetails, loading } = useMovieDetails(id);
   const playerUrl = embededService.getMoviePlayer(id);
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [id]);
+// useEffect(() => {
+//   window.scrollTo(0, 0);
+// }, [id]);
   const tabs = createWatchTabs(movieDetails, loading);
 
   const [activeTab, setActiveTab] = useState("info");

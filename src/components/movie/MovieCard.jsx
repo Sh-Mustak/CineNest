@@ -7,6 +7,9 @@ export default function MovieCard({ movie, fullWidth }) {
     <Link
       to={`/watch/${movie.id}`}
       onMouseEnter={() => prefetchMovie(movie.id)}
+      onClick={() => {
+        sessionStorage.setItem("homeScroll", window.scrollY);
+      }}
       className={`${fullWidth ? "w-full" : "flex-none w-38"} group cursor-pointer snap-start mb-2`}
     >
       <div className="relative aspect-[2/3] rounded-2xl overflow-hidden bg-slate-800 shadow-lg transition-all duration-300 group-hover:shadow-2xl ">

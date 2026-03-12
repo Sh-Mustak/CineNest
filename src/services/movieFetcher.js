@@ -38,9 +38,20 @@ export const fetchUpcomingMovies = async () => {
   }
 };
 
+const movieDetailsCache = new Map();
+
 export const fetchMovieDetails = async (movieId) => {
   try {
+    // check cache first
+    if (movieDetailsCache.has(movieId)) {
+      return { details: movieDetailsCache.get(movieId), detailsError: null };
+    }
+
     const details = await movieService.getMovieDetails(movieId);
+
+    // store in cache
+    movieDetailsCache.set(movieId, details);
+
     return { details, detailsError: null };
   } catch (error) {
     return { details: null, detailsError: error.message };
