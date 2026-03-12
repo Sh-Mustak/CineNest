@@ -40,7 +40,6 @@ export default function WatchContent({
             loading={loading}
             similarMovies={movieDetails?.recommendations?.results}
             trailers={movieDetails?.videos?.results}
-            movieDetails={movieDetails}
           />
         </motion.div>
       </AnimatePresence>
