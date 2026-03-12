@@ -1,59 +1,53 @@
 import { movieService } from "../api/movieService";
 
-// This file contains functions that fetch movie data and handle errors gracefully.
-
 export const fetchTrendingMovies = async () => {
   try {
-    const trendingMovies = await movieService.getTrendingMovies();
-    return { trendingMovies, trendingError: null };
+    const data = await movieService.getTrendingMovies();
+    return { data, error: null };
   } catch (error) {
-    return { trendingMovies: [], trendingError: error.message };
+    return { data: [], error: error.message };
   }
 };
 
 export const fetchPopularMovies = async () => {
   try {
-    const popularMovies = await movieService.getPopularMovies();
-    return { popularMovies, popularError: null };
+    const data = await movieService.getPopularMovies();
+    return { data, error: null };
   } catch (error) {
-    return { popularMovies: [], popularError: error.message };
+    return { data: [], error: error.message };
   }
 };
 
 export const fetchTopRatedMovies = async () => {
   try {
-    const topRatedMovies = await movieService.getTopRatedMovies();
-    return { topRatedMovies, topRatedError: null };
+    const data = await movieService.getTopRatedMovies();
+    return { data, error: null };
   } catch (error) {
-    return { topRatedMovies: [], topRatedError: error.message };
+    return { data: [], error: error.message };
   }
 };
 
 export const fetchUpcomingMovies = async () => {
   try {
-    const upcomingMovies = await movieService.getUpcomingMovies();
-    return { upcomingMovies, upcomingError: null };
+    const data = await movieService.getUpcomingMovies();
+    return { data, error: null };
   } catch (error) {
-    return { upcomingMovies: [], upcomingError: error.message };
+    return { data: [], error: error.message };
   }
 };
 
+// Movie details cache
 const movieDetailsCache = new Map();
 
 export const fetchMovieDetails = async (movieId) => {
   try {
-    // check cache first
     if (movieDetailsCache.has(movieId)) {
-      return { details: movieDetailsCache.get(movieId), detailsError: null };
+      return { data: movieDetailsCache.get(movieId), error: null };
     }
-
-    const details = await movieService.getMovieDetails(movieId);
-
-    // store in cache
-    movieDetailsCache.set(movieId, details);
-
-    return { details, detailsError: null };
+    const data = await movieService.getMovieDetails(movieId);
+    movieDetailsCache.set(movieId, data);
+    return { data, error: null };
   } catch (error) {
-    return { details: null, detailsError: error.message };
+    return { data: null, error: error.message };
   }
 };
