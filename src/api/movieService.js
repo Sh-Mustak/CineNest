@@ -41,7 +41,7 @@ export const movieService = {
   getMovieDetails: async (movieId) => {
     try {
       const response = await axiosInstance.get(
-        tmdb_endpoints.watch.replace("{movie_id}", movieId),
+        tmdb_endpoints.movieDetails.replace("{movie_id}", movieId),
       );
       return response.data;
     } catch (error) {

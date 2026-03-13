@@ -5,13 +5,17 @@ import MovieTabs from "../components/watch/MovieTabs";
 import ServerBar from "../components/watch/ServerBar";
 import VideoPlayer from "../components/watch/VideoPlayer";
 import WatchContent from "../components/watch/WatchContent";
-import { useMovieDetails } from "../hooks/useMovieDetails";
+import { useMediaDetails } from "../hooks/useMediaDetails";
 import { createWatchTabs } from "../utils/watchTabs";
 
 export default function Watch() {
-  const { id } = useParams();
-  const { movieDetails, loading } = useMovieDetails(id);
-  const playerUrl = embededService.getMoviePlayer(id);
+  const { type, id } = useParams();
+  console.log("ID:", id);
+  console.log("TYPE:", type);
+  const { data, loading, error } = useMediaDetails(type, id);
+  console.log("data", data);
+
+  const playerUrl = type === "movie" ? embededService.getMoviePlayer(id) : null;
 
   useEffect(() => {
     window.scrollTo({
@@ -19,12 +23,8 @@ export default function Watch() {
       behavior: "smooth",
     });
   }, [id]);
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, [id]);
-  const tabs = createWatchTabs(movieDetails, loading);
 
-  // console.log("movies", movieDetails);
+  const tabs = createWatchTabs(data, loading);
 
   const [activeTab, setActiveTab] = useState("info");
   const [direction, setDirection] = useState(0);
@@ -36,7 +36,6 @@ export default function Watch() {
     setDirection(newIndex > currentIndex ? 1 : -1);
     setActiveTab(newTab);
   };
-  
 
   return (
     <main className="max-w-[1440px] mx-auto px-3 sm:px-5 pt-4 sm:pt-6 pb-20 min-h-screen mt-20">
@@ -50,7 +49,7 @@ export default function Watch() {
       />
 
       <WatchContent
-        movieDetails={movieDetails}
+        movieDetails={data?.results}
         activeTab={activeTab}
         direction={direction}
         loading={loading}

@@ -7,6 +7,7 @@ export default function MovieRow({
   loading,
   error,
   showHeader,
+  mediaType
 }) {
   return (
     <div className={`relative -mt-24 ${showHeader && "-mt-31"} space-y-16 pb-20`}>
@@ -23,7 +24,7 @@ export default function MovieRow({
             </div>
           ) : (
             movies?.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} fullWidth={false} />
+              <MovieCard key={movie.id} movie={movie} mediaType={mediaType} fullWidth={false} />
             ))
           )}
         </div>

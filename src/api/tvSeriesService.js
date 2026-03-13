@@ -11,4 +11,16 @@ export const tvService = {
       throw error;
     }
   },
+  getSeriesDetails: async (seriesId) => {
+    try {
+      const response = await axiosInstance.get(
+        tmdb_endpoints.seriesDetails.replace("{series_id}", seriesId),
+      );
+
+      return response.data; 
+    } catch (error) {
+      console.error("Error fetching series details:", error);
+      throw error;
+    }
+  },
 };

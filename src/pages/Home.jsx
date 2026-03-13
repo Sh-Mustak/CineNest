@@ -5,7 +5,7 @@ import { useMovieContext } from "../context/useMovieContext";
 export default function Home() {
   const { trending, popular, topRated, upcoming, airingToday, loading, error } =
     useMovieContext();
-    console.log(airingToday)
+  console.log(airingToday);
   useEffect(() => {
     const savedScroll = sessionStorage.getItem("homeScroll");
 
@@ -21,30 +21,35 @@ export default function Home() {
         loading={loading}
         error={error}
         rowheader="Trending Now"
+        mediaType="movie"
       />
       <MovieRow
         movies={popular}
         loading={loading}
         error={error}
         rowheader="Popular Movies"
+        mediaType="movie"
       />
       <MovieRow
         movies={topRated}
         loading={loading}
         error={error}
         rowheader="Top Rated"
+        mediaType="movie"
       />
       <MovieRow
         movies={upcoming}
         loading={loading}
         error={error}
         rowheader="Upcoming Movies"
+        mediaType="movie"
       />
-       <MovieRow
+      <MovieRow
         movies={airingToday}
         loading={loading}
         error={error}
         rowheader="Airing today"
+        mediaType="tv"
       />
     </main>
   );

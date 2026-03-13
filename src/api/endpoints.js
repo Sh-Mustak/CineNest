@@ -9,10 +9,11 @@ export const tmdb_endpoints = {
   popular: `${BASE_URL}/movie/popular?api_key=${API_KEY}`,
   topRated: `${BASE_URL}/movie/top_rated?api_key=${API_KEY}`,
   upcoming: `${BASE_URL}/movie/upcoming?api_key=${API_KEY}`,
-  watch: `${BASE_URL}/movie/{movie_id}?api_key=${API_KEY}&append_to_response=credits,videos,recommendations,reviews`,
+  movieDetails: `${BASE_URL}/movie/{movie_id}?api_key=${API_KEY}&append_to_response=credits,videos,recommendations,reviews`,
 
   // Endpoints for tv series
   airingTody: `${BASE_URL}/tv/airing_today?api_key=${API_KEY}`,
+  seriesDetails:`${BASE_URL}/tv/{series_id}?api_key=${API_KEY}`,
 };
 
 // Endpoints for fetching movie streaming players
