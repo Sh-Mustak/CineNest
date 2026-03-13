@@ -49,7 +49,7 @@ export default function Watch() {
       />
 
       <WatchContent
-        movieDetails={data?.results}
+        movieDetails={data}
         activeTab={activeTab}
         direction={direction}
         loading={loading}
