@@ -2,6 +2,8 @@ import { calculateHours } from "../../../utils/minToHour";
 import Genre from "./Genre";
 
 export default function MovieMeta({ movieDetails }) {
+  const yy_mm_dd = movieDetails?.release_date || movieDetails?.first_air_date;
+  const year = yy_mm_dd ? yy_mm_dd?.split("-")[0] : "N/A";
   return (
     <div className="flex flex-wrap gap-3 sm:gap-4 items-center mb-4 p-3  rounded-sm">
       <div className="flex flex-col gap-1">
@@ -23,7 +25,8 @@ export default function MovieMeta({ movieDetails }) {
           Release Year
         </span>
         <span className="text-xs sm:text-[13px] font-medium">
-          {movieDetails?.release_date}
+          {/* {(movieDetails?.release_date) || movieDetails?.first_air_date} */}
+          {year}
         </span>
       </div>
       <div className="w-px h-5 bg-primary"></div>
@@ -31,7 +34,7 @@ export default function MovieMeta({ movieDetails }) {
         <span className="text-[9px] font-bold tracking-[.1em] uppercase text-white/60">
           Runtime
         </span>
-        <span className="text-xs sm:text-[13px] font-medium">{calculateHours(movieDetails?.runtime)}</span>
+        <span className="text-xs sm:text-[13px] font-medium">{calculateHours(movieDetails?.runtime || movieDetails?.episode_run_time)}</span>
       </div>
       {/* <div className="w-px h-5 bg-primary"></div> */}
       {/* <div className="flex flex-col gap-0.5">

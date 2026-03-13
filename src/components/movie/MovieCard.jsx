@@ -46,7 +46,7 @@ export default function MovieCard({ movie, mediaType, fullWidth }) {
         {/* Bottom Info */}
         <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
           <h3 className="font-semibold text-sm line-clamp-2  transition">
-            {movie.title}
+            {movie.title || movie.name}
           </h3>
           {/* <p className="text-xs text-slate-300 mt-1">{releaseYear}</p> */}
         </div>

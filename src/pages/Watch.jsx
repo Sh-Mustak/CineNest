@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { embededService } from "../api/embedService";
@@ -15,7 +16,7 @@ export default function Watch() {
   const { data, loading, error } = useMediaDetails(type, id);
   console.log("data", data);
 
-  const playerUrl = type === "movie" ? embededService.getMoviePlayer(id) : null;
+  const playerUrl = type === "movie" ? embededService.getMoviePlayer(id) : embededService.getTvPlayer(id);
 
   useEffect(() => {
     window.scrollTo({

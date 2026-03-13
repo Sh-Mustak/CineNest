@@ -19,7 +19,7 @@ export default function CastDetails({ movieDetails }) {
       </div>
       <div className="flex flex-row gap-3 overflow-x-auto noscroll pb-2">
         {movieDetails?.credits?.cast?.map((cast) => (
-          <CastDetaislCircle key={cast.cast_id} cast={cast} />
+          <CastDetaislCircle key={cast.cast_id || cast.id} cast={cast} />
         ))}
       </div>
     </div>

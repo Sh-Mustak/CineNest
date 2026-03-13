@@ -21,7 +21,7 @@ export default function MovieInfo({ movieDetails }) {
         {/* Details */}
         <div>
           <h1 className="font-display font-black text-2xl sm:text-4xl lg:text-5xl leading-[1.05] mb-2">
-            {movieDetails?.title}
+            {movieDetails?.title || movieDetails?.name}
           </h1>
 
           <p className="font-display italic text-sm sm:text-base text-primary opacity-85 mb-4">
