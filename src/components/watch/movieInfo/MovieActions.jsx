@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useScrollLock } from "../../../hooks/useScrollLock";
 import DownloadModal from "./DownloadModal";
 
-export default function MovieActions({ movieDetails }) {
+export default function MovieActions({ mediaDetails }) {
   const [showDownload, setShowDownload] = useState(false);
   useScrollLock(showDownload);
 
@@ -41,7 +41,7 @@ export default function MovieActions({ movieDetails }) {
 
       {showDownload && (
         <DownloadModal
-          movieDetails={movieDetails}
+          mediaDetails={mediaDetails}
           onClose={() => setShowDownload(false)}
         />
       )}

@@ -37,16 +37,16 @@ export const fetchUpcomingMovies = async () => {
 };
 
 // Movie details cache
-// const movieDetailsCache = new Map();
+// const mediaDetailsCache = new Map();
 
-// export const fetchMovieDetails = async (movieId) => {
+// export const fetchmediaDetails = async (movieId) => {
 //   try {
-//     if (movieDetailsCache.has(movieId)) {
-//       return { details: movieDetailsCache.get(movieId), detailsError: null };
+//     if (mediaDetailsCache.has(movieId)) {
+//       return { details: mediaDetailsCache.get(movieId), detailsError: null };
 //     }
 
-//     const details = await movieService.getMovieDetails(movieId);
-//     movieDetailsCache.set(movieId, details);
+//     const details = await movieService.getmediaDetails(movieId);
+//     mediaDetailsCache.set(movieId, details);
 
 //     return { details, detailsError: null };
 //   } catch (error) {

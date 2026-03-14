@@ -13,7 +13,7 @@ export const fetchMediaDetails = async (type, id) => {
     let data;
 
     if (type === "movie") {
-      data = await movieService.getMovieDetails(id)
+      data = await movieService.getmediaDetails(id);
     } else {
       data = await tvService.getSeriesDetails(id);
     }

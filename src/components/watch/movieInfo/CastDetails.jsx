@@ -1,6 +1,6 @@
 import CastDetaislCircle from "./CastDetailsCircle";
 
-export default function CastDetails({ movieDetails }) {
+export default function CastDetails({ mediaDetails }) {
   return (
     <div className="mt-10 sm:mt-12">
       <div className="flex justify-between items-center mb-4">
@@ -18,7 +18,7 @@ export default function CastDetails({ movieDetails }) {
         </a>
       </div>
       <div className="flex flex-row gap-3 overflow-x-auto noscroll pb-2">
-        {movieDetails?.credits?.cast?.map((cast) => (
+        {mediaDetails?.credits?.cast?.map((cast) => (
           <CastDetaislCircle key={cast.cast_id || cast.id} cast={cast} />
         ))}
       </div>

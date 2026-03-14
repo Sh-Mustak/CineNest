@@ -38,10 +38,10 @@ export const movieService = {
       throw error;
     }
   },
-  getMovieDetails: async (movieId) => {
+  getmediaDetails: async (movieId) => {
     try {
       const response = await axiosInstance.get(
-        tmdb_endpoints.movieDetails.replace("{movie_id}", movieId),
+        tmdb_endpoints.mediaDetails.replace("{movie_id}", movieId),
       );
       return response.data;
     } catch (error) {

@@ -17,7 +17,7 @@ const TAB_COMPONENTS = {
 export default function WatchContent({
   activeTab,
   direction,
-  movieDetails,
+  mediaDetails,
   loading,
 }) {
   const Component = TAB_COMPONENTS[activeTab];
@@ -35,12 +35,7 @@ export default function WatchContent({
           exit={{ opacity: 0, x: direction * -40 }}
           transition={{ duration: 0.25 }}
         >
-          <Component
-            movieDetails={movieDetails}
-            loading={loading}
-            similarMovies={movieDetails?.recommendations?.results}
-            trailers={movieDetails?.videos?.results}
-          />
+          <Component mediaDetails={mediaDetails} loading={loading} />
         </motion.div>
       </AnimatePresence>
     </motion.div>

@@ -1,11 +1,11 @@
 import MovieRow from "../../movie/MovieRow";
 
-export default function Similar({ similarMovies, loading }) {
+export default function Similar({ mediaDetails, loading }) {
   return (
     <div className="mt-25">
       <MovieRow
         rowheader="Similar Movies"
-        movies={similarMovies}
+        movies={mediaDetails?.recommendations?.results}
         loading={loading}
         showHeader={true}
       />

@@ -1,8 +1,8 @@
-import { fetchMovieDetails } from "./movieFetcher"; 
+import { fetchmediaDetails } from "./movieFetcher";
 
 export const prefetchMovie = async (id) => {
   try {
-    await fetchMovieDetails(id);
+    await fetchmediaDetails(id);
   } catch (err) {
     console.error("Prefetch failed", err);
   }

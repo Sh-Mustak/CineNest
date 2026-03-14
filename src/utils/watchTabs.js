@@ -1,25 +1,25 @@
-export const createWatchTabs = (movieDetails) =>
+export const createWatchTabs = (mediaDetails) =>
   [
     {
       id: "info",
       label: "Info",
     },
 
-    movieDetails?.seasons?.length > 0 && {
+    mediaDetails?.seasons?.length > 0 && {
       id: "episodes",
       label: "Episodes",
     },
-    movieDetails?.recommendations?.results?.length > 0 && {
+    mediaDetails?.recommendations?.results?.length > 0 && {
       id: "similar",
       label: "Similar",
     },
 
-    movieDetails?.videos?.results?.length > 0 && {
+    mediaDetails?.videos?.results?.length > 0 && {
       id: "trailers",
       label: "Trailers",
     },
 
-    movieDetails?.reviews?.results?.length > 0 && {
+    mediaDetails?.reviews?.results?.length > 0 && {
       id: "reviews",
       label: "Reviews",
     },

@@ -16,7 +16,10 @@ export default function Watch() {
   const { data, loading, error } = useMediaDetails(type, id);
   console.log("data", data);
 
-  const playerUrl = type === "movie" ? embededService.getMoviePlayer(id) : embededService.getTvPlayer(id);
+  const playerUrl =
+    type === "movie"
+      ? embededService.getMoviePlayer(id)
+      : embededService.getTvPlayer(id);
 
   useEffect(() => {
     window.scrollTo({
@@ -50,7 +53,7 @@ export default function Watch() {
       />
 
       <WatchContent
-        movieDetails={data}
+        mediaDetails={data}
         activeTab={activeTab}
         direction={direction}
         loading={loading}

@@ -1,4 +1,4 @@
-export default function DownloadModal({ movieDetails, onClose }) {
+export default function DownloadModal({ mediaDetails, onClose }) {
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
@@ -21,9 +21,9 @@ export default function DownloadModal({ movieDetails, onClose }) {
             <span className="text-ct text-sm sm:text-base font-semibold">
               Download
             </span>
-            {movieDetails?.title && (
+            {mediaDetails?.title && (
               <span className="hidden sm:inline text-ctd text-xs sm:text-sm truncate max-w-[200px] lg:max-w-[300px]">
-                — {movieDetails.title}
+                — {mediaDetails.title}
               </span>
             )}
           </div>
@@ -38,7 +38,7 @@ export default function DownloadModal({ movieDetails, onClose }) {
         {/* iframe */}
         <div className="flex-1 overflow-hidden" style={{ minHeight: "60vh" }}>
           <iframe
-            src={`https://dl.vidsrc.vip/movie/${movieDetails?.id}`}
+            src={`https://dl.vidsrc.vip/movie/${mediaDetails?.id}`}
             className="w-full h-full"
             style={{ border: "none", minHeight: "60vh" }}
           />
