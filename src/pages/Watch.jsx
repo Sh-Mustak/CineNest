@@ -14,10 +14,7 @@ export default function Watch() {
 
   const { data, loading, error } = useMediaDetails(type, id);
 
-  const playerUrl =
-    type === "movie"
-      ? embededService.getMoviePlayer(id)
-      :null;
+  const playerUrl = type === "movie" ? embededService.getMoviePlayer(id) : null;
 
   useEffect(() => {
     window.scrollTo({

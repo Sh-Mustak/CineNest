@@ -19,7 +19,7 @@ export const tmdb_endpoints = {
 
 // Endpoints for fetching movie streaming players
 export const embed_endpoints = {
-  movie: (id) => `https://player.autoembed.cc/embed/movie/${id}`,
-  // tv: (id, season, episode) =>
-  //   `https://player.autoembed.cc/embed/tv/${id}/${season}/${episode}`,
+  movie: (id) => `https://www.2embed.cc/embed/${id}`,
+  tv: (id, season, episode) =>
+    `https://www.2embed.cc/embedtv/${id}&s=${season}&e=${episode}`,
 };
