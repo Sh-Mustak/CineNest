@@ -1,6 +1,17 @@
+/* eslint-disable no-unused-vars */
+import { useEpisodes } from "../../../hooks/useEpisodes";
 import EpisodeCard from "./EpisodeCard";
 
-export default function EpisodeCarousel() {
+export default function EpisodeCarousel({
+  seasonNmbr,
+  selectedEpisode,
+  setSelectedEpisode,
+  seriesId,
+}) {
+  const { episodes, loading, error } = useEpisodes(seriesId, seasonNmbr);
+
+  console.log("episodes", episodes, loading, "error:", error);
+
   return (
     <div className="ep-scroll-wrap relative">
       {/* <!-- Desktop arrow buttons --> */}
@@ -31,7 +42,7 @@ export default function EpisodeCarousel() {
         //     "
       >
         {/* <!-- Currently Watching --> */}
-        <EpisodeCard />
+        {loading ? <div className="text-white">Loading</div> : <EpisodeCard />}
       </div>
     </div>
   );

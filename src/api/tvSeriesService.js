@@ -17,9 +17,23 @@ export const tvService = {
         tmdb_endpoints.seriesDetails.replace("{series_id}", seriesId),
       );
 
-      return response.data; 
+      return response.data;
     } catch (error) {
       console.error("Error fetching series details:", error);
+      throw error;
+    }
+  },
+  getSeasonEpisodes: async (seriesId, seasonNmbr) => {
+    try {
+      const endpoint = tmdb_endpoints.episodes
+        .replace("{series_id}", seriesId)
+        .replace("{season_number}", seasonNmbr);
+
+      const response = await axiosInstance.get(endpoint);
+
+      return response.data;
+    } catch (error) {
+      console.error("Error Fetching Episodes", error);
       throw error;
     }
   },

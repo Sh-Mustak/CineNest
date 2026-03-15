@@ -5,7 +5,7 @@ import { useMovieContext } from "../context/useMovieContext";
 export default function Home() {
   const { trending, popular, topRated, upcoming, airingToday, loading, error } =
     useMovieContext();
-  console.log(airingToday);
+ 
   useEffect(() => {
     const savedScroll = sessionStorage.getItem("homeScroll");
 

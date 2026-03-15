@@ -11,15 +11,13 @@ import { createWatchTabs } from "../utils/watchTabs";
 
 export default function Watch() {
   const { type, id } = useParams();
-  console.log("ID:", id);
-  console.log("TYPE:", type);
+
   const { data, loading, error } = useMediaDetails(type, id);
-  console.log("data", data);
 
   const playerUrl =
     type === "movie"
       ? embededService.getMoviePlayer(id)
-      : embededService.getTvPlayer(id);
+      :null;
 
   useEffect(() => {
     window.scrollTo({
