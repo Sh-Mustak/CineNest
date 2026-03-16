@@ -5,7 +5,6 @@ export default function EpisodeCarousel({
   episodes,
   loading,
   error,
-  selectedEpisode,
   setSelectedEpisode,
 }) {
   return (
@@ -42,7 +41,7 @@ export default function EpisodeCarousel({
           <div className="text-white">Loading</div>
         ) : (
           episodes?.episodes?.map((episode) => (
-            <EpisodeCard key={episode?.id} episode={episode} />
+            <EpisodeCard key={episode?.id} episode={episode} setSelectedEpisode={setSelectedEpisode} />
           ))
         )}
       </div>

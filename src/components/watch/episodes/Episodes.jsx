@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useWatchContext } from "../../../context/useWatchContext";
 import { useEpisodes } from "../../../hooks/useEpisodes";
 import EpisodeCarousel from "./EpisodeCarousel";
 import SeasonBtn from "./SeasonBtn";
@@ -7,18 +7,12 @@ import WatchedEpisodes from "./WatchedEpisodes";
 
 export default function Episodes({ mediaDetails }) {
   const seasons = mediaDetails?.seasons?.filter((s) => s.season_number !== 0);
-
-  const [selectedSeason, setSelectedSeason] = useState(
-    seasons?.[0]?.season_number || 1,
-  );
-
-  const [selectedEpisode, setSelectedEpisode] = useState(1);
+  const { seasonNumber, setSeasonNumber, setEpisodeNumber } = useWatchContext();
 
   const { episodes, loading, error } = useEpisodes(
     mediaDetails.id,
-    selectedSeason,
+    seasonNumber,
   );
-  console.log(episodes)
 
   return (
     <div>
@@ -28,23 +22,23 @@ export default function Episodes({ mediaDetails }) {
           <SeasonBtn
             key={season.id}
             season={season}
-            selectedSeason={selectedSeason}
-            setSelectedSeason={setSelectedSeason}
-            setSelectedEpisode={setSelectedEpisode}
+            selectedSeason={seasonNumber}
+            setSelectedSeason={setSeasonNumber}
+            setSelectedEpisode={setEpisodeNumber}
           />
         ))}
       </div>
 
       {/* Season hero */}
-      <SeasonHero season={selectedSeason} episodes={episodes} />
+      <SeasonHero season={seasonNumber} episodes={episodes} />
 
       {/* Episode list */}
       <EpisodeCarousel
         episodes={episodes}
         loading={loading}
         error={error}
-        selectedEpisode={selectedEpisode}
-        setSelectedEpisode={setSelectedEpisode}
+        // selectedEpisode={episodeNumber}
+        setSelectedEpisode={setEpisodeNumber}
       />
 
       {/* Watched episodes */}

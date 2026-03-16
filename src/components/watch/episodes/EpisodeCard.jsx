@@ -1,11 +1,12 @@
 import { getImageUrl } from "../../../utils/helper";
 import { calculateHours } from "../../../utils/minToHour";
 import { isNewEpisode } from "../../../utils/newEpisode";
-export default function EpisodeCard({ episode }) {
+export default function EpisodeCard({ episode, setSelectedEpisode }) {
   return (
     <div
       className="flex-shrink-0 w-[220px] sm:w-[270px] rounded-[14px] bg-white/[.05] border-[1.5px] border-white/[.07] overflow-hidden cursor-pointer transition-all duration-300  hover:border-red-600 hover:shadow-[0_18px_50px_rgba(0,0,0,.7),0_0_0_1px_rgba(232,21,26,1)] relative"
       style={{ scrollSnapAlign: "start" }}
+      onClick={() => setSelectedEpisode(episode?.episode_number)}
     >
       {/* Thumbnail */}
       <div className="relative aspect-video overflow-hidden bg-zinc-800">

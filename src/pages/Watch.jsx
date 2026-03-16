@@ -6,15 +6,17 @@ import MovieTabs from "../components/watch/MovieTabs";
 import ServerBar from "../components/watch/ServerBar";
 import VideoPlayer from "../components/watch/VideoPlayer";
 import WatchContent from "../components/watch/WatchContent";
+import { useWatchContext } from "../context/useWatchContext";
 import { useMediaDetails } from "../hooks/useMediaDetails";
 import { createWatchTabs } from "../utils/watchTabs";
 
 export default function Watch() {
   const { type, id } = useParams();
-
+  const { seasonNumber, episodeNumber } = useWatchContext();
   const { data, loading, error } = useMediaDetails(type, id);
+  console.log(seasonNumber, episodeNumber);
 
-  const playerUrl = type === "movie" ? embededService.getMoviePlayer(id) : null;
+  const playerUrl = type === "movie" ? embededService.getMoviePlayer(id) : embededService.getTvPlayer(id, seasonNumber,episodeNumber);
 
   useEffect(() => {
     window.scrollTo({
