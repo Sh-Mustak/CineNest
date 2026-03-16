@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { embededService } from "../api/embedService";
 import MovieTabs from "../components/watch/MovieTabs";
@@ -14,26 +13,24 @@ export default function Watch() {
   const { type, id } = useParams();
   const { seasonNumber, episodeNumber } = useWatchContext();
   const { data, loading, error } = useMediaDetails(type, id);
-  console.log(seasonNumber, episodeNumber);
 
-  const playerUrl = type === "movie" ? embededService.getMoviePlayer(id) : embededService.getTvPlayer(id, seasonNumber,episodeNumber);
+  const playerUrl = useMemo(() => {
+    return type === "movie"
+      ? embededService.getMoviePlayer(id)
+      : embededService.getTvPlayer(id, seasonNumber, episodeNumber);
+  }, [type, id, seasonNumber, episodeNumber]);
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }, [id,episodeNumber]);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [id, episodeNumber]);
 
   const tabs = createWatchTabs(data, loading);
-
   const [activeTab, setActiveTab] = useState("info");
   const [direction, setDirection] = useState(0);
 
   const handleTabChange = (newTab) => {
     const currentIndex = tabs.findIndex((t) => t.id === activeTab);
     const newIndex = tabs.findIndex((t) => t.id === newTab);
-
     setDirection(newIndex > currentIndex ? 1 : -1);
     setActiveTab(newTab);
   };
@@ -42,13 +39,11 @@ export default function Watch() {
     <main className="max-w-[1440px] mx-auto px-3 sm:px-5 pt-4 sm:pt-6 pb-20 min-h-screen mt-20">
       <VideoPlayer playerUrl={playerUrl} />
       <ServerBar />
-
       <MovieTabs
         tabs={tabs}
         activeTab={activeTab}
         setActiveTab={handleTabChange}
       />
-
       <WatchContent
         mediaDetails={data}
         activeTab={activeTab}
