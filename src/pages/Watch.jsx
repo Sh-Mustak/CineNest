@@ -23,7 +23,7 @@ export default function Watch() {
       top: 0,
       behavior: "smooth",
     });
-  }, [id]);
+  }, [id,episodeNumber]);
 
   const tabs = createWatchTabs(data, loading);
 
