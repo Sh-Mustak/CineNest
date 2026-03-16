@@ -42,7 +42,13 @@ export default function EpisodeCarousel({
         //     "
       >
         {/* <!-- Currently Watching --> */}
-        {loading ? <div className="text-white">Loading</div> : <EpisodeCard />}
+        {loading ? (
+          <div className="text-white">Loading</div>
+        ) : (
+          episodes?.episodes?.map((episode) => (
+            <EpisodeCard key={episode?.id} episode={episode} />
+          ))
+        )}
       </div>
     </div>
   );
