@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useEpisodes } from "../../../hooks/useEpisodes";
 import EpisodeCarousel from "./EpisodeCarousel";
 import SeasonBtn from "./SeasonBtn";
 import SeasonHero from "./SeasonHero";
@@ -10,10 +11,18 @@ export default function Episodes({ mediaDetails }) {
   const [selectedSeason, setSelectedSeason] = useState(
     seasons?.[0]?.season_number || 1,
   );
+
   const [selectedEpisode, setSelectedEpisode] = useState(1);
-  console.log(selectedSeason)
+
+  const { episodes, loading, error } = useEpisodes(
+    mediaDetails.id,
+    selectedSeason,
+  );
+  console.log(episodes)
+
   return (
     <div>
+      {/* Season Buttons */}
       <div className="flex gap-2 flex-wrap mb-4">
         {seasons?.map((season) => (
           <SeasonBtn
@@ -25,19 +34,21 @@ export default function Episodes({ mediaDetails }) {
           />
         ))}
       </div>
-      {/* <!-- Season hero --> */}
-      <SeasonHero season={selectedSeason} />
 
-      {/* <!-- Horizontal episode scroll --> */}
+      {/* Season hero */}
+      <SeasonHero season={selectedSeason} episodes={episodes} />
+
+      {/* Episode list */}
       <EpisodeCarousel
-        seasonNmbr={selectedSeason}
+        episodes={episodes}
+        loading={loading}
+        error={error}
         selectedEpisode={selectedEpisode}
         setSelectedEpisode={setSelectedEpisode}
-        seriesId={mediaDetails.id}
       />
 
-      {/* <!-- Already watched --> */}
-      <WatchedEpisodes />
+      {/* Watched episodes */}
+      <WatchedEpisodes episodes={episodes} />
     </div>
   );
 }
