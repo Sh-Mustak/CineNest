@@ -20,30 +20,36 @@ export const tmdb_endpoints = {
 // Endpoints for fetching movie streaming players
 export const embed_endpoints = {
   server1: {
+    movie: (id) => `https://www.2embed.online/embed/movie/${id}`,
+    tv: (id, season, episode) =>
+      `https://www.2embed.online/embed/tv/${id}/${season}/${episode}`,
+  },
+
+  server2: {
     movie: (id) => `https://www.2embed.cc/embed/${id}`,
     tv: (id, season, episode) =>
       `https://www.2embed.cc/embedtv/${id}&s=${season}&e=${episode}`,
   },
 
-  server2: {
+  server3: {
     movie: (id) => `https://multiembed.mov/?video_id=${id}&tmdb=1`,
     tv: (id, season, episode) =>
       `https://multiembed.mov/?video_id=${id}&tmdb=1&s=${season}&e=${episode}`,
   },
 
-  server3: {
+  server4: {
     movie: (id) => `https://vidsrc-embed.ru/embed/movie?tmdb=${id}&autoplay=1`,
     tv: (id, season, episode) =>
       `https://vidsrc-embed.ru/embed/tv?tmdb=${id}&season=${season}&episode=${episode}&autoplay=1&autonext=1`,
   },
-  server4: {
+  server5: {
     movie: (id) => `https://vidlink.pro/movie/${id}`,
     tv: (id, season, episode) =>
       `https://vidlink.pro/tv/${id}/${season}/${episode}`,
   },
-  server5:{
-        movie: (id) => `https://player.vidplus.to/embed/movie/${id}`,
+  server6: {
+    movie: (id) => `https://player.vidplus.to/embed/movie/${id}`,
     tv: (id, season, episode) =>
       `https://player.vidplus.to/embed/tv/${id}/${season}/${episode}`,
-  }
+  },
 };
