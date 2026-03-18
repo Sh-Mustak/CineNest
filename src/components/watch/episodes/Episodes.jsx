@@ -30,7 +30,12 @@ export default function Episodes({ mediaDetails }) {
       </div>
 
       {/* Season hero */}
-      <SeasonHero season={seasonNumber} episodes={episodes} />
+      <SeasonHero
+        seasonNumber={seasonNumber}
+        episodes={episodes}
+        setSeasonNumber={setSeasonNumber}
+        setEpisodeNumber={setEpisodeNumber}
+      />
 
       {/* Episode list */}
       <EpisodeCarousel
