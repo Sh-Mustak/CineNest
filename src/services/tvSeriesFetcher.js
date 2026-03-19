@@ -18,6 +18,15 @@ export const fetchTopRatedTvShows = async () => {
   }
 };
 
+export const fetchTopRatedHindiTvShows = async () => {
+  try {
+    const data = await tvService.getToRatedHindiTvShows();
+    return { data, error: null };
+  } catch (error) {
+    return { data: [], error: error.message };
+  }
+};
+
 export const FetchEpisodes = async (seriesId, seasonNmbr) => {
   try {
     const data = await tvService.getSeasonEpisodes(seriesId, seasonNmbr);

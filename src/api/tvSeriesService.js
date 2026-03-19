@@ -20,6 +20,16 @@ export const tvService = {
       throw error;
     }
   },
+  getToRatedHindiTvShows: async () => {
+    try {
+      const response = await axiosInstance.get(tmdb_endpoints.topRatedHindiTvShows);
+      return response.data.results;
+    } catch (error) {
+      console.error("Error fetching Top Rated Hindi Tv Shows:", error);
+      throw error;
+    }
+  },
+
   getSeriesDetails: async (seriesId) => {
     try {
       const response = await axiosInstance.get(

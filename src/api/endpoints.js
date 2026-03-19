@@ -14,6 +14,7 @@ export const tmdb_endpoints = {
   // Endpoints for tv series
   airingToday: `${BASE_URL}/tv/airing_today?api_key=${API_KEY}`,
   topRatedTvShows: `${BASE_URL}/tv/top_rated?api_key=${API_KEY}`,
+  topRatedHindiTvShows: `${BASE_URL}/discover/tv?api_key=${API_KEY}&with_original_language=hi&sort_by=vote_average.desc&vote_count.gte=50`,
   seriesDetails: `${BASE_URL}/tv/{series_id}?api_key=${API_KEY}&append_to_response=credits,videos,recommendations,reviews`,
   episodes: `${BASE_URL}/tv/{series_id}/season/{season_number}?api_key=${API_KEY}`,
 };

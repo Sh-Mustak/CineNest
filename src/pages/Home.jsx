@@ -10,10 +10,11 @@ export default function Home() {
     upcoming,
     airingToday,
     topRatedTvShows,
+    topRatedHindiTvShows,
     loading,
     error,
   } = useMovieContext();
-
+  console.log(topRatedHindiTvShows);
   useEffect(() => {
     const savedScroll = sessionStorage.getItem("homeScroll");
 
@@ -61,6 +62,13 @@ export default function Home() {
       />
       <MovieRow
         movies={topRatedTvShows}
+        loading={loading}
+        error={error}
+        rowheader="Top Rated Tv Shows"
+        mediaType="tv"
+      />
+      <MovieRow
+        movies={topRatedHindiTvShows}
         loading={loading}
         error={error}
         rowheader="Top Rated Tv Shows"

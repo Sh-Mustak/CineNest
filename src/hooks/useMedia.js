@@ -7,6 +7,7 @@ import {
 } from "../services/movieFetcher";
 import {
   fetchAiringTodayTvSeries,
+  fetchTopRatedHindiTvShows,
   fetchTopRatedTvShows,
 } from "../services/tvSeriesFetcher";
 
@@ -18,6 +19,7 @@ export const useMedia = () => {
     upcoming: [],
     airingToday: [],
     topRatedTvShows: [],
+    topRatedHindiTvShows: [],
     loading: true,
     error: null,
   });
@@ -31,6 +33,7 @@ export const useMedia = () => {
         { data: upcoming, error: upcomingError },
         { data: airingToday, error: airingError },
         { data: topRatedTvShows, error: topRatedTvShowsError },
+        { data: topRatedHindiTvShows, error: topRatedHindiTvShowsError },
       ] = await Promise.all([
         fetchTrendingMovies(),
         fetchPopularMovies(),
@@ -38,6 +41,7 @@ export const useMedia = () => {
         fetchUpcomingMovies(),
         fetchAiringTodayTvSeries(),
         fetchTopRatedTvShows(),
+        fetchTopRatedHindiTvShows(),
       ]);
 
       setMovies({
@@ -47,14 +51,16 @@ export const useMedia = () => {
         upcoming,
         airingToday,
         topRatedTvShows,
+        topRatedHindiTvShows,
         loading: false,
         error:
           trendingError ||
           popularError ||
           topRatedError ||
           upcomingError ||
-          airingError,
-        topRatedTvShowsError,
+          airingError ||
+          topRatedTvShowsError ||
+          topRatedHindiTvShowsError,
       });
     };
 
