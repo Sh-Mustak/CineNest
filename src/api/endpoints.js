@@ -30,24 +30,29 @@ export const embed_endpoints = {
     tv: (id, season, episode) =>
       `https://www.2embed.cc/embedtv/${id}&s=${season}&e=${episode}`,
   },
-
   server3: {
+    movie: (id) => `https://godriveplayer.com/player.php?tmdb=${id}`,
+    tv: (id, season, episode) =>
+      `https://godriveplayer.com/player.php?type=series&tmdb=${id}&season=${season}&episode=${episode}`,
+  },
+
+  server4: {
     movie: (id) => `https://multiembed.mov/?video_id=${id}&tmdb=1`,
     tv: (id, season, episode) =>
       `https://multiembed.mov/?video_id=${id}&tmdb=1&s=${season}&e=${episode}`,
   },
 
-  server4: {
+  server5: {
     movie: (id) => `https://vidsrc-embed.ru/embed/movie?tmdb=${id}&autoplay=1`,
     tv: (id, season, episode) =>
       `https://vidsrc-embed.ru/embed/tv?tmdb=${id}&season=${season}&episode=${episode}&autoplay=1&autonext=1`,
   },
-  server5: {
+  server6: {
     movie: (id) => `https://vidlink.pro/movie/${id}`,
     tv: (id, season, episode) =>
       `https://vidlink.pro/tv/${id}/${season}/${episode}`,
   },
-  server6: {
+  server7: {
     movie: (id) => `https://player.vidplus.to/embed/movie/${id}`,
     tv: (id, season, episode) =>
       `https://player.vidplus.to/embed/tv/${id}/${season}/${episode}`,

@@ -2,10 +2,11 @@ export default function ServerBar({ server, setServer }) {
   const servers = [
     { id: "server1", label: "2embed.online" },
     { id: "server2", label: "2embed.cc" },
-    { id: "server3", label: "multiembed" },
-    { id: "server4", label: "vidsrc" },
-    { id: "server5", label: "Vidlink.pro" },
-    { id: "server6", label: "VidPlus" },
+    { id: "server3", label: "goDriver" },
+    { id: "server4", label: "multiembed" },
+    { id: "server5", label: "vidsrc" },
+    { id: "server6", label: "Vidlink.pro" },
+    { id: "server7", label: "VidPlus" },
   ];
 
   return (
