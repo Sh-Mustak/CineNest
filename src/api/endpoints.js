@@ -60,6 +60,6 @@ export const embed_endpoints = {
     server8: {
     movie: (id) => `https://vidrock.net/movie/${id}`,
     tv: (id, season, episode) =>
-      `https://vidrock.net/tv//${id}/${season}/${episode}`,
+      `https://vidrock.net/tv/${id}/${season}/${episode}`,
   },
 };
