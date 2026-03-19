@@ -3,7 +3,7 @@ import HeroSection from "../components/movie/HeroSection";
 import MovieRow from "../components/movie/MovieRow";
 import { useMovieContext } from "../context/useMovieContext";
 export default function Home() {
-  const { trending, popular, topRated, upcoming, airingToday, loading, error } =
+  const { trending, popular, topRated, upcoming, airingToday,topRatedTvShows, loading, error } =
     useMovieContext();
  
   useEffect(() => {
@@ -49,6 +49,13 @@ export default function Home() {
         loading={loading}
         error={error}
         rowheader="Airing today"
+        mediaType="tv"
+      />
+       <MovieRow
+        movies={topRatedTvShows}
+        loading={loading}
+        error={error}
+        rowheader="Top Rated Series"
         mediaType="tv"
       />
     </main>

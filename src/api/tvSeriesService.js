@@ -11,6 +11,15 @@ export const tvService = {
       throw error;
     }
   },
+  getToRatedTvShows: async () => {
+    try {
+      const response = await axiosInstance.get(tmdb_endpoints.topRatedTvShows);
+      return response.data.results;
+    } catch (error) {
+      console.error("Error fetching Top Rated Tv Shows:", error);
+      throw error;
+    }
+  },
   getSeriesDetails: async (seriesId) => {
     try {
       const response = await axiosInstance.get(

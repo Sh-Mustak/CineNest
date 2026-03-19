@@ -13,6 +13,7 @@ export const tmdb_endpoints = {
 
   // Endpoints for tv series
   airingTody: `${BASE_URL}/tv/airing_today?api_key=${API_KEY}`,
+  topRatedTvShows:`https://api.themoviedb.org/3/tv/top_rated`,
   seriesDetails: `${BASE_URL}/tv/{series_id}?api_key=${API_KEY}&append_to_response=credits,videos,recommendations,reviews`,
   episodes: `https://api.themoviedb.org/3/tv/{series_id}/season/{season_number}`,
 };

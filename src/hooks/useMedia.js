@@ -5,7 +5,10 @@ import {
   fetchTrendingMovies,
   fetchUpcomingMovies,
 } from "../services/movieFetcher";
-import { fetchAiringTodayTvSeries } from "../services/tvSeriesFetcher";
+import {
+  fetchAiringTodayTvSeries,
+  fetchTopRatedTvShows,
+} from "../services/tvSeriesFetcher";
 
 export const useMedia = () => {
   const [movies, setMovies] = useState({
@@ -14,6 +17,7 @@ export const useMedia = () => {
     topRated: [],
     upcoming: [],
     airingToday: [],
+    topRatedTvShows: [],
     loading: true,
     error: null,
   });
@@ -26,12 +30,14 @@ export const useMedia = () => {
         { data: topRated, error: topRatedError },
         { data: upcoming, error: upcomingError },
         { data: airingToday, error: airingError },
+        { data: topRatedTvShows, error: topRatedTvShowsError },
       ] = await Promise.all([
         fetchTrendingMovies(),
         fetchPopularMovies(),
         fetchTopRatedMovies(),
         fetchUpcomingMovies(),
         fetchAiringTodayTvSeries(),
+        fetchTopRatedTvShows(),
       ]);
 
       setMovies({
@@ -40,6 +46,7 @@ export const useMedia = () => {
         topRated,
         upcoming,
         airingToday,
+        topRatedTvShows,
         loading: false,
         error:
           trendingError ||
@@ -47,6 +54,7 @@ export const useMedia = () => {
           topRatedError ||
           upcomingError ||
           airingError,
+        topRatedTvShowsError,
       });
     };
 
