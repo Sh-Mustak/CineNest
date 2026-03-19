@@ -62,4 +62,9 @@ export const embed_endpoints = {
     tv: (id, season, episode) =>
       `https://vidrock.net/tv/${id}/${season}/${episode}`,
   },
+      server9: {
+    movie: (id) => `https://vidstorm.ru/movie/${id}`,
+    tv: (id, season, episode) =>
+      `https://vidstorm.ru/tv/${id}/${season}/${episode}`,
+  },
 };
