@@ -57,4 +57,9 @@ export const embed_endpoints = {
     tv: (id, season, episode) =>
       `https://player.vidplus.to/embed/tv/${id}/${season}/${episode}`,
   },
+    server8: {
+    movie: (id) => `https://vidrock.net/movie/${id}`,
+    tv: (id, season, episode) =>
+      `https://vidrock.net/tv//${id}/${season}/${episode}`,
+  },
 };

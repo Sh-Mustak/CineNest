@@ -7,6 +7,7 @@ export default function ServerBar({ server, setServer }) {
     { id: "server5", label: "vidsrc" },
     { id: "server6", label: "Vidlink.pro" },
     { id: "server7", label: "VidPlus" },
+    { id: "server8", label: "vidrock" },
   ];
 
   return (
