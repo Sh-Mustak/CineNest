@@ -43,9 +43,9 @@ export const embed_endpoints = {
   },
 
   server5: {
-    movie: (id) => `https://vidsrc-embed.ru/embed/movie?tmdb=${id}&autoplay=1`,
+    movie: (id) => `https://vsembed.su/embed/movie?tmdb=${id}&autoplay=1`,
     tv: (id, season, episode) =>
-      `https://vidsrc-embed.ru/embed/tv?tmdb=${id}&season=${season}&episode=${episode}&autoplay=1&autonext=1`,
+      `https://vsembed.su/embed/tv?tmdb=${id}&season=${season}&episode=${episode}&autoplay=1&autonext=1`,
   },
   server6: {
     movie: (id) => `https://vidlink.pro/movie/${id}`,
@@ -57,12 +57,12 @@ export const embed_endpoints = {
     tv: (id, season, episode) =>
       `https://player.vidplus.to/embed/tv/${id}/${season}/${episode}`,
   },
-    server8: {
+  server8: {
     movie: (id) => `https://vidrock.net/movie/${id}`,
     tv: (id, season, episode) =>
       `https://vidrock.net/tv/${id}/${season}/${episode}`,
   },
-      server9: {
+  server9: {
     movie: (id) => `https://vidstorm.ru/movie/${id}`,
     tv: (id, season, episode) =>
       `https://vidstorm.ru/tv/${id}/${season}/${episode}`,
