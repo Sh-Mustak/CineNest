@@ -67,4 +67,19 @@ export const embed_endpoints = {
     tv: (id, season, episode) =>
       `https://vidstorm.ru/tv/${id}/${season}/${episode}`,
   },
+  server10: {
+    movie: (id) => `https://vidbinge.to/movie/${id}`,
+    tv: (id, season, episode) =>
+      `https://vidbinge.to/tv/${id}/${season}/${episode}`,
+  },
+  server11: {
+    movie: (id) => `https://autoembed.co/movie/tmdb/${id}`,
+    tv: (id, season, episode) =>
+      `https://autoembed.co/tv/tmdb/${id}-${season}-${episode}`,
+  },
+  server12: {
+    movie: (id) => `https://embed.smashystream.com/playere.php?tmdb=${id}`,
+    tv: (id, season, episode) =>
+      `https://embed.smashystream.com/playere.php?tmdb=${id}&season=${season}&episode=${episode}`,
+  },
 };

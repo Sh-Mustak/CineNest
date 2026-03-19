@@ -9,6 +9,9 @@ export default function ServerBar({ server, setServer }) {
     { id: "server7", label: "VidPlus" },
     { id: "server8", label: "Vidrock" },
     { id: "server9", label: "Vidstorm" },
+    { id: "server10", label: "VidBinge" },
+    { id: "server11", label: "autoembed" },
+    { id: "server12", label: "SmashyStream" },
   ];
 
   return (
