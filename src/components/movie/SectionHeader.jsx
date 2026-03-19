@@ -8,7 +8,7 @@ export default function SectionHeader({ rowheader }) {
       case "Top Rated":
         return "award_star";
       case "Upcoming Movies":
-        return "event"; 
+        return "event";
       case "More Like This":
         return "new_releases";
       default:
@@ -18,7 +18,7 @@ export default function SectionHeader({ rowheader }) {
 
   return (
     <div className="flex items-center justify-between pr-6 md:pr-12 ml-6">
-      <h2 className="text-2xl font-bold text-white flex items-center gap-2">
+      <h2 className="text-xl font-bold text-white flex items-center gap-2">
         <span className="material-symbols-outlined text-primary">
           {getIcon()}
         </span>

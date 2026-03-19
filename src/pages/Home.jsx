@@ -3,9 +3,17 @@ import HeroSection from "../components/movie/HeroSection";
 import MovieRow from "../components/movie/MovieRow";
 import { useMovieContext } from "../context/useMovieContext";
 export default function Home() {
-  const { trending, popular, topRated, upcoming, airingToday,topRatedTvShows, loading, error } =
-    useMovieContext();
- 
+  const {
+    trending,
+    popular,
+    topRated,
+    upcoming,
+    airingToday,
+    topRatedTvShows,
+    loading,
+    error,
+  } = useMovieContext();
+
   useEffect(() => {
     const savedScroll = sessionStorage.getItem("homeScroll");
 
@@ -51,11 +59,11 @@ export default function Home() {
         rowheader="Airing today"
         mediaType="tv"
       />
-       <MovieRow
+      <MovieRow
         movies={topRatedTvShows}
         loading={loading}
         error={error}
-        rowheader="Top Rated Series"
+        rowheader="Top Rated Tv Shows"
         mediaType="tv"
       />
     </main>

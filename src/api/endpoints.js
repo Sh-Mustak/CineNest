@@ -12,10 +12,10 @@ export const tmdb_endpoints = {
   mediaDetails: `${BASE_URL}/movie/{movie_id}?api_key=${API_KEY}&append_to_response=credits,videos,recommendations,reviews`,
 
   // Endpoints for tv series
-  airingTody: `${BASE_URL}/tv/airing_today?api_key=${API_KEY}`,
-  topRatedTvShows:`https://api.themoviedb.org/3/tv/top_rated`,
+  airingToday: `${BASE_URL}/tv/airing_today?api_key=${API_KEY}`,
+  topRatedTvShows: `${BASE_URL}/tv/top_rated?api_key=${API_KEY}`,
   seriesDetails: `${BASE_URL}/tv/{series_id}?api_key=${API_KEY}&append_to_response=credits,videos,recommendations,reviews`,
-  episodes: `https://api.themoviedb.org/3/tv/{series_id}/season/{season_number}`,
+  episodes: `${BASE_URL}/tv/{series_id}/season/{season_number}?api_key=${API_KEY}`,
 };
 
 // Endpoints for fetching movie streaming players

@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-// import { prefetchMovie } from "../../services/prefetchMovie";
+import { prefetchMovie } from "../../services/prefetchMovie";
 import { getImageUrl } from "../../utils/helper";
 
 export default function MovieCard({ movie, mediaType, fullWidth }) {
   return (
     <Link
       to={`/watch/${mediaType}/${movie.id}`}
-      // onMouseEnter={() => prefetchMovie(movie.id)}
+      onMouseEnter={() => prefetchMovie(mediaType, movie.id)}
       onClick={() => {
         sessionStorage.setItem("homeScroll", window.scrollY);
       }}
