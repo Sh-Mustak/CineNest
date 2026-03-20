@@ -21,13 +21,9 @@ export default function HeroBackground({ slides = [] }) {
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              // ▼ KEY FIX: anchor the image to top-center so the subject
-              //   (character face, scene focus) is never cropped off the top.
-              //   "center center" (the default) shifts the image down by 50%
-              //   which hides the top portion — exactly what you were seeing.
+
               objectPosition: "center top",
-              // Reduced from 1.06 → 1.02 so less image is hidden off-screen
-              // during the subtle Ken Burns zoom effect
+
               transform: "scale(1.02)",
               transition: "transform 9s ease-out",
             }}
@@ -39,8 +35,10 @@ export default function HeroBackground({ slides = [] }) {
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
         style={{
-          background:
-            "linear-gradient(to right, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.45) 52%, transparent 100%)",
+          background: `
+      linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.60) 40%, rgba(0,0,0,0.15) 65%, transparent 100%),
+      linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.20) 40%, transparent 100%)
+    `,
         }}
       />
 

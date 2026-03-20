@@ -1,21 +1,9 @@
-// src/components/movie/HeroInfoBlock.jsx
-// ─────────────────────────────────────────────────────────────────
-// Left panel: badge, stars, title, meta, description, CTA buttons.
-//
-// Props:
-//   movie   — current movie object
-//   infoRef — forwarded ref so HeroSection can toggle CSS classes
-//             directly on this div (avoids setState inside useEffect)
-// ─────────────────────────────────────────────────────────────────
-
 export default function HeroInfoBlock({ movie, infoRef }) {
   if (!movie) return null;
 
   return (
     <div
       ref={infoRef}
-      // Start visible. HeroSection.jsx toggles hero-info-out/in on this
-      // element imperatively via the ref — no React state involved.
       className="hero-info-trans hero-info-in w-full lg:max-w-[500px] xl:max-w-[560px]"
     >
       {/* ── Badge ─────────────────────────────────────────── */}
@@ -31,20 +19,28 @@ export default function HeroInfoBlock({ movie, infoRef }) {
             <span
               key={star}
               className="material-symbols-outlined text-sm"
-              style={{ fontVariationSettings: star <= movie.stars ? "'FILL' 1" : "'FILL' 0" }}
+              style={{
+                fontVariationSettings:
+                  star <= movie.stars ? "'FILL' 1" : "'FILL' 0",
+              }}
             >
               star
             </span>
           ))}
         </div>
         <span className="text-white font-bold text-sm">{movie.rating}/10</span>
-        <span className="text-[9px] font-bold text-white/30 tracking-widest uppercase">IMDb</span>
+        <span className="text-[9px] font-bold text-white/30 tracking-widest uppercase">
+          IMDb
+        </span>
       </div>
 
       {/* ── Title ─────────────────────────────────────────── */}
       <h1
-        className="font-black text-white tracking-tight leading-[0.9] mb-3"
-        style={{ fontSize: "clamp(36px, 7.5vw, 88px)", textShadow: "0 4px 36px rgba(0,0,0,0.55)" }}
+        className="font-black text-white tracking-tight leading-none mb-3"
+        style={{
+          fontSize: "clamp(36px, 10.5vw, 60px)",
+          textShadow: "0 4px 36px rgba(0,0,0,0.55)",
+        }}
       >
         {movie.title}
       </h1>
@@ -53,8 +49,7 @@ export default function HeroInfoBlock({ movie, infoRef }) {
       <div className="flex items-center flex-wrap gap-3 text-slate-300 font-medium mb-3 md:mb-4">
         <span className="text-[13px]">{movie.year}</span>
         <span className="h-1 w-1 rounded-full bg-primary" />
-        <span className="text-[13px]">{movie.dur}</span>
-        <span className="h-1 w-1 rounded-full bg-primary" />
+
         <span className="text-[12px] bg-white/[0.07] border border-white/10 px-2.5 py-0.5 rounded-full text-white/60">
           {movie.genre}
         </span>
@@ -62,7 +57,7 @@ export default function HeroInfoBlock({ movie, infoRef }) {
 
       {/* ── Description ───────────────────────────────────── */}
       <p
-        className="text-slate-300 leading-relaxed mb-6 md:mb-7 max-w-none md:max-w-[430px]"
+        className="text-slate-300 leading-relaxed mb-6 md:mb-7 max-w-none md:max-w-[430px] line-clamp-2"
         style={{ fontSize: "clamp(12px, 1.35vw, 15px)" }}
       >
         {movie.desc}
@@ -71,7 +66,10 @@ export default function HeroInfoBlock({ movie, infoRef }) {
       {/* ── CTA Buttons ───────────────────────────────────── */}
       <div className="flex items-center gap-3 flex-wrap">
         <button className="bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold flex items-center gap-2 transition-all active:scale-95 hover:scale-105">
-          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>
+          <span
+            className="material-symbols-outlined"
+            style={{ fontVariationSettings: "'FILL' 1" }}
+          >
             play_arrow
           </span>
           Watch Now

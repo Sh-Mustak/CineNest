@@ -63,7 +63,7 @@ export default function HeroSection({ movies }) {
 
   return (
     <section
-      className="hero-grain relative w-full overflow-hidden"
+      className="hero-grain relative w-full overflow-hidden "
       style={{ height: "100svh", minHeight: "580px" }}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
