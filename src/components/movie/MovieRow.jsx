@@ -10,7 +10,7 @@ export default function MovieRow({
   mediaType
 }) {
   return (
-    <div className={`relative -mt-24 ${showHeader && "-mt-31"} space-y-16 pb-20`}>
+    <div className={`relative  ${showHeader && "-mt-31"} space-y-16 pb-20`}>
       <section className="mt-4">
         {showHeader ?? <SectionHeader rowheader={rowheader} />}
         <div className="flex gap-6 overflow-x-auto hide-scrollbar pb-8 snap-x pt-6 scroll-pl-6 pl-6 pr-6 ">

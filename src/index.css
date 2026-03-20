@@ -77,3 +77,119 @@
 
   /* Scroll arrows show on hover parent */
   .ep-scroll-wrap:hover .scroll-arrow { opacity:1; pointer-events:all; }
+
+
+
+.hero-bg-slide {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 100% 0 0);             /* fully hidden */
+  transition: clip-path 1.1s cubic-bezier(0.76, 0, 0.24, 1);
+  will-change: clip-path;
+}
+.hero-bg-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.06);
+  transition: transform 9s ease-out;
+}
+.hero-bg-active {
+  clip-path: inset(0 0% 0 0);              /* fully revealed */
+}
+.hero-bg-active img {
+  transform: scale(1);
+}
+.hero-bg-init {
+  clip-path: inset(0 0% 0 0);             /* instant, no sweep */
+  transition: none;
+}
+.hero-bg-init img {
+  transform: scale(1);
+}
+
+/* ── Bottom overlay (blends BG into page background) ────────── */
+.hero-overlay-bottom {
+  background: linear-gradient(
+    to top,
+    rgba(10, 5, 5, 1.00)  0%,    /* matches your existing #0a0505 page bg */
+    rgba(10, 5, 5, 0.72)  28%,
+    rgba(0,  0, 0, 0.10)  65%,
+    transparent           100%
+  );
+}
+@media (max-width: 767px) {
+  .hero-overlay-bottom {
+    background: linear-gradient(
+      to top,
+      rgba(10, 5, 5, 1.00) 0%,
+      rgba(10, 5, 5, 0.90) 42%,
+      rgba(0,  0, 0, 0.35) 72%,
+      transparent          100%
+    );
+  }
+}
+
+/* ── Info block crossfade ────────────────────────────────────── */
+.hero-info-trans {
+  transition: opacity 0.38s ease, transform 0.38s ease;
+}
+.hero-info-out {
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+}
+.hero-info-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Badge blink dot ─────────────────────────────────────────── */
+@keyframes hero-blink-dot {
+  0%, 100% { opacity: 1;   transform: scale(1);   }
+  50%      { opacity: 0.2; transform: scale(0.5); }
+}
+.hero-blink {
+  animation: hero-blink-dot 1.8s ease-in-out infinite;
+}
+
+/* ── Card queue items ────────────────────────────────────────── */
+/* Each card is absolutely positioned inside .hero-card-viewport */
+.hero-card-item {
+  position: absolute;
+  bottom: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  will-change: transform, opacity, width, height;
+  transition:
+    transform    0.72s cubic-bezier(0.76, 0, 0.24, 1),
+    opacity      0.72s cubic-bezier(0.76, 0, 0.24, 1),
+    width        0.68s cubic-bezier(0.76, 0, 0.24, 1),
+    height       0.68s cubic-bezier(0.76, 0, 0.24, 1),
+    box-shadow   0.40s ease,
+    border-color 0.40s ease;
+}
+.hero-card-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 5s ease-out;
+}
+.hero-card-item:hover img {
+  transform: scale(1.06);
+}
+
+/* ── Film grain overlay ──────────────────────────────────────── */
+/* Optional — adds cinematic texture. Add .hero-grain to <main>  */
+.hero-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0.26;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+}
