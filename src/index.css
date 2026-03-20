@@ -33,128 +33,218 @@
   }
 }
 
-  .noscroll { scrollbar-width:none; -ms-overflow-style:none; }
-  .noscroll::-webkit-scrollbar { display:none; }
+.noscroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.noscroll::-webkit-scrollbar {
+  display: none;
+}
 
-  /* Tab underline indicator */
-  .tab-item::after { content:''; position:absolute; bottom:-1px; left:0; right:0; height:2px; background:#e8151a; border-radius:2px 2px 0 0; transform:scaleX(0); transition:transform .3s cubic-bezier(.4,0,.2,1); }
-  .tab-item.tab-act::after { transform:scaleX(1); }
+/* Tab underline indicator */
+.tab-item::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #e8151a;
+  border-radius: 2px 2px 0 0;
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.tab-item.tab-act::after {
+  transform: scaleX(1);
+}
 
-  /* Episode red left bar */
-  .ep-card-item::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:#e8151a; border-radius:0 2px 2px 0; transform:scaleY(0); transition:transform .22s; transform-origin:bottom; }
-  .ep-card-item:hover::before, .ep-card-item.ep-cur::before { transform:scaleY(1); }
+/* Episode red left bar */
+.ep-card-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #e8151a;
+  border-radius: 0 2px 2px 0;
+  transform: scaleY(0);
+  transition: transform 0.22s;
+  transform-origin: bottom;
+}
+.ep-card-item:hover::before,
+.ep-card-item.ep-cur::before {
+  transform: scaleY(1);
+}
 
-  /* Hover play overlay */
-  .ep-card-item:hover .ep-hover-ov { opacity:1; }
-  .nf-card-item:hover .nf-expand { opacity:1; transform:translateY(0); pointer-events:all; }
-  .nf-card-item:hover .nf-img { border-radius:6px 6px 0 0; }
+/* Hover play overlay */
+.ep-card-item:hover .ep-hover-ov {
+  opacity: 1;
+}
+.nf-card-item:hover .nf-expand {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+.nf-card-item:hover .nf-img {
+  border-radius: 6px 6px 0 0;
+}
 
-  /* Poster overlay */
-  .poster-wrap:hover .poster-ov-inner { opacity:1; }
+/* Poster overlay */
+.poster-wrap:hover .poster-ov-inner {
+  opacity: 1;
+}
 
-  /* Cast hover */
-  .cast-c:hover .cast-img-ring { border-color:#e8151a; transform:scale(1.06); filter:grayscale(0); }
-  .cast-c:hover .cast-name { color:#e8151a; }
+/* Cast hover */
+.cast-c:hover .cast-img-ring {
+  border-color: #e8151a;
+  transform: scale(1.06);
+  filter: grayscale(0);
+}
+.cast-c:hover .cast-name {
+  color: #e8151a;
+}
 
-  /* Panel */
-  .panel { display:none; }
-  .panel.act { display:block; animation:fadeUp .35s cubic-bezier(.4,0,.2,1) forwards; }
+/* Panel */
+.panel {
+  display: none;
+}
+.panel.act {
+  display: block;
+  animation: fadeUp 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
 
-  /* Progress fill after dot */
-  .prog-track:hover .prog-fill::after { opacity:1; }
-  .prog-fill::after { content:''; position:absolute; right:-5px; top:-4px; width:11px; height:11px; border-radius:50%; background:#e8151a; border:2px solid #fff; box-shadow:0 0 7px #e8151a; opacity:0; transition:opacity .15s; }
+/* Progress fill after dot */
+.prog-track:hover .prog-fill::after {
+  opacity: 1;
+}
+.prog-fill::after {
+  content: "";
+  position: absolute;
+  right: -5px;
+  top: -4px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #e8151a;
+  border: 2px solid #fff;
+  box-shadow: 0 0 7px #e8151a;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
 
-  /* Download bar inside button */
-  .dl-bar { position:absolute; bottom:0; left:0; height:2px; width:0%; border-radius:99px; background:#e8151a; }
-  .dl-btn-el.dling .dl-bar { animation:dlBar 2.3s ease forwards; }
-  .dl-btn-el.done .dl-bar { width:100%; background:#4ade80; }
-  .dl-btn-el.dling { border-color:#e8151a !important; color:#e8151a !important; }
-  .dl-btn-el.done  { border-color:#4ade80 !important; color:#4ade80 !important; background:rgba(74,222,128,.08) !important; }
+/* Download bar inside button */
+.dl-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  border-radius: 99px;
+  background: #e8151a;
+}
+.dl-btn-el.dling .dl-bar {
+  animation: dlBar 2.3s ease forwards;
+}
+.dl-btn-el.done .dl-bar {
+  width: 100%;
+  background: #4ade80;
+}
+.dl-btn-el.dling {
+  border-color: #e8151a !important;
+  color: #e8151a !important;
+}
+.dl-btn-el.done {
+  border-color: #4ade80 !important;
+  color: #4ade80 !important;
+  background: rgba(74, 222, 128, 0.08) !important;
+}
 
-  /* Ripple inside dl */
-  .dl-ripple-el::after { content:''; position:absolute; width:40px; height:40px; border-radius:50%; background:rgba(232,21,26,.3); top:50%; left:50%; transform:scale(0); margin:-20px 0 0 -20px; }
-  .dl-btn-el.dling .dl-ripple-el::after { animation:ripple .6s ease-out; }
+/* Ripple inside dl */
+.dl-ripple-el::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(232, 21, 26, 0.3);
+  top: 50%;
+  left: 50%;
+  transform: scale(0);
+  margin: -20px 0 0 -20px;
+}
+.dl-btn-el.dling .dl-ripple-el::after {
+  animation: ripple 0.6s ease-out;
+}
 
-  /* Scroll arrows show on hover parent */
-  .ep-scroll-wrap:hover .scroll-arrow { opacity:1; pointer-events:all; }
+/* Scroll arrows show on hover parent */
+.ep-scroll-wrap:hover .scroll-arrow {
+  opacity: 1;
+  pointer-events: all;
+}
 
+/* ═══════════════════════════════════════════════════════════════
+   Style for HeroSection
+   ═══════════════════════════════════════════════════════════════
+*/
 
-
-.hero-bg-slide {
+[id^="hero-bg-"] {
   position: absolute;
   inset: 0;
-  clip-path: inset(0 100% 0 0);             /* fully hidden */
-  transition: clip-path 1.1s cubic-bezier(0.76, 0, 0.24, 1);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: clip-path;
 }
-.hero-bg-slide img {
+[id^="hero-bg-"] img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transform: scale(1.06);
   transition: transform 9s ease-out;
 }
-.hero-bg-active {
-  clip-path: inset(0 0% 0 0);              /* fully revealed */
-}
-.hero-bg-active img {
-  transform: scale(1);
-}
-.hero-bg-init {
-  clip-path: inset(0 0% 0 0);             /* instant, no sweep */
-  transition: none;
-}
-.hero-bg-init img {
-  transform: scale(1);
-}
 
-/* ── Bottom overlay (blends BG into page background) ────────── */
+/* ── Bottom overlay — blends hero into your page background ─────
+   #0a0505 matches your existing page bg color.
+   Change to match your actual <body> or <main> background.
+──────────────────────────────────────────────────────────────── */
 .hero-overlay-bottom {
   background: linear-gradient(
     to top,
-    rgba(10, 5, 5, 1.00)  0%,    /* matches your existing #0a0505 page bg */
-    rgba(10, 5, 5, 0.72)  28%,
-    rgba(0,  0, 0, 0.10)  65%,
-    transparent           100%
+    rgba(10, 5, 5, 1) 0%,
+    rgba(10, 5, 5, 0.72) 28%,
+    rgba(0, 0, 0, 0.1) 65%,
+    transparent 100%
   );
 }
 @media (max-width: 767px) {
   .hero-overlay-bottom {
     background: linear-gradient(
       to top,
-      rgba(10, 5, 5, 1.00) 0%,
-      rgba(10, 5, 5, 0.90) 42%,
-      rgba(0,  0, 0, 0.35) 72%,
-      transparent          100%
+      rgba(10, 5, 5, 1) 0%,
+      rgba(10, 5, 5, 0.9) 42%,
+      rgba(0, 0, 0, 0.35) 72%,
+      transparent 100%
     );
   }
 }
 
-/* ── Info block crossfade ────────────────────────────────────── */
-.hero-info-trans {
-  transition: opacity 0.38s ease, transform 0.38s ease;
-}
-.hero-info-out {
-  opacity: 0;
-  transform: translateY(16px);
-  pointer-events: none;
-}
-.hero-info-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* ── Badge blink dot ─────────────────────────────────────────── */
 @keyframes hero-blink-dot {
-  0%, 100% { opacity: 1;   transform: scale(1);   }
-  50%      { opacity: 0.2; transform: scale(0.5); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.2;
+    transform: scale(0.5);
+  }
 }
 .hero-blink {
   animation: hero-blink-dot 1.8s ease-in-out infinite;
 }
 
 /* ── Card queue items ────────────────────────────────────────── */
-/* Each card is absolutely positioned inside .hero-card-viewport */
 .hero-card-item {
   position: absolute;
   bottom: 0;
@@ -163,12 +253,12 @@
   border: 1px solid rgba(255, 255, 255, 0.09);
   will-change: transform, opacity, width, height;
   transition:
-    transform    0.72s cubic-bezier(0.76, 0, 0.24, 1),
-    opacity      0.72s cubic-bezier(0.76, 0, 0.24, 1),
-    width        0.68s cubic-bezier(0.76, 0, 0.24, 1),
-    height       0.68s cubic-bezier(0.76, 0, 0.24, 1),
-    box-shadow   0.40s ease,
-    border-color 0.40s ease;
+    transform 0.72s cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 0.72s cubic-bezier(0.76, 0, 0.24, 1),
+    width 0.68s cubic-bezier(0.76, 0, 0.24, 1),
+    height 0.68s cubic-bezier(0.76, 0, 0.24, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
 }
 .hero-card-item img {
   position: absolute;
@@ -182,8 +272,7 @@
   transform: scale(1.06);
 }
 
-/* ── Film grain overlay ──────────────────────────────────────── */
-/* Optional — adds cinematic texture. Add .hero-grain to <main>  */
+/* ── Film grain overlay (optional) ──────────────────────────── */
 .hero-grain::after {
   content: "";
   position: absolute;

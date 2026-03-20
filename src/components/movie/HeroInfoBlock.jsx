@@ -4,7 +4,7 @@ export default function HeroInfoBlock({ movie, infoRef }) {
   return (
     <div
       ref={infoRef}
-      className="hero-info-trans hero-info-in w-full lg:max-w-[500px] xl:max-w-[560px]"
+      className="hero-info-trans w-full lg:max-w-[500px] xl:max-w-[560px]"
     >
       {/* ── Badge ─────────────────────────────────────────── */}
       <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 text-primary px-3 py-1.5 rounded-sm text-[10px] font-bold uppercase tracking-[2.5px] mb-3">
