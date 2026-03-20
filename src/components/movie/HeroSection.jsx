@@ -74,7 +74,7 @@ export default function HeroSection({ movies }) {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-10 w-full">
           <HeroInfoBlock movie={movie} infoRef={infoRef} />
 
-          {isMd && (
+          {isLg && (
             <HeroCardQueue
               slides={slides}
               currentIdx={current}
