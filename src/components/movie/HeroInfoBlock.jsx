@@ -79,7 +79,7 @@ export default function HeroInfoBlock({ movie, infoRef }) {
           Watch Now
         </Link>
 
-        <button className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm text-white px-2.5 py-3 rounded-lg font-bold flex items-center gap-1 text-sm transition-all">
+        <button className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm text-white px-3 py-2.5 rounded-lg font-bold flex items-center gap-1 text-sm transition-all">
           <span className="material-symbols-outlined text-[18px]">add</span>
           My Watchlist
         </button>
