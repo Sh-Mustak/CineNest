@@ -18,14 +18,15 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed left-0 top-0 w-full z-50 bg-[#0a0505]/70 backdrop-blur-md border-b gap-1 border-primary/10">
-      <div className="max-w-[1440px] mx-auto px-4 h-16 flex items-center justify-between">
+    <nav className="fixed left-0 top-0 w-full z-50 bg-[#0a0505]/70 backdrop-blur-md border-b border-primary/10">
+      <div className="max-w-[1440px] mx-auto px-4 h-20 flex items-center justify-between">
+
         {/* Logo */}
         <div className="flex items-center gap-2">
           <span className="material-symbols-outlined text-primary text-3xl font-bold">
             movie
           </span>
-          <h1 className="text-primary text-base md:text-2xl font-black tracking-tighter uppercase">
+          <h1 className="text-primary text-xl md:text-2xl mr-1 font-black tracking-tighter uppercase">
             CineNest
           </h1>
         </div>
@@ -52,23 +53,22 @@ export default function Navbar() {
 
         {/* Right Side */}
         <div className="flex items-center gap-3 ml-auto md:ml-0">
-          {/* Search — always visible */}
+
           <SearchInput />
 
-          {/* Profile Icon — always visible */}
-          <button className="p-2 rounded-xl bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
-            <span
-              className="material-symbols-outlined"
-              style={{ fontSize: "20px" }}
-            >
+          {/* Profile Icon */}
+          <button
+            className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white hover:bg-primary/80 active:scale-95 transition-all duration-200 shadow-lg shadow-primary/30"
+          >
+            <span className="material-symbols-outlined" style={{ fontSize: "20px" }}>
               account_circle
             </span>
           </button>
 
           {/* Hamburger — mobile only */}
-          <div
+          <button
             onClick={HandleMenu}
-            className="p-1.5 rounded-xl bg-primary/10 text-primary hover:bg-primary/20 transition cursor-pointer md:hidden"
+            className="flex md:hidden items-center justify-center w-8 h-8 rounded-full bg-primary text-white hover:bg-primary/80 active:scale-95 transition-all duration-200 shadow-lg shadow-primary/30"
           >
             <span
               className="material-symbols-outlined transition-transform duration-300"
@@ -76,7 +76,7 @@ export default function Navbar() {
             >
               {openMenu ? "close" : "menu"}
             </span>
-          </div>
+          </button>
         </div>
       </div>
 
@@ -84,7 +84,7 @@ export default function Navbar() {
       <div
         className={`
           md:hidden overflow-hidden transition-all duration-300 ease-in-out
-          ${openMenu ? "max-h-[400px] opacity-100 py-3" : "max-h-0 opacity-0 py-0"}
+          ${openMenu ? "max-h-[400px] opacity-100 py-4" : "max-h-0 opacity-0 py-0"}
           bg-[#0a0505]/95 backdrop-blur-md border-t border-primary/10 px-4
         `}
       >

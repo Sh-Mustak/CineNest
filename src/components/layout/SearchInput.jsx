@@ -35,7 +35,7 @@ export default function SearchInput() {
         className="
           text-white text-sm
           rounded-2xl border border-white/10
-          pl-9 pr-4 py-2
+          pl-9 pr-4 py-[4px]
           w-30
           outline-none
           transition-all duration-300 ease-in-out
