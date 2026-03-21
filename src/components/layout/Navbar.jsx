@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed left-0 top-0 w-full z-50 bg-[#0a0505]/70 backdrop-blur-md border-b gap-1 border-primary/10">
-      <div className="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between">
+      <div className="max-w-[1440px] mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
           <span className="material-symbols-outlined text-primary text-3xl font-bold">
@@ -53,7 +53,6 @@ export default function Navbar() {
         {/* Right Side */}
         <div className="flex items-center gap-3 ml-auto md:ml-0">
           {/* Search — always visible */}
-
           <SearchInput />
 
           {/* Profile Icon — always visible */}
@@ -85,8 +84,8 @@ export default function Navbar() {
       <div
         className={`
           md:hidden overflow-hidden transition-all duration-300 ease-in-out
-          ${openMenu ? "max-h-[400px] opacity-100 py-4" : "max-h-0 opacity-0 py-0"}
-          bg-[#0a0505]/95 backdrop-blur-md border-t border-primary/10 px-6
+          ${openMenu ? "max-h-[400px] opacity-100 py-3" : "max-h-0 opacity-0 py-0"}
+          bg-[#0a0505]/95 backdrop-blur-md border-t border-primary/10 px-4
         `}
       >
         <div className="flex flex-col items-center gap-4">
