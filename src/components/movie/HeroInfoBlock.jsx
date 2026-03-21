@@ -65,13 +65,13 @@ export default function HeroInfoBlock({ movie, infoRef }) {
       </p>
 
       {/* ── CTA Buttons ───────────────────────────────────── */}
-      <div className="flex items-center gap-3 flex-wrap">
+      <div className="flex items-center gap-2 flex-wrap">
         <Link
           to={`/watch/${movie?.mediaType}/${movie.id}`}
-          className="bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold flex items-center gap-2 transition-all active:scale-95 hover:scale-105"
+          className="bg-primary hover:bg-primary/90 text-white px-3 py-2.5 rounded-lg font-bold flex items-center gap-1 text-sm transition-all active:scale-95 hover:scale-105"
         >
           <span
-            className="material-symbols-outlined"
+            className="material-symbols-outlined text-[18px]"
             style={{ fontVariationSettings: "'FILL' 1" }}
           >
             play_arrow
@@ -79,13 +79,9 @@ export default function HeroInfoBlock({ movie, infoRef }) {
           Watch Now
         </Link>
 
-        <button className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold flex items-center gap-2 transition-all">
-          <span className="material-symbols-outlined">add</span>
-          <span className="hidden sm:inline">My </span>Watchlist
-        </button>
-
-        <button className="hidden sm:flex w-12 h-12 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 items-center justify-center transition-all backdrop-blur-sm">
-          <span className="material-symbols-outlined text-white">info</span>
+        <button className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm text-white px-2.5 py-3 rounded-lg font-bold flex items-center gap-1 text-sm transition-all">
+          <span className="material-symbols-outlined text-[18px]">add</span>
+          My Watchlist
         </button>
       </div>
     </div>
