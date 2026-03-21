@@ -26,7 +26,7 @@ export default function Navbar() {
           <span className="material-symbols-outlined text-primary text-3xl font-bold">
             movie
           </span>
-          <h1 className="text-primary text-xl md:text-2xl mr-1 font-black tracking-tighter uppercase">
+          <h1 className="text-primary text-xl md:text-2xl mr-2 font-black tracking-tighter uppercase">
             CineNest
           </h1>
         </div>
