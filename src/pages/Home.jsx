@@ -1,16 +1,13 @@
-
-
 import { useEffect } from "react";
 import HeroSection from "../components/movie/HeroSection";
-import MovieRow    from "../components/movie/MovieRow";
+import MovieRow from "../components/movie/MovieRow";
 import { useMovieContext } from "../context/useMovieContext";
-
 
 import { adaptMoviesForHero } from "../utils/adaptMoviesForHero";
 
 export default function Home() {
   const {
-    trending,          
+    trending,
     popular,
     topRated,
     upcoming,
@@ -21,8 +18,7 @@ export default function Home() {
     error,
   } = useMovieContext();
 
-
-  const heroSlides = adaptMoviesForHero(trending, 10);
+  const heroSlides = adaptMoviesForHero(trending, 10, "tv");
 
   useEffect(() => {
     const savedScroll = sessionStorage.getItem("homeScroll");
@@ -33,7 +29,6 @@ export default function Home() {
 
   return (
     <main className="relative">
-
       {/* ← Pass heroSlides as the movies prop */}
       <HeroSection movies={heroSlides} />
 
@@ -86,7 +81,6 @@ export default function Home() {
         rowheader="Top Rated Hindi TV Shows"
         mediaType="tv"
       />
-
     </main>
   );
 }

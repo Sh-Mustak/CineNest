@@ -1,9 +1,3 @@
-// src/components/movie/HeroCardQueue.jsx
-// ─────────────────────────────────────────────────────────────────
-// UPDATED — now accepts `slides` array as a prop instead of
-// importing heroMovies directly. Everything else is identical.
-// ─────────────────────────────────────────────────────────────────
-
 import { useEffect, useRef, useCallback } from "react";
 
 export default function HeroCardQueue({ slides = [], currentIdx, isLg, onJump }) {

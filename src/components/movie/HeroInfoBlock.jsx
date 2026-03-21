@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function HeroInfoBlock({ movie, infoRef }) {
   if (!movie) return null;
 
@@ -30,7 +31,7 @@ export default function HeroInfoBlock({ movie, infoRef }) {
         </div>
         <span className="text-white font-bold text-sm">{movie.rating}/10</span>
         <span className="text-[9px] font-bold text-white/30 tracking-widest uppercase">
-          IMDb
+          TMDb
         </span>
       </div>
 
@@ -65,7 +66,10 @@ export default function HeroInfoBlock({ movie, infoRef }) {
 
       {/* ── CTA Buttons ───────────────────────────────────── */}
       <div className="flex items-center gap-3 flex-wrap">
-        <button className="bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold flex items-center gap-2 transition-all active:scale-95 hover:scale-105">
+        <Link
+          to={`/watch/${movie?.mediaType}/${movie.id}`}
+          className="bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold flex items-center gap-2 transition-all active:scale-95 hover:scale-105"
+        >
           <span
             className="material-symbols-outlined"
             style={{ fontVariationSettings: "'FILL' 1" }}
@@ -73,7 +77,7 @@ export default function HeroInfoBlock({ movie, infoRef }) {
             play_arrow
           </span>
           Watch Now
-        </button>
+        </Link>
 
         <button className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold flex items-center gap-2 transition-all">
           <span className="material-symbols-outlined">add</span>

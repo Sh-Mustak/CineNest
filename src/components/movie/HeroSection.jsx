@@ -1,9 +1,4 @@
-// src/components/movie/HeroSection.jsx
-// ─────────────────────────────────────────────────────────────────
-// No static fallback. While `movies` is empty/loading, shows a
-// skeleton loader that matches the hero layout exactly.
-// ─────────────────────────────────────────────────────────────────
-
+/* eslint-disable no-unused-vars */
 import { useEffect, useRef, useState } from "react";
 import useHeroSlider from "../../hooks/useHeroSlider";
 import HeroBackground from "./HeroBackground";
