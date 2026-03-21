@@ -1,6 +1,16 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSearch } from "../../hooks/useSearch";
+import SearchModal from "./SearchModal";
 
 const placeholders = ["movies...", "TV shows...", "Anime...", "Actors..."];
+
+// 🔁 Replace with your real API results later
+// const fakeResults = [
+//   { id: 1, title: "Avengers: Endgame", type: "movie" },
+//   { id: 2, title: "Breaking Bad", type: "tv" },
+//   { id: 3, title: "Attack on Titan", type: "anime" },
+// ];
 
 export default function SearchInput() {
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
@@ -8,6 +18,9 @@ export default function SearchInput() {
   const [isFocused, setIsFocused] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const timeoutRef = useRef(null);
+  const navigate = useNavigate();
+  const { data, loading } = useSearch(inputValue);
+  console.log(data, loading);
 
   useEffect(() => {
     const cycle = () => {
@@ -18,11 +31,17 @@ export default function SearchInput() {
         timeoutRef.current = setTimeout(cycle, 2500);
       }, 400);
     };
-
     timeoutRef.current = setTimeout(cycle, 2500);
     return () => clearTimeout(timeoutRef.current);
   }, []);
 
+  //   const results = data?.filter((r) => {
+  //     // Use title if it exists, otherwise use name, or fallback to empty string
+  //     const itemName = r.title || r.name || "";
+
+  //     // Now we can safely call toLowerCase
+  //     return itemName.toLowerCase().includes(inputValue.toLowerCase());
+  //   });
   return (
     <div className="relative group">
       <span
@@ -55,16 +74,25 @@ export default function SearchInput() {
             "0 0 0 3px rgba(220,38,38,0.12), 0 0 20px rgba(220,38,38,0.15), inset 0 1px 0 rgba(255,255,255,0.1)";
         }}
         onBlur={(e) => {
-          setIsFocused(false);
+          setTimeout(() => setIsFocused(false), 200);
           e.target.style.background = "rgba(255, 255, 255, 0.05)";
           e.target.style.borderColor = "rgba(255, 255, 255, 0.1)";
           e.target.style.boxShadow = "none";
         }}
         onChange={(e) => setInputValue(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" && inputValue)
+            navigate(`/search?q=${inputValue}`);
+          if (e.key === "Escape") {
+            setIsFocused(false);
+            setInputValue("");
+          }
+        }}
         value={inputValue}
         type="text"
       />
 
+      {/* Animated placeholder */}
       {!isFocused && !inputValue && (
         <span
           className="absolute left-9 top-1/2 -translate-y-1/2 text-sm text-slate-500 pointer-events-none"
@@ -75,6 +103,18 @@ export default function SearchInput() {
         >
           {placeholders[placeholderIndex]}
         </span>
+      )}
+
+      {/* Modal — only when typing and focused */}
+      {inputValue && isFocused && (
+        <SearchModal
+          inputValue={inputValue}
+          results={data}
+          onClose={() => {
+            setIsFocused(false);
+            setInputValue("");
+          }}
+        />
       )}
     </div>
   );
