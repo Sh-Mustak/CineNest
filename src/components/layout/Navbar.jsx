@@ -22,11 +22,11 @@ export default function Navbar() {
       <div className="max-w-[1440px] mx-auto px-4 h-20 flex items-center justify-between">
 
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center ">
           <span className="material-symbols-outlined text-primary text-3xl font-bold">
             movie
           </span>
-          <h1 className="text-primary text-xl md:text-2xl mr-2 font-black tracking-tighter uppercase">
+          <h1 className="text-primary text-xl md:text-2xl pr-1.5 font-black tracking-tighter uppercase">
             CineNest
           </h1>
         </div>
@@ -52,7 +52,7 @@ export default function Navbar() {
         </div>
 
         {/* Right Side */}
-        <div className="flex items-center gap-3 ml-auto md:ml-0">
+        <div className="flex items-center gap-2 ml-auto md:ml-0">
 
           <SearchInput />
 
