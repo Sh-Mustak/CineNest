@@ -12,7 +12,7 @@ export default function ResultItem({ item }) {
     to={`/watch/${item?.media_type}/${item.id}`}
     className="flex items-center  gap-4 px-4 py-3 rounded-md cursor-pointer transition-colors hover:bg-white/5">
       {/* Thumbnail */}
-      <div className="w-14 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-gray-800 flex items-center justify-center">
+      <div className="w-13 h-20 rounded-md overflow-hidden flex-shrink-0 bg-gray-800 flex items-center justify-center">
         <img
           src={getImageUrl(item.poster_path)}
           alt={item.title || item.name}
@@ -25,7 +25,7 @@ export default function ResultItem({ item }) {
       </div>
 
       {/* Info */}
-      <div className="flex flex-col gap-1 min-w-0">
+      <div className="flex flex-col gap-1 ">
         <span className="font-semibold text-base text-white truncate">
           {item.title || item.name}
         </span>
