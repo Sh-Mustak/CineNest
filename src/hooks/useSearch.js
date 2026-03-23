@@ -28,7 +28,7 @@ export function useSearch(query) {
     return () => clearTimeout(timer);
   }, [query]);
 
-  // ✅ handle empty query OUTSIDE effect
+  
   if (!query) {
     return { data: [], loading: false, error: null };
   }
