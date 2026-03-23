@@ -1,16 +1,13 @@
 import ResultItem from "./ResultItem";
+import { Link } from "react-router-dom";
 
-export default function ResultsPanel({ query, results }) {
+export default function ResultsPanel({ query, results, closeModal }) {
+  const limitedResults = results.slice(0, 5); 
+
   return (
     <div
       className="rounded-md overflow-hidden mt-3"
-      style={{
-        background: "rgba(28,22,36,0.92)",
-        backdropFilter: "blur(24px)",
-        WebkitBackdropFilter: "blur(24px)",
-        border: "1px solid rgba(255,255,255,0.08)",
-        boxShadow: "0 8px 40px rgba(0,0,0,0.6)",
-      }}
+  
     >
       <div className="flex flex-col gap-1 p-2">
         {query.trim() === "" ? (
@@ -23,15 +20,25 @@ export default function ResultsPanel({ query, results }) {
           </p>
         ) : (
           <>
-            {results.map((item) => (
-              <ResultItem key={item.id} item={item} />
+            {limitedResults.map((item) => (
+              <ResultItem
+                key={item.id}
+                item={item}
+                closeModal={closeModal}
+              />
             ))}
 
-            <div className="mt-1 pt-2 border-t border-white/5 flex justify-center">
-              <a className="text-primary text-[10px] font-bold uppercase tracking-widest cursor-pointer hover:opacity-80 transition-opacity">
-                View all results
-              </a>
-            </div>
+            {results.length > 5 && (
+              <div className="mt-2 pt-2 border-t border-white/5 flex justify-center">
+                <Link
+                  to={`/search?q=${query}`}
+                  onClick={closeModal}
+                  className="text-primary text-[10px] font-bold uppercase tracking-widest hover:opacity-80"
+                >
+                  View all results
+                </Link>
+              </div>
+            )}
           </>
         )}
       </div>

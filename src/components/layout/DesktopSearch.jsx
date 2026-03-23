@@ -21,29 +21,37 @@ export default function DesktopSearch({ query, setQuery, data, loading }) {
 
   return (
     <div ref={ref} className="relative hidden lg:block">
-      <div className="flex items-center gap-2 bg-white/5 border rounded-md px-3 py-2 w-60">
-        <span className="material-symbols-outlined text-slate-400">search</span>
+      {/* Search trigger input */}
+      <div className="flex items-center gap-2 bg-zinc-800 border border-zinc-600 rounded-lg px-3 py-2 w-60 focus-within:border-zinc-400 transition-colors">
+        <span className="material-symbols-outlined text-zinc-400 text-[18px]">
+          search
+        </span>
 
         <input
           value={query}
           onChange={(e) => {
-            setQuery(e.target.value); // ✅ now global
+            setQuery(e.target.value);
             setOpen(true);
           }}
           onFocus={() => setOpen(true)}
-          className="bg-transparent outline-none text-white text-sm w-full"
+          className="bg-transparent outline-none text-white placeholder-zinc-400 text-sm w-full"
           placeholder="Search…"
         />
       </div>
 
+      {/* Dropdown results panel */}
       {open && (
-        <div className="absolute top-full mt-3 right-0 w-[380px] bg-[#0a0505] rounded-xl shadow-xl">
+        <div className="absolute top-full mt-6 right-0 w-[380px] rounded-xl shadow-2xl bg-zinc-900 border border-zinc-700">
           {loading ? (
-            <p className="text-center text-sm text-slate-400 py-4">
-              Loading...
+            <p className="text-center text-sm text-zinc-400 py-4">
+              Loading…
             </p>
           ) : (
-            <ResultsPanel query={query} results={data} />
+            <ResultsPanel
+              query={query}
+              results={data}
+              closeModal={() => setOpen(false)}
+            />
           )}
         </div>
       )}

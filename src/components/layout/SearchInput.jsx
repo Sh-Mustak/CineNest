@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { useSearch } from "../../hooks/useSearch";
 import DesktopSearch from "./DesktopSearch";
