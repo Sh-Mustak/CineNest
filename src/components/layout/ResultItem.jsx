@@ -6,10 +6,10 @@ export default function ResultItem({ item, closeModal }) {
     <Link
       to={`/watch/${item?.media_type}/${item.id}`}
       onClick={closeModal}
-      className="flex items-center gap-4 px-4 py-3 rounded-md cursor-pointer hover:bg-white/5 transition-colors"
+      className="flex items-center gap-3 px-4 py-1.5 rounded-md cursor-pointer hover:bg-zinc-800 transition-colors"
     >
-      {/* Image */}
-      <div className="w-8 h-15 rounded-md overflow-hidden bg-gray-800">
+      {/* Poster */}
+      <div className="w-8 h-12 flex-shrink-0 rounded overflow-hidden bg-zinc-700">
         <img
           src={getImageUrl(item.poster_path)}
           alt={item.title || item.name}
@@ -18,12 +18,11 @@ export default function ResultItem({ item, closeModal }) {
       </div>
 
       {/* Info */}
-      <div>
-        <p className="text-white text-sm font-semibold">
+      <div className="min-w-0">
+        <p className="text-white text-sm font-medium truncate">
           {item.title || item.name}
         </p>
-
-        <p className="text-gray-400 text-xs">
+        <p className="text-zinc-400 text-xs mt-0.5">
           {(item.release_date || item.first_air_date)?.slice(0, 4)} •{" "}
           {item.media_type === "tv" ? "TV Show" : "Movie"}
         </p>

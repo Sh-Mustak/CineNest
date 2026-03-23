@@ -28,13 +28,13 @@ export default function MobileSearch({ query, setQuery, data, loading }) {
       </button>
 
       {open && (
-        <div className="fixed top-[64px] inset-x-0 z-50 flex justify-center items-start pt-4 px-4">
+        <div className="fixed top-[64px] inset-x-0 z-50 flex justify-center items-start mt-6 px-4">
           {/* Overlay for dimming background */}
           <div className="fixed inset-0 -z-10 bg-black/50" />
 
           <div
             ref={panelRef}
-            className="w-full max-w-md p-4 rounded-xl bg-zinc-900 border border-zinc-700 shadow-2xl"
+            className="w-full max-w-md p-4 rounded-md bg-zinc-900 border border-zinc-700 shadow-2xl"
           >
             {/* Search input */}
             <div className="relative mb-3">
@@ -45,7 +45,7 @@ export default function MobileSearch({ query, setQuery, data, loading }) {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 autoFocus
-                className="w-full bg-zinc-800 text-white placeholder-zinc-400 pl-9 pr-3 py-2 rounded-lg border border-zinc-600 focus:border-zinc-400 focus:outline-none text-sm"
+                className="w-full bg-zinc-800 text-white placeholder-zinc-400 pl-9 pr-3 py-2 rounded-md border border-zinc-600 focus:border-zinc-400 focus:outline-none text-sm"
                 placeholder="Search..."
               />
             </div>
