@@ -25,7 +25,9 @@ export default function MovieCard({ movie, mediaType, fullWidth }) {
 
         {/* Rating Badge */}
         <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg text-xs font-semibold text-yellow-400 flex items-center gap-1 shadow-md">
-          <span className="material-symbols-outlined text-sm fill-current">
+          <span className="material-symbols-outlined text-sm fill-current"
+          style = {{fontSize: `20px`}}
+          >
             star
           </span>
           {movie.vote_average.toFixed(1)}
