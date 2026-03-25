@@ -1,18 +1,19 @@
-import ResultItem from "./ResultItem";
 import { Link } from "react-router-dom";
+import ResultItem from "./ResultItem";
 
-export default function ResultsPanel({ query, results, closeModal }) {
-  const limitedResults = results.slice(0, 5);
+export default function ResultsPanel({ query, results, closeModal, setQuery }) {
+  const limitedResults = results?.slice(0, 5) || [];
 
   return (
     <div className="rounded-md overflow-hidden">
-
       {/* Header: query + total count */}
       {query.trim() !== "" && results.length > 0 && (
         <div className="flex items-center justify-between px-4 py-1.5 border-b border-zinc-700">
           <p className="text-zinc-400 text-xs">
             Results for{" "}
-            <span className="text-white font-medium">&ldquo;{query}&rdquo;</span>
+            <span className="text-white font-medium">
+              &ldquo;{query}&rdquo;
+            </span>
           </p>
           <span className="text-xs text-zinc-500 bg-zinc-800 px-2 py-0.5 rounded-full">
             {results.length} {results.length === 1 ? "result" : "results"}
@@ -33,7 +34,12 @@ export default function ResultsPanel({ query, results, closeModal }) {
         ) : (
           <>
             {limitedResults.map((item) => (
-              <ResultItem key={item.id} item={item} closeModal={closeModal} />
+              <ResultItem
+                key={item.id}
+                item={item}
+                closeModal={closeModal}
+                setQuery={setQuery}
+              />
             ))}
 
             {results.length > 5 && (

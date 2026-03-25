@@ -7,7 +7,10 @@ export default function DesktopSearch({ query, setQuery, data, loading }) {
 
   useEffect(() => {
     const handler = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+      if (ref.current && !ref.current.contains(e.target)) {
+        setOpen(false);
+        setQuery("");
+      }
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
@@ -43,14 +46,13 @@ export default function DesktopSearch({ query, setQuery, data, loading }) {
       {open && (
         <div className="absolute top-full p-1 mt-6 right-0 w-[380px] rounded-md shadow-2xl bg-zinc-900 border border-zinc-700">
           {loading ? (
-            <p className="text-center text-sm text-zinc-400 py-4">
-              Loading…
-            </p>
+            <p className="text-center text-sm text-zinc-400 py-4">Loading…</p>
           ) : (
             <ResultsPanel
               query={query}
               results={data}
               closeModal={() => setOpen(false)}
+              setQuery={setQuery}
             />
           )}
         </div>

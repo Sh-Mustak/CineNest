@@ -11,6 +11,7 @@ export default function MobileSearch({ query, setQuery, data, loading }) {
     const handler = (e) => {
       if (panelRef.current && !panelRef.current.contains(e.target)) {
         setOpen(false);
+        setQuery("");
       }
     };
 
@@ -52,14 +53,13 @@ export default function MobileSearch({ query, setQuery, data, loading }) {
 
             {/* Results area */}
             {loading ? (
-              <p className="text-center text-sm text-zinc-400 py-4">
-                Loading…
-              </p>
+              <p className="text-center text-sm text-zinc-400 py-4">Loading…</p>
             ) : (
               <ResultsPanel
                 query={query}
                 results={data}
                 closeModal={() => setOpen(false)}
+                setQuery = {setQuery}
               />
             )}
           </div>
