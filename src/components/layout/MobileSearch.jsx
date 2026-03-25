@@ -49,6 +49,14 @@ export default function MobileSearch({ query, setQuery, data, loading }) {
                 className="w-full bg-zinc-800 text-white placeholder-zinc-400 pl-9 pr-3 py-2 rounded-md border border-zinc-600 focus:border-zinc-400 focus:outline-none text-sm"
                 placeholder="Search..."
               />
+              {query && (
+                <button
+                  onClick={() => setQuery("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-zinc-400 hover:text-white"
+                >
+                  Clear
+                </button>
+              )}
             </div>
 
             {/* Results area */}
@@ -59,7 +67,7 @@ export default function MobileSearch({ query, setQuery, data, loading }) {
                 query={query}
                 results={data}
                 closeModal={() => setOpen(false)}
-                setQuery = {setQuery}
+                setQuery={setQuery}
               />
             )}
           </div>

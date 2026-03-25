@@ -40,6 +40,14 @@ export default function DesktopSearch({ query, setQuery, data, loading }) {
           className="bg-transparent outline-none  text-white placeholder-zinc-400 text-sm w-full"
           placeholder="Movie,Tv Shows, Anime..."
         />
+        {query && (
+          <button
+            onClick={() => setQuery("")}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-zinc-400 hover:text-white"
+          >
+            Clear
+          </button>
+        )}
       </div>
 
       {/* Dropdown results panel */}
