@@ -71,7 +71,7 @@ export default function DesktopSearch({ query, setQuery, data, loading }) {
       {open && (
         <div className="absolute top-full mt-4 right-0 w-[380px] rounded-md shadow-2xl bg-zinc-900 border border-zinc-700">
           {loading ? (
-            <p className="text-center text-sm text-zinc-400 py-4">Loading…</p>
+            <p className="text-center text-sm text-zinc-400 py-4">Loading...</p>
           ) : (
             <ResultsPanel
               query={query}
