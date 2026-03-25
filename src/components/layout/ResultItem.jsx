@@ -2,14 +2,15 @@ import { Link } from "react-router-dom";
 import { getImageUrl } from "../../utils/helper";
 
 export default function ResultItem({ item, closeModal, setQuery }) {
-  const handleCloseModal = () => {
+  const handleClick = () => {
     closeModal();
     setQuery("");
   };
+
   return (
     <Link
-      to={`/watch/${item?.media_type}/${item.id}`}
-      onClick={handleCloseModal}
+      to={`/watch/${item?.media_type}/${item.id}`} 
+      onClick={handleClick}
       className="flex items-center gap-3 px-4 py-1.5 rounded-md cursor-pointer hover:bg-zinc-800 transition-colors"
     >
       {/* Poster */}
