@@ -1,8 +1,24 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ResultsPanel from "./ResultsPanel";
 
 export default function MobileSearch({ query, setQuery, data, loading }) {
   const [open, setOpen] = useState(false);
+  const modalRef = useRef(null);
+
+  // ✅ Handle outside click
+  useEffect(() => {
+    if (!open) return;
+
+    const handleClickOutside = (e) => {
+      if (modalRef.current && !modalRef.current.contains(e.target)) {
+        setOpen(false);
+        setQuery("");
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [open, setQuery]);
 
   return (
     <>
@@ -17,17 +33,11 @@ export default function MobileSearch({ query, setQuery, data, loading }) {
       {open && (
         <div className="fixed inset-0 z-50 flex justify-center items-start mt-[64px] px-4">
           {/* Overlay */}
-          <div
-            className="absolute inset-0 bg-black/50"
-            onClick={() => {
-              setOpen(false);
-              setQuery("");
-            }}
-          />
+          <div className="absolute inset-0 bg-black/50" />
 
           {/* Modal */}
           <div
-            onClick={(e) => e.stopPropagation()}
+            ref={modalRef}
             className="relative z-10 w-full max-w-md p-4 rounded-md bg-zinc-900 border border-zinc-700 shadow-2xl"
           >
             {/* Input */}
