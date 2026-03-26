@@ -13,14 +13,13 @@ export default function Navbar() {
   const navLinks = [
     { label: "Home", to: "/" },
     { label: "Movies", to: "/movies" },
-    { label: "TV Series", to: "/tv-series" },
+    { label: "Tv Shows", to: "/tvshows" },
     { label: "Watchlist", to: "/watchlist" },
   ];
 
   return (
     <nav className="fixed left-0 top-0 w-full z-50 bg-[#0a0505]/70 backdrop-blur-md border-b border-primary/10">
       <div className="max-w-[1440px] mx-auto px-4 h-20 flex items-center justify-between">
-
         {/* Logo */}
         <div className="flex items-center ">
           <span className="material-symbols-outlined text-primary text-3xl font-bold">
@@ -53,14 +52,14 @@ export default function Navbar() {
 
         {/* Right Side */}
         <div className="flex items-center gap-2 ml-auto md:ml-0">
-
           <SearchInput />
 
           {/* Profile Icon */}
-          <button
-            className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white hover:bg-primary/80 active:scale-95 transition-all duration-200 shadow-lg shadow-primary/30"
-          >
-            <span className="material-symbols-outlined" style={{ fontSize: "20px" }}>
+          <button className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white hover:bg-primary/80 active:scale-95 transition-all duration-200 shadow-lg shadow-primary/30">
+            <span
+              className="material-symbols-outlined"
+              style={{ fontSize: "20px" }}
+            >
               account_circle
             </span>
           </button>

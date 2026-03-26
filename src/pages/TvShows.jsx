@@ -1,23 +1,23 @@
 import MoviesGrid from "../components/moviesPage/MoviesGrid";
 import PageHeader from "../components/moviesPage/PageHeader";
-import {useDiscover} from "../hooks/useDiscover";
+import { useDiscover } from "../hooks/useDiscover";
 
-export default function Movies() {
-  const { items: movies, loading, error, lastElementRef } = useDiscover("movie");
+export default function TvShows() {
+  const { items: tvShows, loading, error, lastElementRef } = useDiscover("tv");
 
   return (
     <div className="mx-auto py-8">
       <PageHeader />
 
       <MoviesGrid
-        movies={movies}
+        movies={tvShows}
         loading={loading}
         error={error}
-        mediaType="movie"
+        mediaType="tv"
         lastElementRef={lastElementRef}
       />
 
-      {loading && movies.length > 0 && (
+      {loading && tvShows.length > 0 && (
         <div className="flex justify-center items-center mt-6 space-x-2">
           {/* Spinner Circle */}
           <div className="w-6 h-6 border-4 border-t-white border-b-white border-gray-700 rounded-full animate-spin"></div>

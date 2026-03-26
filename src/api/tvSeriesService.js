@@ -22,7 +22,9 @@ export const tvService = {
   },
   getToRatedHindiTvShows: async () => {
     try {
-      const response = await axiosInstance.get(tmdb_endpoints.topRatedHindiTvShows);
+      const response = await axiosInstance.get(
+        tmdb_endpoints.topRatedHindiTvShows,
+      );
       return response.data.results;
     } catch (error) {
       console.error("Error fetching Top Rated Hindi Tv Shows:", error);
@@ -53,6 +55,17 @@ export const tvService = {
       return response.data;
     } catch (error) {
       console.error("Error Fetching Episodes", error);
+      throw error;
+    }
+  },
+  getAllTvShows: async (page = 1) => {
+    try {
+      const response = await axiosInstance.get(
+        `${tmdb_endpoints.discoverTv}&page=${page}`,
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Error Fetching Tv Shows", error);
       throw error;
     }
   },

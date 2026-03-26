@@ -35,3 +35,12 @@ export const FetchEpisodes = async (seriesId, seasonNmbr) => {
     return { data: [], error: error.message };
   }
 };
+
+export const fetchAllTvShows = async (page = 1) => {
+  try {
+    const data = await tvService.getAllTvShows(page);
+    return { data, error: null };
+  } catch (error) {
+    return { data: null, error: error.message };
+  }
+};

@@ -1,7 +1,13 @@
 import MovieCard from "../movie/MovieCard";
 import MovieCardSkeleton from "../Skeleton/MovieCardSkeleton";
 
-export default function MoviesGrid({ movies, loading, error, lastElementRef }) {
+export default function MoviesGrid({
+  movies,
+  loading,
+  error,
+  lastElementRef,
+  mediaType,
+}) {
   if (error) {
     return <div className="text-red-500 text-center py-10">{error}</div>;
   }
@@ -23,7 +29,12 @@ export default function MoviesGrid({ movies, loading, error, lastElementRef }) {
         }
 
         return (
-          <MovieCard key={movie.id} movie={movie} fullWidth mediaType="movie" />
+          <MovieCard
+            key={movie.id}
+            movie={movie}
+            fullWidth
+            mediaType={mediaType}
+          />
         );
       })}
 
