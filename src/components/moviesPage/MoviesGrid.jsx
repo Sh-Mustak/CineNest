@@ -15,7 +15,7 @@ export default function MoviesGrid({ movies, loading, error }) {
       style={{ gridTemplateColumns: "repeat(auto-fill, minmax(130px, 1fr))" }}
     >
       {movies.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} fullWidth />
+        <MovieCard key={movie.id} movie={movie} fullWidth mediaType="movie" />
       ))}
     </div>
   );

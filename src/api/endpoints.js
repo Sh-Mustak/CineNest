@@ -10,6 +10,7 @@ export const tmdb_endpoints = {
   topRated: `${BASE_URL}/movie/top_rated?api_key=${API_KEY}`,
   upcoming: `${BASE_URL}/movie/upcoming?api_key=${API_KEY}`,
   mediaDetails: `${BASE_URL}/movie/{movie_id}?api_key=${API_KEY}&append_to_response=credits,videos,recommendations,reviews`,
+  discoverMovies: `${BASE_URL}//discover/movie?api_key=${API_KEY}`,
 
   // Endpoints for tv series
   airingToday: `${BASE_URL}/tv/airing_today?api_key=${API_KEY}`,

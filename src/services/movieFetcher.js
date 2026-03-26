@@ -36,4 +36,11 @@ export const fetchUpcomingMovies = async () => {
   }
 };
 
-
+export const fetchAllMovies = async () => {
+  try {
+    const data = await movieService.getAllMovies();
+    return { data, error: null };
+  } catch (error) {
+    return { data: [], error: error.message };
+  }
+};

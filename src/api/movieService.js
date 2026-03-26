@@ -49,4 +49,13 @@ export const movieService = {
       throw error;
     }
   },
+  getAllMovies: async()=>{
+   try{
+     const response = await axiosInstance.get(tmdb_endpoints.discoverMovies)
+    return response.data.results;
+   }catch(error){
+    console.error("Error Fetching Movies", error);
+    throw error;
+   }
+  },
 };
