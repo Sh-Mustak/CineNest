@@ -29,7 +29,7 @@ export default function MoviesGrid({ movies, loading, error, lastElementRef }) {
 
       {/* Render skeletons while loading */}
       {loading &&
-        Array.from({ length: movies.length === 0 ? 20 : 6 }).map((_, i) => (
+        Array.from({ length: movies.length === 0 ? 20 : 10 }).map((_, i) => (
           <MovieCardSkeleton key={`skeleton-${i}`} />
         ))}
     </div>

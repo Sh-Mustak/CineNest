@@ -17,7 +17,15 @@ export default function Movies() {
       />
 
       {loading && movies.length > 0 && (
-        <p className="text-center mt-4 text-white">Loading more...</p>
+        <div className="flex justify-center items-center mt-6 space-x-2">
+          {/* Spinner Circle */}
+          <div className="w-6 h-6 border-4 border-t-white border-b-white border-gray-700 rounded-full animate-spin"></div>
+
+          {/* Loading Text */}
+          <span className="text-white font-medium text-lg opacity-80 drop-shadow-lg">
+            Loading more...
+          </span>
+        </div>
       )}
     </div>
   );
