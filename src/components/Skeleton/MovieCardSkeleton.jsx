@@ -1,9 +1,14 @@
 export default function MovieCardSkeleton() {
   return (
-    <div className="flex flex-col gap-3 opacity-60">
-      <div className="aspect-[2/3] rounded-xl bg-white/5 shimmer"></div>
-      <div className="h-5 w-3/4 rounded bg-white/5 shimmer"></div>
-      <div className="h-4 w-1/2 rounded bg-white/5 shimmer"></div>
+    <div className="animate-pulse">
+      {/* Poster */}
+      <div className="bg-gray-700 rounded-lg w-full aspect-[2/3]" />
+
+      {/* Title */}
+      <div className="mt-2 h-3 bg-gray-700 rounded w-3/4" />
+
+      {/* Subtitle */}
+      <div className="mt-1 h-3 bg-gray-700 rounded w-1/2" />
     </div>
   );
 }

@@ -49,13 +49,15 @@ export const movieService = {
       throw error;
     }
   },
-  getAllMovies: async()=>{
-   try{
-     const response = await axiosInstance.get(tmdb_endpoints.discoverMovies)
-    return response.data.results;
-   }catch(error){
-    console.error("Error Fetching Movies", error);
-    throw error;
-   }
+  getAllMovies: async (page = 1) => {
+    try {
+      const response = await axiosInstance.get(
+        `${tmdb_endpoints.discoverMovies}&page=${page}`,
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Error Fetching Movies", error);
+      throw error;
+    }
   },
 };
