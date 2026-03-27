@@ -23,7 +23,7 @@ export default function ResultsPanel({ query, results, closeModal, setQuery }) {
 
       <div className="flex flex-col gap-1 p-2">
         {query.trim() === "" ? (
-          <p className="text-center text-zinc-500 text-xs py-6">
+          <p className="text-center text-zinc-500 text-sm py-2">
             Start typing to search…
           </p>
         ) : results.length === 0 ? (
