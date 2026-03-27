@@ -38,7 +38,7 @@ export default function MobileSearch({ query, setQuery, data, loading }) {
           {/* Modal */}
           <div
             ref={modalRef}
-            className="relative z-10 w-full max-w-md p-4 rounded-md bg-zinc-900 border border-zinc-700 shadow-2xl"
+            className="relative z-10 w-full max-w-md p-4 rounded-md bg-zinc-900 border border-zinc-700 shadow-2xl mt-4.5"
           >
             {/* Input */}
             <div className="relative mb-3">
