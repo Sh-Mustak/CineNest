@@ -36,11 +36,16 @@ export const fetchUpcomingMovies = async () => {
   }
 };
 
-
 export const fetchAllMovies = async (page = 1) => {
   try {
     const data = await movieService.getAllMovies(page);
-    return { data, error: null };
+
+    const normalized = data.results.map((item) => ({
+      ...item,
+      media_type: "movie",
+    }));
+
+    return { data: { ...data, results: normalized }, error: null };
   } catch (error) {
     return { data: null, error: error.message };
   }

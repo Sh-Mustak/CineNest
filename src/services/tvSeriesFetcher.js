@@ -39,7 +39,13 @@ export const FetchEpisodes = async (seriesId, seasonNmbr) => {
 export const fetchAllTvShows = async (page = 1) => {
   try {
     const data = await tvService.getAllTvShows(page);
-    return { data, error: null };
+
+    const normalized = data.results.map((item) => ({
+      ...item,
+      media_type: "tv",
+    }));
+
+    return { data: { ...data, results: normalized }, error: null };
   } catch (error) {
     return { data: null, error: error.message };
   }

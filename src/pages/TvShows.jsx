@@ -13,7 +13,7 @@ export default function TvShows() {
         movies={tvShows}
         loading={loading}
         error={error}
-        mediaType="tv"
+        
         lastElementRef={lastElementRef}
       />
 

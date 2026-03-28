@@ -2,11 +2,13 @@ import { Link } from "react-router-dom";
 import { prefetchMovie } from "../../services/prefetchMovie";
 import { getImageUrl } from "../../utils/helper";
 
-export default function MovieCard({ movie, mediaType, fullWidth }) {
+export default function MovieCard({ movie, fullWidth }) {
+  
+  const type = movie?.media_type;
   return (
     <Link
-      to={`/watch/${mediaType}/${movie.id}`}
-      onMouseEnter={() => prefetchMovie(mediaType, movie.id)}
+      to={`/watch/${type}/${movie.id}`}
+      onMouseEnter={() => prefetchMovie(type, movie.id)}
       onClick={() => {
         sessionStorage.setItem("homeScroll", window.scrollY);
       }}
@@ -25,8 +27,9 @@ export default function MovieCard({ movie, mediaType, fullWidth }) {
 
         {/* Rating Badge */}
         <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg text-xs font-semibold text-yellow-400 flex items-center gap-1 shadow-md">
-          <span className="material-symbols-outlined text-sm fill-current"
-          style = {{fontSize: `20px`}}
+          <span
+            className="material-symbols-outlined text-sm fill-current"
+            style={{ fontSize: `20px` }}
           >
             star
           </span>

@@ -13,7 +13,7 @@ export default function Movies() {
         movies={movies}
         loading={loading}
         error={error}
-        mediaType="movie"
+        
         lastElementRef={lastElementRef}
       />
 

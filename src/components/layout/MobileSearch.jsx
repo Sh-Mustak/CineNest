@@ -5,7 +5,7 @@ export default function MobileSearch({ query, setQuery, data, loading }) {
   const [open, setOpen] = useState(false);
   const modalRef = useRef(null);
 
-  // ✅ Handle outside click
+  //  Handle outside click
   useEffect(() => {
     if (!open) return;
 

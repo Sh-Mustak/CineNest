@@ -37,7 +37,6 @@ export default function Home() {
         loading={loading}
         error={error}
         rowheader="Trending Now"
-        mediaType="movie"
       />
       <MovieRow
         movies={popular}
@@ -51,35 +50,30 @@ export default function Home() {
         loading={loading}
         error={error}
         rowheader="Top Rated"
-        mediaType="movie"
       />
       <MovieRow
         movies={upcoming}
         loading={loading}
         error={error}
         rowheader="Upcoming Movies"
-        mediaType="movie"
       />
       <MovieRow
         movies={airingToday}
         loading={loading}
         error={error}
         rowheader="Airing Today"
-        mediaType="tv"
       />
       <MovieRow
         movies={topRatedTvShows}
         loading={loading}
         error={error}
         rowheader="Top Rated TV Shows"
-        mediaType="tv"
       />
       <MovieRow
         movies={topRatedHindiTvShows}
         loading={loading}
         error={error}
         rowheader="Top Rated Hindi TV Shows"
-        mediaType="tv"
       />
     </main>
   );
