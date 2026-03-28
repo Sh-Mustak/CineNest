@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import MoviesGrid from "../components/moviesPage/MoviesGrid";
-import {useSearch} from "../hooks/useSearch";
+import { useSearch } from "../hooks/useSearch";
 
 export default function Search() {
   const { search } = useLocation();
@@ -29,27 +29,31 @@ export default function Search() {
   }
 
   return (
-    <div className="mx-auto py-8 px-4">
-      {/* ✅ Heading */}
-      <h1 className="text-xl font-bold mb-6 text-white">
-        Results for "{query}"
-      </h1>
+    <div className="mx-auto py-8 px-4 mt-15">
+      {/*  Heading + Query Info */}
+      <div className="mb-6">
+        <h1 className="text-xl font-bold text-white">Search Results</h1>
+        <p className="text-zinc-400 mt-1">
+          Showing {results.length} results for{" "}
+          <span className="text-white">"{query}"</span>
+        </p>
+      </div>
 
-      {/*  Error State */}
+      {/* Error State */}
       {error && (
         <p className="text-red-500 text-center">
           Something went wrong. Try again.
         </p>
       )}
 
-      {/*  Empty State */}
+      {/* Empty State */}
       {!loading && results.length === 0 && (
         <p className="text-center text-zinc-400">
           No results found for "{query}"
         </p>
       )}
 
-      {/* ✅ Results */}
+      {/* Results */}
       <MoviesGrid
         movies={results}
         loading={loading}
