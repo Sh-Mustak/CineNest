@@ -26,10 +26,10 @@ export default function MovieCard({ movie, fullWidth }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
 
         {/* Rating Badge */}
-        <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg text-xs font-semibold text-yellow-400 flex items-center gap-1 shadow-md">
+        <div className="absolute top-1 left-1 bg-black/60 backdrop-blur-md px-2 py-1 rounded-md text-[12px] font-semibold text-yellow-400 flex items-center gap-1 shadow-md">
           <span
             className="material-symbols-outlined text-sm fill-current"
-            style={{ fontSize: `20px` }}
+            style={{ fontSize: `15px` }}
           >
             star
           </span>
