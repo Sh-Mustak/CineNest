@@ -67,13 +67,13 @@ export default function Home() {
         movies={topRatedTvShows}
         loading={loading}
         error={error}
-        rowheader="Top Rated TV Shows"
+        rowheader="Top TV Shows"
       />
       <MovieRow
         movies={topRatedHindiTvShows}
         loading={loading}
         error={error}
-        rowheader="Top Rated Hindi TV Shows"
+        rowheader="Top Hindi TV"
       />
     </main>
   );
