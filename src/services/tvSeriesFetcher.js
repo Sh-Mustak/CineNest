@@ -1,9 +1,19 @@
 import { tvService } from "../api/tvSeriesService";
 
+const normalizeTvShows = (data) => {
+  return {
+    ...data,
+    results: data.results.map((item) => ({
+      ...item,
+      media_type: "tv",
+    })),
+  };
+};
+
 export const fetchAiringTodayTvSeries = async () => {
   try {
     const data = await tvService.getAiringTvSeries();
-    return { data, error: null };
+    return { data: normalizeTvShows(data), error: null };
   } catch (error) {
     return { data: [], error: error.message };
   }
@@ -12,7 +22,7 @@ export const fetchAiringTodayTvSeries = async () => {
 export const fetchTopRatedTvShows = async () => {
   try {
     const data = await tvService.getToRatedTvShows();
-    return { data, error: null };
+    return { data: normalizeTvShows(data), error: null };
   } catch (error) {
     return { data: [], error: error.message };
   }
@@ -21,7 +31,7 @@ export const fetchTopRatedTvShows = async () => {
 export const fetchTopRatedHindiTvShows = async () => {
   try {
     const data = await tvService.getToRatedHindiTvShows();
-    return { data, error: null };
+    return { data: normalizeTvShows(data), error: null };
   } catch (error) {
     return { data: [], error: error.message };
   }
@@ -36,11 +46,8 @@ export const FetchEpisodes = async (seriesId, seasonNmbr) => {
   }
 };
 
-export const fetchAllTvShows = async (
-  page = 1,
-  category = null
-) => {
- try {
+export const fetchAllTvShows = async (page = 1, category = null) => {
+  try {
     let data;
 
     if (category === "airing_today") {
@@ -55,10 +62,13 @@ export const fetchAllTvShows = async (
 
     const normalized = data.results.map((item) => ({
       ...item,
-      media_type: "movie",
+      media_type: "tv",
     }));
 
-    return { data: { ...data, results: normalized }, error: null };
+    return {
+      data: { ...data, results: normalized },
+      error: null,
+    };
   } catch (error) {
     return { data: null, error: error.message };
   }

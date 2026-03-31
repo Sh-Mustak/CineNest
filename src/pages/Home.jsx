@@ -55,7 +55,6 @@ export default function Home() {
         rowheader="Top Rated"
         category="top_rated"
         mediaType="movie"
-
       />
       <MovieRow
         movies={upcoming?.results}
@@ -72,7 +71,6 @@ export default function Home() {
         rowheader="Airing Today"
         category="airing_today"
         mediaType="tv"
-
       />
       <MovieRow
         movies={topRatedTvShows?.results}
