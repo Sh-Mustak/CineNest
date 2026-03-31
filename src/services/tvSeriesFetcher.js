@@ -38,14 +38,24 @@ export const FetchEpisodes = async (seriesId, seasonNmbr) => {
 
 export const fetchAllTvShows = async (
   page = 1,
-  sort_by = "popularity.desc",
+  category = null
 ) => {
-  try {
-    const data = await tvService.getAllTvShows(page, sort_by);
+ try {
+    let data;
+
+    if (category === "airing_today") {
+      data = await tvService.getAiringTvSeries(page);
+    } else if (category === "top_rated_tv") {
+      data = await tvService.getToRatedTvShows(page);
+    } else if (category === "top_rated_hindi_tv") {
+      data = await tvService.getToRatedHindiTvShows(page);
+    } else {
+      data = await tvService.getAllTvShows(page);
+    }
 
     const normalized = data.results.map((item) => ({
       ...item,
-      media_type: "tv",
+      media_type: "movie",
     }));
 
     return { data: { ...data, results: normalized }, error: null };
