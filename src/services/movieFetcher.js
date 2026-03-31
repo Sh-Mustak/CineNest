@@ -1,8 +1,8 @@
 import { movieService } from "../api/movieService";
 
-export const fetchTrendingMovies = async () => {
+export const fetchTrendingMovies = async (page) => {
   try {
-    const data = await movieService.getTrendingMovies();
+    const data = await movieService.getTrendingMovies(page);
     return { data, error: null };
   } catch (error) {
     return { data: [], error: error.message };
@@ -36,9 +36,23 @@ export const fetchUpcomingMovies = async () => {
   }
 };
 
-export const fetchAllMovies = async (page = 1) => {
+export const fetchAllMovies = async (
+  page,
+  // sort_by = "popularity.desc",
+  category 
+) => {
   try {
-    const data = await movieService.getAllMovies(page);
+    let data;
+
+    if (category === "trending") {
+      data = await movieService.getTrendingMovies(page);
+    } else if (category === "top_rated") {
+      data = await movieService.getTopRatedMovies(page);
+    } else if (category === "popular") {
+      data = await movieService.getPopularMovies(page);
+    } else {
+      data = await movieService.getAllMovies(page);
+    }
 
     const normalized = data.results.map((item) => ({
       ...item,

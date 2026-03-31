@@ -2,37 +2,45 @@ import axiosInstance from "./axiosInstance";
 import { tmdb_endpoints } from "./endpoints";
 
 export const movieService = {
-  getTrendingMovies: async () => {
+  getTrendingMovies: async (page = 1) => {
     try {
-      const response = await axiosInstance.get(tmdb_endpoints.trending);
-      return response.data.results;
+      const response = await axiosInstance.get(
+        `${tmdb_endpoints.trending}&page=${page}`,
+      );
+      return response.data; // return full data for pagination
     } catch (error) {
       console.error("Error fetching trending movies:", error);
       throw error;
     }
   },
-  getPopularMovies: async () => {
+  getPopularMovies: async (page = 1) => {
     try {
-      const response = await axiosInstance.get(tmdb_endpoints.popular);
-      return response.data.results;
+      const response = await axiosInstance.get(
+        `${tmdb_endpoints.popular}&page=${page}`,
+      );
+      return response.data; // return full data for pagination
     } catch (error) {
       console.error("Error fetching popular movies:", error);
       throw error;
     }
   },
-  getTopRatedMovies: async () => {
+  getTopRatedMovies: async (page = 1) => {
     try {
-      const response = await axiosInstance.get(tmdb_endpoints.topRated);
-      return response.data.results;
+      const response = await axiosInstance.get(
+        `${tmdb_endpoints.topRated}&page=${page}`,
+      );
+      return response.data; // return full data for pagination
     } catch (error) {
       console.error("Error fetching top rated movies:", error);
       throw error;
     }
   },
-  getUpcomingMovies: async () => {
+  getUpcomingMovies: async (page = 1) => {
     try {
-      const response = await axiosInstance.get(tmdb_endpoints.upcoming);
-      return response.data.results;
+      const response = await axiosInstance.get(
+        `${tmdb_endpoints.upcoming}&page=${page}`,
+      );
+      return response.data; // return full data for pagination
     } catch (error) {
       console.error("Error fetching upcoming movies:", error);
       throw error;

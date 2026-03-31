@@ -7,12 +7,21 @@ export default function MovieRow({
   loading,
   error,
   showHeader,
-  mediaType
+  category,
+  mediaType,
 }) {
+  console.log("MovieRow received movies:", movies);
+
   return (
     <div className={`relative  ${showHeader && "-mt-31"} space-y-16`}>
       <section className="mt-4">
-        {showHeader ?? <SectionHeader rowheader={rowheader} />}
+        {showHeader !== false && (
+          <SectionHeader
+            rowheader={rowheader}
+            category={category}
+            mediaType={mediaType}
+          />
+        )}
         <div className="flex gap-3 overflow-x-auto hide-scrollbar pb-8 snap-x pt-6 scroll-pl-6 pl-6 pr-6 ">
           {loading ? (
             <div className="flex items-center justify-center w-full h-48">
@@ -24,7 +33,7 @@ export default function MovieRow({
             </div>
           ) : (
             movies?.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} mediaType={mediaType} fullWidth={false} />
+              <MovieCard key={movie.id} movie={movie} fullWidth={false} />
             ))
           )}
         </div>

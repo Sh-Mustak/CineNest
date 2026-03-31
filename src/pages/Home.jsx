@@ -18,7 +18,7 @@ export default function Home() {
     error,
   } = useMovieContext();
 
-  const heroSlides = adaptMoviesForHero(trending, 10, "tv");
+  const heroSlides = adaptMoviesForHero(trending?.results, 10, "tv");
 
   useEffect(() => {
     const savedScroll = sessionStorage.getItem("homeScroll");
@@ -33,47 +33,62 @@ export default function Home() {
       <HeroSection movies={heroSlides} />
 
       <MovieRow
-        movies={trending}
+        movies={trending?.results}
         loading={loading}
         error={error}
         rowheader="Trending Now"
-      />
-      <MovieRow
-        movies={popular}
-        loading={loading}
-        error={error}
-        rowheader="Popular Movies"
+        category="trending"
         mediaType="movie"
       />
       <MovieRow
-        movies={topRated}
+        movies={popular?.results}
+        loading={loading}
+        error={error}
+        rowheader="Popular Movies"
+        category="popular"
+        mediaType="movie"
+      />
+      <MovieRow
+        movies={topRated?.results}
         loading={loading}
         error={error}
         rowheader="Top Rated"
+        category="top_rated"
+        mediaType="movie"
+
       />
       <MovieRow
-        movies={upcoming}
+        movies={upcoming?.results}
         loading={loading}
         error={error}
         rowheader="Upcoming Movies"
+        category="upcoming"
+        mediaType="movie"
       />
       <MovieRow
-        movies={airingToday}
+        movies={airingToday?.results}
         loading={loading}
         error={error}
         rowheader="Airing Today"
+        category="airing_today"
+        mediaType="tv"
+
       />
       <MovieRow
-        movies={topRatedTvShows}
+        movies={topRatedTvShows?.results}
         loading={loading}
         error={error}
         rowheader="Top TV Shows"
+        category="top_rated_tv"
+        mediaType="tv"
       />
       <MovieRow
-        movies={topRatedHindiTvShows}
+        movies={topRatedHindiTvShows?.results}
         loading={loading}
         error={error}
         rowheader="Top Hindi TV"
+        category="top_rated_hindi_tv"
+        mediaType="tv"
       />
     </main>
   );

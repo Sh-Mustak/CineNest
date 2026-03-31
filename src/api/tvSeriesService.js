@@ -2,30 +2,34 @@ import axiosInstance from "./axiosInstance";
 import { tmdb_endpoints } from "./endpoints";
 
 export const tvService = {
-  getAiringTvSeries: async () => {
+  getAiringTvSeries: async (page = 1) => {
     try {
-      const response = await axiosInstance.get(tmdb_endpoints.airingToday);
-      return response.data.results;
+      const response = await axiosInstance.get(
+        `${tmdb_endpoints.airingToday}&page=${page}`
+      );
+      return response.data; // return full data for pagination
     } catch (error) {
       console.error("Error fetching Airing Today Tv Series:", error);
       throw error;
     }
   },
-  getToRatedTvShows: async () => {
+  getToRatedTvShows: async (page = 1) => {
     try {
-      const response = await axiosInstance.get(tmdb_endpoints.topRatedTvShows);
-      return response.data.results;
+      const response = await axiosInstance.get(
+        `${tmdb_endpoints.topRatedTvShows}&page=${page}`
+      );
+      return response.data; // return full data for pagination
     } catch (error) {
       console.error("Error fetching Top Rated Tv Shows:", error);
       throw error;
     }
   },
-  getToRatedHindiTvShows: async () => {
+  getToRatedHindiTvShows: async (page = 1) => {
     try {
       const response = await axiosInstance.get(
-        tmdb_endpoints.topRatedHindiTvShows,
+        `${tmdb_endpoints.topRatedHindiTvShows}&page=${page}`
       );
-      return response.data.results;
+      return response.data; // return full data for pagination
     } catch (error) {
       console.error("Error fetching Top Rated Hindi Tv Shows:", error);
       throw error;

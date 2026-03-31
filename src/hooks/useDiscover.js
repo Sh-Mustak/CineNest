@@ -1,12 +1,13 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useMemo } from "react";
 import { fetchAllMovies } from "../services/movieFetcher";
 import { fetchAllTvShows } from "../services/tvSeriesFetcher";
 
 /**
  * useDiscover Hook
  * @param {string} type - "movie" or "tv"
+ * @param {string} category - the category of media to fetch
  */
-export function useDiscover(type = "movie") {
+export function useDiscover(type, category = null) {
   const [items, setItems] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -14,25 +15,32 @@ export function useDiscover(type = "movie") {
   const [hasMore, setHasMore] = useState(true);
 
   const observerRef = useRef(null);
-  const loadingRef = useRef(false); // prevents duplicate API calls
+  const loadingRef = useRef(false);
 
-  // Choose the correct fetcher based on type
-  const fetcher = type === "movie" ? fetchAllMovies : fetchAllTvShows;
+  // ✅ Fetcher with category passed
+  const fetcher = useMemo(() => {
+    return type === "movie"
+      ? (pageNum) => fetchAllMovies(pageNum, category)
+      : (pageNum) => fetchAllTvShows(pageNum, category);
+  }, [type, category]);
 
   const loadItems = useCallback(
     async (pageNum) => {
-      if (loadingRef.current) return; // prevent duplicate calls
+      if (loadingRef.current) return;
+
       loadingRef.current = true;
       setLoading(true);
 
-      const { data, error } = await fetcher(pageNum); // call the appropriate fetcher
+      const { data, error } = await fetcher(pageNum);
 
       if (error) {
         setError(error);
       } else {
         setItems((prev) => {
           const map = new Map();
-          [...prev, ...data.results].forEach((item) => map.set(item.id, item));
+          [...prev, ...data.results].forEach((item) =>
+            map.set(item.id, item)
+          );
           return Array.from(map.values());
         });
 
@@ -44,10 +52,10 @@ export function useDiscover(type = "movie") {
       setLoading(false);
       loadingRef.current = false;
     },
-    [fetcher],
+    [fetcher]
   );
 
-  // fetch on page change
+  // Fetch on page change
   useEffect(() => {
     if (!hasMore) return;
 
@@ -72,16 +80,16 @@ export function useDiscover(type = "movie") {
           }
         },
         {
-          rootMargin: "200px", // preload before reaching bottom
-        },
+          rootMargin: "200px",
+        }
       );
 
       if (node) observerRef.current.observe(node);
     },
-    [loading, hasMore],
+    [loading, hasMore]
   );
 
-  // cleanup
+  // Cleanup
   useEffect(() => {
     return () => observerRef.current?.disconnect();
   }, []);

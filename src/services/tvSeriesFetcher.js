@@ -36,9 +36,12 @@ export const FetchEpisodes = async (seriesId, seasonNmbr) => {
   }
 };
 
-export const fetchAllTvShows = async (page = 1) => {
+export const fetchAllTvShows = async (
+  page = 1,
+  sort_by = "popularity.desc",
+) => {
   try {
-    const data = await tvService.getAllTvShows(page);
+    const data = await tvService.getAllTvShows(page, sort_by);
 
     const normalized = data.results.map((item) => ({
       ...item,

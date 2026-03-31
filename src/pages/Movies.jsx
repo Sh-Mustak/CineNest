@@ -1,9 +1,19 @@
+import { useSearchParams } from "react-router-dom";
 import MoviesGrid from "../components/moviesPage/MoviesGrid";
 import PageHeader from "../components/moviesPage/PageHeader";
-import {useDiscover} from "../hooks/useDiscover";
+import { useDiscover } from "../hooks/useDiscover";
 
 export default function Movies() {
-  const { items: movies, loading, error, lastElementRef } = useDiscover("movie");
+  const [params] = useSearchParams();
+  const category = params.get("category");
+  const typeFromUrl = params.get("type");
+
+  const {
+    items: movies,
+    loading,
+    error,
+    lastElementRef,
+  } = useDiscover(typeFromUrl || "movie", category);
 
   return (
     <div className="mx-auto py-8">
@@ -13,7 +23,6 @@ export default function Movies() {
         movies={movies}
         loading={loading}
         error={error}
-        
         lastElementRef={lastElementRef}
       />
 
