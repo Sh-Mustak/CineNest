@@ -10,6 +10,7 @@ export default function MovieRow({
   category,
   mediaType,
 }) {
+
   return (
     <div className={`relative  ${showHeader && "-mt-31"} space-y-16`}>
       <section className="mt-4">

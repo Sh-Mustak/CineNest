@@ -14,6 +14,7 @@ export default function Movies() {
     error,
     lastElementRef,
   } = useDiscover(typeFromUrl || "movie", category);
+  
 
   return (
     <div className="mx-auto py-8">

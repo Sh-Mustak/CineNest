@@ -17,7 +17,6 @@ export default function Home() {
     loading,
     error,
   } = useMovieContext();
-
   const heroSlides = adaptMoviesForHero(trending?.results, 10, "tv");
 
   useEffect(() => {
