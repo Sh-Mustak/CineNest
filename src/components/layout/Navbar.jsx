@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import SearchInput from "./SearchInput";
 
@@ -22,11 +22,28 @@ export default function Navbar() {
 
   const HandleMenu = () => setOpenMenu(!openMenu);
 
+  // Lock body scroll when drawer is open
+  useEffect(() => {
+    if (openMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [openMenu]);
+
+  // Close drawer on route change
+  useEffect(() => {
+    setOpenMenu(false);
+  }, [location.pathname]);
+
   const navLinks = [
-    { label: "Home", to: "/" },
-    { label: "Movies", to: "/movies" },
-    { label: "Tv Shows", to: "/tvshows" },
-    { label: "Watchlist", to: "/watchlist" },
+    { label: "Home", to: "/", icon: "home" },
+    { label: "Movies", to: "/movies", icon: "movie" },
+    { label: "Tv Shows", to: "/tvshows", icon: "tv" },
+    { label: "Watchlist", to: "/watchlist", icon: "bookmark" },
   ];
 
   return (
@@ -89,48 +106,111 @@ export default function Navbar() {
       {/* Overlay */}
       <div
         onClick={HandleMenu}
-        className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
           openMenu ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       />
 
       {/* Right Side Drawer */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 z-50 bg-[#0a0505] border-l border-primary/10 flex flex-col transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 right-0 h-full w-72 z-50 bg-[#0d0d0d] border-l border-white/5 flex flex-col transition-transform duration-300 ease-in-out md:hidden ${
           openMenu ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Drawer Header — just close button, no logo */}
-        <div className="flex items-center justify-end px-5 h-20 border-b border-primary/10">
+        {/* Drawer Header */}
+        <div className="flex items-center justify-between px-5 h-20 border-b border-white/5">
+          <CineNestLogo />
           <button
             onClick={HandleMenu}
-            className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white hover:bg-primary/80 active:scale-95 transition-all duration-200"
+            className="flex items-center justify-center w-8 h-8 rounded-full border border-white/10 text-slate-400 hover:text-white hover:border-white/30 active:scale-95 transition-all duration-200"
           >
-            <span className="material-symbols-outlined" style={{ fontSize: "20px" }}>
+            <span className="material-symbols-outlined" style={{ fontSize: "18px" }}>
               close
             </span>
           </button>
         </div>
 
-        {/* Drawer Links */}
-        <div className="flex flex-col gap-1 p-4 mt-2">
-          {navLinks.map((link) => {
-            const isActive = location.pathname === link.to;
-            return (
-              <Link
-                key={link.to}
-                to={link.to}
-                onClick={HandleMenu}
-                className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  isActive
-                    ? "text-primary bg-primary/10 border border-primary/20"
-                    : "text-slate-400 hover:text-white hover:bg-white/5"
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+        {/* Scrollable content */}
+        <div className="flex-1 overflow-y-auto py-4">
+
+          {/* BROWSE section */}
+          <div className="px-4 mb-2">
+            <p className="text-[10px] font-semibold tracking-widest text-slate-500 uppercase px-2 mb-2">
+              Browse
+            </p>
+            <div className="flex flex-col gap-1">
+              {navLinks.slice(0, 3).map((link) => {
+                const isActive = location.pathname === link.to;
+                return (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    onClick={HandleMenu}
+                    className={`flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200 ${
+                      isActive
+                        ? "bg-primary/15 text-primary"
+                        : "text-slate-300 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <div
+                      className={`flex items-center justify-center w-9 h-9 rounded-lg ${
+                        isActive ? "bg-primary/20" : "bg-white/5"
+                      }`}
+                    >
+                      <span
+                        className="material-symbols-outlined"
+                        style={{ fontSize: "18px" }}
+                      >
+                        {link.icon}
+                      </span>
+                    </div>
+                    <span className="text-sm font-medium">{link.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="mx-4 my-3 border-t border-white/5" />
+
+          {/* ACCOUNT section */}
+          <div className="px-4">
+            <p className="text-[10px] font-semibold tracking-widest text-slate-500 uppercase px-2 mb-2">
+              Account
+            </p>
+            <div className="flex flex-col gap-1">
+              {navLinks.slice(3).map((link) => {
+                const isActive = location.pathname === link.to;
+                return (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    onClick={HandleMenu}
+                    className={`flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200 ${
+                      isActive
+                        ? "bg-primary/15 text-primary"
+                        : "text-slate-300 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <div
+                      className={`flex items-center justify-center w-9 h-9 rounded-lg ${
+                        isActive ? "bg-primary/20" : "bg-white/5"
+                      }`}
+                    >
+                      <span
+                        className="material-symbols-outlined"
+                        style={{ fontSize: "18px" }}
+                      >
+                        {link.icon}
+                      </span>
+                    </div>
+                    <span className="text-sm font-medium">{link.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
         </div>
       </div>
     </>
