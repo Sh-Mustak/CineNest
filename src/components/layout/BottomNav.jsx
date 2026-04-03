@@ -10,9 +10,12 @@ const navLinks = [
 export default function BottomNav() {
   const location = useLocation();
 
+  // Hide on watch page
+  if (location.pathname.startsWith("/watch")) return null;
+
   return (
-    <nav className="fixed bottom-0 left-0 w-full z-50 md:hidden bg-[#0a0505]/90 backdrop-blur-md border-t border-white/10 safe-area-inset-bottom">
-      <div className="flex items-center justify-around h-16 px-2">
+    <nav className="fixed bottom-0 left-0 w-full z-50 md:hidden bg-[#0a0505]/90 backdrop-blur-md border-t border-white/10">
+      <div className="flex items-center justify-around h-14 px-2">
         {navLinks.map((link) => {
           const isActive = location.pathname === link.to;
           return (
@@ -32,14 +35,14 @@ export default function BottomNav() {
 
               {/* Icon container */}
               <div
-                className={`flex items-center justify-center w-10 h-7 rounded-xl transition-all duration-200 ${
+                className={`flex items-center justify-center w-9 h-6 rounded-xl transition-all duration-200 ${
                   isActive ? "bg-primary/15" : "bg-transparent"
                 }`}
               >
                 <span
                   className="material-symbols-outlined"
                   style={{
-                    fontSize: "22px",
+                    fontSize: "20px",
                     fontVariationSettings: isActive
                       ? "'FILL' 1, 'wght' 400"
                       : "'FILL' 0, 'wght' 300",
