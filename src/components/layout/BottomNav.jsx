@@ -10,21 +10,27 @@ const navLinks = [
 export default function BottomNav() {
   const location = useLocation();
 
-  // Hide on watch page
   if (location.pathname.startsWith("/watch")) return null;
 
   return (
-    <nav className="fixed bottom-0 left-0 w-full z-50 md:hidden bg-[#0a0505]/90 backdrop-blur-md border-t border-white/10">
-      <div className="flex items-center justify-around h-14 px-2">
+    <nav
+      style={{ height: "56px", minHeight: "56px", maxHeight: "56px" }}
+      className="fixed bottom-0 left-0 w-full z-50 md:hidden bg-[#0a0505]/90 backdrop-blur-md border-t border-white/10"
+    >
+      <div
+        style={{ height: "56px" }}
+        className="flex items-center justify-around px-2"
+      >
         {navLinks.map((link) => {
           const isActive = location.pathname === link.to;
           return (
             <Link
               key={link.to}
               to={link.to}
-              className={`relative flex flex-col items-center justify-center gap-0.5 flex-1 h-full transition-all duration-200 active:scale-90 ${
+              className={`relative flex flex-col items-center justify-center gap-0.5 flex-1 transition-all duration-200 active:scale-90 ${
                 isActive ? "text-primary" : "text-slate-500"
               }`}
+              style={{ height: "56px" }}
             >
               {/* Active top indicator bar */}
               <span
@@ -35,9 +41,10 @@ export default function BottomNav() {
 
               {/* Icon container */}
               <div
-                className={`flex items-center justify-center w-9 h-6 rounded-xl transition-all duration-200 ${
+                className={`flex items-center justify-center w-9 rounded-xl transition-all duration-200 ${
                   isActive ? "bg-primary/15" : "bg-transparent"
                 }`}
+                style={{ height: "24px" }}
               >
                 <span
                   className="material-symbols-outlined"
