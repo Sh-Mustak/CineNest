@@ -4,43 +4,14 @@ import SearchInput from "./SearchInput";
 
 function CineNestLogo() {
   return (
-    <Link to="/" className="flex items-center gap-2.5 flex-shrink-0">
-      {/* Film strip icon */}
-      <div className="flex flex-col gap-[3px]">
-        <div className="flex gap-[3px]">
-          {[0, 1, 2].map((i) => (
-            <div key={i} className="w-2 h-2 rounded-[2px] bg-primary opacity-85" />
-          ))}
-        </div>
-        <div className="w-11 h-3.5 bg-[#12121a] border border-white/10 rounded-[1px] relative overflow-hidden">
-          <div className="absolute left-1 top-[3px] right-1 bottom-[3px] bg-gradient-to-r from-red-700 to-red-900 rounded-[1px] opacity-70" />
-        </div>
-        <div className="w-11 h-3.5 bg-[#12121a] border border-white/10 rounded-[1px] relative overflow-hidden opacity-60">
-          <div className="absolute left-1 top-[3px] right-1 bottom-[3px] bg-gradient-to-r from-red-700 to-red-900 rounded-[1px] opacity-70" />
-        </div>
-        <div className="flex gap-[3px]">
-          {[0, 1, 2].map((i) => (
-            <div key={i} className="w-2 h-2 rounded-[2px] bg-primary opacity-85" />
-          ))}
-        </div>
-      </div>
-
-      {/* Wordmark */}
-      <div className="flex flex-col leading-none">
-        <span
-          className="text-[32px] tracking-[4px] leading-none"
-          style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-        >
-          <span className="text-white">Cine</span>
-          <span className="text-primary">Nest</span>
-        </span>
-        <span
-          className="text-[8px] tracking-[3px] text-primary/50 uppercase mt-0.5 pl-0.5"
-          style={{ fontFamily: "'Space Mono', monospace" }}
-        >
-          your cinema, curated
-        </span>
-      </div>
+    <Link to="/" className="flex items-center flex-shrink-0">
+      <span
+        className="text-[32px] tracking-[4px] leading-none"
+        style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+      >
+        <span className="text-white">Cine</span>
+        <span className="text-primary">Nest</span>
+      </span>
     </Link>
   );
 }
@@ -60,9 +31,8 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Load fonts */}
       <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
         rel="stylesheet"
       />
 
