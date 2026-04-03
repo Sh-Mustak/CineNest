@@ -79,7 +79,7 @@ export default function Navbar() {
                 className="material-symbols-outlined transition-transform duration-300"
                 style={{ fontSize: "20px" }}
               >
-                {openMenu ? "close" : "menu"}
+                menu
               </span>
             </button>
           </div>
@@ -96,13 +96,12 @@ export default function Navbar() {
 
       {/* Right Side Drawer */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 z-50 bg-[#0a0505]/95 backdrop-blur-md border-l border-primary/10 flex flex-col transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 right-0 h-full w-64 z-50 bg-[#0a0505] border-l border-primary/10 flex flex-col transition-transform duration-300 ease-in-out md:hidden ${
           openMenu ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Drawer Header */}
-        <div className="flex items-center justify-between px-5 h-20 border-b border-primary/10">
-          <CineNestLogo />
+        {/* Drawer Header — just close button, no logo */}
+        <div className="flex items-center justify-end px-5 h-20 border-b border-primary/10">
           <button
             onClick={HandleMenu}
             className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white hover:bg-primary/80 active:scale-95 transition-all duration-200"
