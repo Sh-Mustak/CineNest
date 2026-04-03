@@ -84,36 +84,56 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-
-        {/* Mobile Dropdown */}
-        <div
-          className={`
-            md:hidden overflow-hidden transition-all duration-300 ease-in-out
-            ${openMenu ? "max-h-[400px] opacity-100 py-4" : "max-h-0 opacity-0 py-0"}
-            bg-[#0a0505]/95 backdrop-blur-md border-t border-primary/10 px-4
-          `}
-        >
-          <div className="flex flex-col items-center gap-4">
-            {navLinks.map((link) => {
-              const isActive = location.pathname === link.to;
-              return (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  onClick={HandleMenu}
-                  className={`transition-colors text-sm font-medium pb-1 border-b-2 w-fit ${
-                    isActive
-                      ? "text-primary border-primary font-semibold"
-                      : "text-slate-400 hover:text-white border-transparent"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </div>
-        </div>
       </nav>
+
+      {/* Overlay */}
+      <div
+        onClick={HandleMenu}
+        className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+          openMenu ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      />
+
+      {/* Right Side Drawer */}
+      <div
+        className={`fixed top-0 right-0 h-full w-64 z-50 bg-[#0a0505]/95 backdrop-blur-md border-l border-primary/10 flex flex-col transition-transform duration-300 ease-in-out md:hidden ${
+          openMenu ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Drawer Header */}
+        <div className="flex items-center justify-between px-5 h-20 border-b border-primary/10">
+          <CineNestLogo />
+          <button
+            onClick={HandleMenu}
+            className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white hover:bg-primary/80 active:scale-95 transition-all duration-200"
+          >
+            <span className="material-symbols-outlined" style={{ fontSize: "20px" }}>
+              close
+            </span>
+          </button>
+        </div>
+
+        {/* Drawer Links */}
+        <div className="flex flex-col gap-1 p-4 mt-2">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.to;
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                onClick={HandleMenu}
+                className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  isActive
+                    ? "text-primary bg-primary/10 border border-primary/20"
+                    : "text-slate-400 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </div>
+      </div>
     </>
   );
 }
