@@ -17,7 +17,7 @@ export default function TvShows() {
 
   return (
     <div className="mx-auto py-8">
-      <PageHeader />
+     
 
       <MoviesGrid
         movies={tvShows}
