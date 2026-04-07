@@ -14,6 +14,7 @@ export default function Home() {
     airingToday,
     topRatedTvShows,
     topRatedHindiTvShows,
+    topHindiMovies,
     loading,
     error,
   } = useMovieContext();
@@ -61,6 +62,14 @@ export default function Home() {
         error={error}
         rowheader="Upcoming Movies"
         category="upcoming"
+        mediaType="movie"
+      />
+      <MovieRow
+        movies={topHindiMovies?.results}
+        loading={loading}
+        error={error}
+        rowheader="Top Hindi Movies"
+        category="top_hindi"
         mediaType="movie"
       />
       <MovieRow
