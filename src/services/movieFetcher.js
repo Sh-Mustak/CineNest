@@ -45,7 +45,14 @@ export const fetchUpcomingMovies = async (page) => {
     return { data: [], error: error.message };
   }
 };
-
+export const fetchTopHindiMovies = async (page) => {
+  try {
+    const data = await movieService.getTopHindiMovies(page);
+    return { data: normalizeMovies(data), error: null };
+  } catch (error) {
+    return { data: [], error: error.message };
+  }
+};
 export const fetchAllMovies = async (page, category) => {
   try {
     let data;
@@ -56,6 +63,8 @@ export const fetchAllMovies = async (page, category) => {
       data = await movieService.getTopRatedMovies(page);
     } else if (category === "popular") {
       data = await movieService.getPopularMovies(page);
+    } else if (category === "top_hindi") {
+      data = await movieService.getTopHindiMovies(page);
     } else {
       data = await movieService.getAllMovies(page);
     }
