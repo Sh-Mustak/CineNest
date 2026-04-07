@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   fetchPopularMovies,
+  fetchTopHindiMovies,
   fetchTopRatedMovies,
   fetchTrendingMovies,
   fetchUpcomingMovies,
@@ -20,6 +21,8 @@ export const useMedia = () => {
     airingToday: [],
     topRatedTvShows: [],
     topRatedHindiTvShows: [],
+    topHindiMovies: [],
+
     loading: true,
     error: null,
   });
@@ -34,6 +37,7 @@ export const useMedia = () => {
         { data: airingToday, error: airingError },
         { data: topRatedTvShows, error: topRatedTvShowsError },
         { data: topRatedHindiTvShows, error: topRatedHindiTvShowsError },
+        { data: topHindiMovies, error: topHindiMoviesError },
       ] = await Promise.all([
         fetchTrendingMovies(),
         fetchPopularMovies(),
@@ -42,6 +46,7 @@ export const useMedia = () => {
         fetchAiringTodayTvSeries(),
         fetchTopRatedTvShows(),
         fetchTopRatedHindiTvShows(),
+        fetchTopHindiMovies(),
       ]);
 
       setMovies({
@@ -52,6 +57,8 @@ export const useMedia = () => {
         airingToday,
         topRatedTvShows,
         topRatedHindiTvShows,
+        topHindiMovies,
+
         loading: false,
         error:
           trendingError ||
@@ -60,7 +67,8 @@ export const useMedia = () => {
           upcomingError ||
           airingError ||
           topRatedTvShowsError ||
-          topRatedHindiTvShowsError,
+          topRatedHindiTvShowsError ||
+          topHindiMoviesError,
       });
     };
 
