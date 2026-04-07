@@ -46,6 +46,17 @@ export const movieService = {
       throw error;
     }
   },
+  getTopHindiMovies: async (page = 1) => {
+    try {
+      const response = await axiosInstance.get(
+        `${tmdb_endpoints.topHindiMovies}&page=${page}`,
+      );
+      return response.data; // return full data for pagination
+    } catch (error) {
+      console.error("Error fetching top Hindi movies:", error);
+      throw error;
+    }
+  },
   getmediaDetails: async (movieId) => {
     try {
       const response = await axiosInstance.get(
