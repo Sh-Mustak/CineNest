@@ -8,6 +8,7 @@ export const tmdb_endpoints = {
   trending: `${BASE_URL}/trending/movie/week?api_key=${API_KEY}`,
   popular: `${BASE_URL}/movie/popular?api_key=${API_KEY}`,
   topRated: `${BASE_URL}/movie/top_rated?api_key=${API_KEY}`,
+  topHindiMovies: `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_original_language=hi&sort_by=vote_average.desc&vote_count.gte=50`,  
   upcoming: `${BASE_URL}/movie/upcoming?api_key=${API_KEY}`,
   mediaDetails: `${BASE_URL}/movie/{movie_id}?api_key=${API_KEY}&append_to_response=credits,videos,recommendations,reviews`,
   discoverMovies: `${BASE_URL}/discover/movie?api_key=${API_KEY}`,
