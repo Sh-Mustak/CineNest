@@ -16,6 +16,7 @@ export default function Home() {
     topRatedHindiTvShows,
     topHindiMovies,
     crimeTvShows,
+    bdMovies,
     bdTvShows,
     loading,
     error,
@@ -59,6 +60,14 @@ export default function Home() {
         mediaType="movie"
       />
       <MovieRow
+        movies={bdMovies?.results}
+        loading={loading}
+        error={error}
+        rowheader="Bangla Movies"
+        category="bangladeshi"
+        mediaType="movie"
+      />
+      <MovieRow
         movies={upcoming?.results}
         loading={loading}
         error={error}
@@ -66,11 +75,12 @@ export default function Home() {
         category="upcoming"
         mediaType="movie"
       />
+
       <MovieRow
         movies={bdTvShows?.results}
         loading={loading}
         error={error}
-        rowheader="BD TV Shows"
+        rowheader="Bangla TV Shows"
         category="bangladeshi_tv"
         mediaType="tv"
       />
@@ -82,7 +92,7 @@ export default function Home() {
         category="top_hindi"
         mediaType="movie"
       />
-     
+
       <MovieRow
         movies={topRatedTvShows?.results}
         loading={loading}
@@ -107,7 +117,7 @@ export default function Home() {
         category="top_rated_hindi_tv"
         mediaType="tv"
       />
-       <MovieRow
+      <MovieRow
         movies={airingToday?.results}
         loading={loading}
         error={error}
