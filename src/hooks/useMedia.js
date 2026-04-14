@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {
+  fetchBangladeshiMovies,
   fetchPopularMovies,
   fetchTopHindiMovies,
   fetchTopRatedMovies,
@@ -8,10 +9,10 @@ import {
 } from "../services/movieFetcher";
 import {
   fetchAiringTodayTvSeries,
+  fetchBangladeshiTvShows,
   fetchCrimeTvShows,
   fetchTopRatedHindiTvShows,
   fetchTopRatedTvShows,
-    fetchBangladeshiTvShows,
 } from "../services/tvSeriesFetcher";
 
 export const useMedia = () => {
@@ -25,6 +26,7 @@ export const useMedia = () => {
     topRatedHindiTvShows: [],
     topHindiMovies: [],
     crimeTvShows: [],
+    bdMovies: [],
     bdTvShows: [],
     loading: true,
     error: null,
@@ -43,6 +45,7 @@ export const useMedia = () => {
         { data: topHindiMovies, error: topHindiMoviesError },
         { data: crimeTvShows, error: crimeTvShowsError },
         { data: bdTvShows, error: bdTvShowsError },
+        { data: bdMovies, error: bdMoviesError },
       ] = await Promise.all([
         fetchTrendingMovies(),
         fetchPopularMovies(),
@@ -54,6 +57,7 @@ export const useMedia = () => {
         fetchTopHindiMovies(),
         fetchCrimeTvShows(),
         fetchBangladeshiTvShows(),
+        fetchBangladeshiMovies(),
       ]);
 
       setMovies({
@@ -66,6 +70,7 @@ export const useMedia = () => {
         topRatedHindiTvShows,
         topHindiMovies,
         crimeTvShows,
+        bdMovies,
         bdTvShows,
         loading: false,
         error:
@@ -79,6 +84,7 @@ export const useMedia = () => {
           topHindiMoviesError ||
           crimeTvShowsError ||
           bdTvShowsError ||
+          bdMoviesError ||
           null,
       });
     };
