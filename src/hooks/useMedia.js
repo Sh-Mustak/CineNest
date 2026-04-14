@@ -11,6 +11,7 @@ import {
   fetchCrimeTvShows,
   fetchTopRatedHindiTvShows,
   fetchTopRatedTvShows,
+    fetchBangladeshiTvShows,
 } from "../services/tvSeriesFetcher";
 
 export const useMedia = () => {
@@ -24,6 +25,7 @@ export const useMedia = () => {
     topRatedHindiTvShows: [],
     topHindiMovies: [],
     crimeTvShows: [],
+    bdTvShows: [],
     loading: true,
     error: null,
   });
@@ -40,6 +42,7 @@ export const useMedia = () => {
         { data: topRatedHindiTvShows, error: topRatedHindiTvShowsError },
         { data: topHindiMovies, error: topHindiMoviesError },
         { data: crimeTvShows, error: crimeTvShowsError },
+        { data: bdTvShows, error: bdTvShowsError },
       ] = await Promise.all([
         fetchTrendingMovies(),
         fetchPopularMovies(),
@@ -50,6 +53,7 @@ export const useMedia = () => {
         fetchTopRatedHindiTvShows(),
         fetchTopHindiMovies(),
         fetchCrimeTvShows(),
+        fetchBangladeshiTvShows(),
       ]);
 
       setMovies({
@@ -62,6 +66,7 @@ export const useMedia = () => {
         topRatedHindiTvShows,
         topHindiMovies,
         crimeTvShows,
+        bdTvShows,
         loading: false,
         error:
           trendingError ||
@@ -72,7 +77,9 @@ export const useMedia = () => {
           topRatedTvShowsError ||
           topRatedHindiTvShowsError ||
           topHindiMoviesError ||
-          crimeTvShowsError,
+          crimeTvShowsError ||
+          bdTvShowsError ||
+          null,
       });
     };
 
