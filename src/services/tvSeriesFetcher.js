@@ -45,6 +45,15 @@ export const fetchCrimeTvShows = async () => {
   }
 };
 
+export const fetchBangladeshiTvShows = async () => {
+  try {
+    const data = await tvService.getBangladeshiTvShows();
+    return { data: normalizeTvShows(data), error: null };
+  } catch (error) {
+    return { data: [], error: error.message };
+  }
+};
+
 export const FetchEpisodes = async (seriesId, seasonNmbr) => {
   try {
     const data = await tvService.getSeasonEpisodes(seriesId, seasonNmbr);
@@ -66,6 +75,8 @@ export const fetchAllTvShows = async (page = 1, category = null) => {
       data = await tvService.getCrimeTvShows(page);
     } else if (category === "top_rated_hindi_tv") {
       data = await tvService.getToRatedHindiTvShows(page);
+    } else if (category === "bangladeshi_tv") {
+      data = await tvService.getBangladeshiTvShows(page);
     } else {
       data = await tvService.getAllTvShows(page);
     }
