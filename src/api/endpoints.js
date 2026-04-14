@@ -11,6 +11,7 @@ export const tmdb_endpoints = {
   topHindiMovies: `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_original_language=hi&sort_by=vote_average.desc&vote_count.gte=50`,  
   upcoming: `${BASE_URL}/movie/upcoming?api_key=${API_KEY}`,
   mediaDetails: `${BASE_URL}/movie/{movie_id}?api_key=${API_KEY}&append_to_response=credits,videos,recommendations,reviews`,
+  bangladeshiMovies: `${BASE_URL}/discover/movie?api_key=${API_KEY}&region=BD&with_original_language=bn&sort_by=popularity.desc`,
   discoverMovies: `${BASE_URL}/discover/movie?api_key=${API_KEY}`,
 
   // Endpoints for tv series
