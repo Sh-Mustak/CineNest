@@ -57,6 +57,17 @@ export const movieService = {
       throw error;
     }
   },
+  getBangladeshiMovies: async (page = 1) => {
+    try {
+      const response = await axiosInstance.get(
+        `${tmdb_endpoints.bangladeshiMovies}&page=${page}`,
+      );
+      return response.data; // return full data for pagination
+    } catch (error) {
+      console.error("Error fetching Bangladeshi movies:", error);
+      throw error;
+    }
+  },
   getmediaDetails: async (movieId) => {
     try {
       const response = await axiosInstance.get(
