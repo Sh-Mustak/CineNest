@@ -16,6 +16,7 @@ export default function Home() {
     topRatedHindiTvShows,
     topHindiMovies,
     crimeTvShows,
+    bdTvShows,
     loading,
     error,
   } = useMovieContext();
@@ -66,6 +67,14 @@ export default function Home() {
         mediaType="movie"
       />
       <MovieRow
+        movies={bdTvShows?.results}
+        loading={loading}
+        error={error}
+        rowheader="BD TV Shows"
+        category="bangladeshi_tv"
+        mediaType="tv"
+      />
+      <MovieRow
         movies={topHindiMovies?.results}
         loading={loading}
         error={error}
@@ -73,14 +82,7 @@ export default function Home() {
         category="top_hindi"
         mediaType="movie"
       />
-      <MovieRow
-        movies={airingToday?.results}
-        loading={loading}
-        error={error}
-        rowheader="Airing Today"
-        category="airing_today"
-        mediaType="tv"
-      />
+     
       <MovieRow
         movies={topRatedTvShows?.results}
         loading={loading}
@@ -103,6 +105,14 @@ export default function Home() {
         error={error}
         rowheader="Top Hindi TV"
         category="top_rated_hindi_tv"
+        mediaType="tv"
+      />
+       <MovieRow
+        movies={airingToday?.results}
+        loading={loading}
+        error={error}
+        rowheader="Airing Today"
+        category="airing_today"
         mediaType="tv"
       />
     </main>
