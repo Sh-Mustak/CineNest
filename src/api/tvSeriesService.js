@@ -35,6 +35,17 @@ export const tvService = {
       throw error;
     }
   },
+  getBangladeshiTvShows: async (page = 1) => {
+    try {
+      const response = await axiosInstance.get(
+        `${tmdb_endpoints.bangladeshiTv}&page=${page}`
+      );
+      return response.data; // return full data for pagination
+    } catch (error) {
+      console.error("Error fetching Bangladeshi Tv Shows:", error);
+      throw error;
+    }
+  },
   getToRatedHindiTvShows: async (page = 1) => {
     try {
       const response = await axiosInstance.get(
