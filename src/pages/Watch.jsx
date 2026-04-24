@@ -1,6 +1,6 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
+import { servers } from "../api/servers";
 import MovieTabs from "../components/watch/MovieTabs";
 import ServerBar from "../components/watch/ServerBar";
 import VideoPlayer from "../components/watch/VideoPlayer";
@@ -8,22 +8,24 @@ import WatchContent from "../components/watch/WatchContent";
 import { useWatchContext } from "../context/useWatchContext";
 import { useMediaDetails } from "../hooks/useMediaDetails";
 import { createWatchTabs } from "../utils/watchTabs";
-import { embed_endpoints } from "../api/endpoints";
 
 export default function Watch() {
   const { type, id } = useParams();
   const { seasonNumber, episodeNumber } = useWatchContext();
-  const { data, loading, error } = useMediaDetails(type, id);
-  const [server, setServer] = useState("server1");
+  const { data, loading } = useMediaDetails(type, id);
 
+  const [serverIndex, setServerIndex] = useState(0);
+
+  // 🎯 Player URL
   const playerUrl = useMemo(() => {
-    const selectedServer = embed_endpoints[server];
+    const current = servers[serverIndex];
 
     return type === "movie"
-      ? selectedServer.movie(id)
-      : selectedServer.tv(id, seasonNumber, episodeNumber);
-  }, [type, id, seasonNumber, episodeNumber, server]);
+      ? current.movie(id)
+      : current.tv(id, seasonNumber, episodeNumber);
+  }, [serverIndex, type, id, seasonNumber, episodeNumber]);
 
+  // ✅ Only scroll (no auto server change)
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [id, episodeNumber]);
@@ -40,14 +42,24 @@ export default function Watch() {
   };
 
   return (
-    <main className="max-w-[1440px] mx-auto px-3 sm:px-5 pt-4 sm:pt-6 pb-20 min-h-screen mt-20">
+    <main className="max-w-[1440px] mx-auto px-3 pt-6 pb-20 mt-20">
+      {/* 🎬 Video */}
       <VideoPlayer playerUrl={playerUrl} />
-      <ServerBar server={server} setServer={setServer} />
+
+      {/* 🔥 Current Server */}
+      <p className="text-xs text-white/60 mt-2 mb-2">
+        Server: {servers[serverIndex].name}
+      </p>
+
+      {/* 🎯 Manual Switch Only */}
+      <ServerBar serverIndex={serverIndex} setServerIndex={setServerIndex} />
+
       <MovieTabs
         tabs={tabs}
         activeTab={activeTab}
         setActiveTab={handleTabChange}
       />
+
       <WatchContent
         mediaDetails={data}
         activeTab={activeTab}
