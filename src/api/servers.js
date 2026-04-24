@@ -40,6 +40,15 @@ export const servers = [
       `https://vidlux.online/embed/tv/${id}/${s}/${e}?color=3b82f6&autoplay=true`,
   },
   {
+  name: "CineSrc",
+
+  movie: (id) =>
+    `https://cinesrc.st/embed/movie/${id}?autoplay=true&color=%23e50914&autonext=true`,
+
+  tv: (id, s, e) =>
+    `https://cinesrc.st/embed/tv/${id}?s=${s}&e=${e}&autoplay=true&autonext=true&autoskip=true`,
+},
+  {
     name: "VidZee",
 
     movie: (id) => `https://player.vidzee.wtf/embed/movie/${id}`,
