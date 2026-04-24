@@ -23,6 +23,53 @@ export const servers = [
     movie: (id) => `https://player.vidplus.to/embed/movie/${id}`,
     tv: (id, s, e) => `https://player.vidplus.to/embed/tv/${id}/${s}/${e}`,
   },
+  {
+    name: "VidFast",
+
+    movie: (id) =>
+      `https://vidfast.pro/movie/${id}?autoPlay=true&theme=3b82f6&hideServerControls=false`,
+
+    tv: (id, s, e) =>
+      `https://vidfast.pro/tv/${id}/${s}/${e}?autoPlay=true&theme=3b82f6&nextButton=true&autoNext=true`,
+  },
+  {
+    name: "VidLux",
+    movie: (id) =>
+      `https://vidlux.online/embed/movie/${id}?color=3b82f6&autoplay=true`,
+    tv: (id, s, e) =>
+      `https://vidlux.online/embed/tv/${id}/${s}/${e}?color=3b82f6&autoplay=true`,
+  },
+  {
+    name: "VidZee",
+
+    movie: (id) => `https://player.vidzee.wtf/embed/movie/${id}`,
+
+    tv: (id, s, e) => `https://player.vidzee.wtf/embed/tv/${id}/${s}/${e}`,
+  },
+  {
+    name: "Videasy",
+
+    movie: (id) => `https://player.videasy.net/movie/${id}`,
+
+    tv: (id, s, e) => `https://player.videasy.net/tv/${id}/${s}/${e}`,
+  },
+  {
+    name: "PrimeSrc",
+
+    movie: (id) => `https://primesrc.me/embed/movie?tmdb=${id}&fallback=true`,
+
+    tv: (id, s, e) =>
+      `https://primesrc.me/embed/tv?tmdb=${id}&season=${s}&episode=${e}&fallback=true`,
+  },
+  {
+    name: "EmbedAPI",
+
+    movie: (id) =>
+      `https://player.embed-api.stream/?id=${id}&autoplay=true&theme=3b82f6`,
+
+    tv: (id, s, e) =>
+      `https://player.embed-api.stream/?id=${id}&s=${s}&e=${e}&autoplay=true&nextButton=true`,
+  },
 
   {
     name: "Vembed",
@@ -35,9 +82,23 @@ export const servers = [
     tv: (id, s, e) => `https://embed.streammafia.to/embed/tv/${id}/${s}/${e}`,
   },
   {
+    name: "NontonGo",
+
+    movie: (id) => `https://www.NontonGo.win/embed/movie/${id}`,
+
+    tv: (id, s, e) => `https://www.NontonGo.win/embed/tv/${id}/${s}/${e}`,
+  },
+  {
     name: "VidBinge",
     movie: (id) => `https://vidbinge.to/movie/${id}`,
     tv: (id, s, e) => `https://vidbinge.to/tv/${id}/${s}/${e}`,
+  },
+  {
+    name: "MoviesAPI",
+
+    movie: (id) => `https://moviesapi.to/movie/${id}`,
+
+    tv: (id, s, e) => `https://moviesapi.to/tv/${id}-${s}-${e}`,
   },
 
   {
