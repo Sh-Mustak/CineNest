@@ -7,10 +7,10 @@ export default function ServerBar({ serverIndex, setServerIndex }) {
         <button
           key={srv.name}
           onClick={() => setServerIndex(index)}
-          className={`px-3 py-1 rounded text-xs font-bold ${
+          className={`px-1 py-0.5 border border-white/30 rounded-sm text-xs md:text-sm lg:text-md font-bold ${
             serverIndex === index
-              ? "bg-primary text-white"
-              : "text-white/60 hover:bg-s2"
+              ? "bg-primary text-white border-primary"
+              : "text-white/60"
           }`}
         >
           {srv.name}

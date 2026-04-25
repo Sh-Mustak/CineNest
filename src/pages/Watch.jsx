@@ -43,15 +43,15 @@ export default function Watch() {
 
   return (
     <main className="max-w-[1440px] mx-auto px-3 pt-6 pb-20 mt-20">
-      {/* 🎬 Video */}
+      {/* Video */}
       <VideoPlayer playerUrl={playerUrl} />
 
-      {/* 🔥 Current Server */}
+      {/* Current Server */}
       <p className="text-xs text-white/60 mt-2 mb-2">
         Server: {servers[serverIndex].name}
       </p>
 
-      {/* 🎯 Manual Switch Only */}
+      {/* Manual Switch Only */}
       <ServerBar serverIndex={serverIndex} setServerIndex={setServerIndex} />
 
       <MovieTabs
