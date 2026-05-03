@@ -15,16 +15,13 @@ export default function MovieCard({ movie, fullWidth }) {
 
     toggleWatchlist(movie);
 
-    showToast(
-      isSaved
-        ? "Removed from Watchlist 🗑️"
-        : "Added to Watchlist ❤️"
-    );
+    showToast(isSaved ? "Removed from Watchlist 🗑️" : "Added to Watchlist ❤️");
   };
 
   return (
-    <div className={`${fullWidth ? "w-full" : "flex-none w-38"} group cursor-pointer snap-start mb-2`}>
-
+    <div
+      className={`${fullWidth ? "w-full" : "flex-none w-38"} group cursor-pointer snap-start mb-2`}
+    >
       {/* IMAGE (ONLY NAVIGATION) */}
       <Link
         to={`/watch/${type}/${movie.id}`}
@@ -32,7 +29,6 @@ export default function MovieCard({ movie, fullWidth }) {
         onClick={() => sessionStorage.setItem("homeScroll", window.scrollY)}
       >
         <div className="relative aspect-[2/3] rounded-md overflow-hidden bg-slate-800 shadow-lg transition-all duration-300 group-hover:shadow-2xl">
-
           {/* Poster */}
           <img
             src={getImageUrl(movie.poster_path)}
@@ -45,18 +41,19 @@ export default function MovieCard({ movie, fullWidth }) {
 
           {/* Rating */}
           <div className="absolute top-1 left-1 bg-black/60 backdrop-blur-md px-2 py-1 rounded-md text-[12px] font-semibold text-yellow-400 flex items-center gap-1 shadow-md">
-            <span className="material-symbols-outlined text-sm" style={{ fontSize: "15px" }}>
+            <span
+              className="material-symbols-outlined text-sm"
+              style={{ fontSize: "15px" }}
+            >
               star
             </span>
             {movie.vote_average?.toFixed(1)}
           </div>
-
         </div>
       </Link>
 
       {/* CENTER ACTION BUTTON */}
       <div className="relative flex justify-center mt-[-20px] z-10">
-
         <button
           onClick={handleWatchlist}
           className="bg-black/70 backdrop-blur-md p-3 rounded-full text-white shadow-lg hover:scale-110 transition flex items-center justify-center"
@@ -65,7 +62,6 @@ export default function MovieCard({ movie, fullWidth }) {
             {isSaved ? "bookmark_remove" : "bookmark_add"}
           </span>
         </button>
-
       </div>
 
       {/* TITLE */}
@@ -74,7 +70,6 @@ export default function MovieCard({ movie, fullWidth }) {
           {movie.title || movie.name}
         </h3>
       </div> */}
-
     </div>
   );
 }
