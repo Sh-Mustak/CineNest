@@ -3,13 +3,16 @@ import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import { MovieProvider } from "./context/MovieContext.jsx";
 import { WatchProvider } from "./context/WatchContex.jsx";
+import { WatchlistProvider } from "./context/WatchlistContext.jsx";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <WatchProvider>
       <MovieProvider>
-        <App />
+        <WatchlistProvider>
+          <App />
+        </WatchlistProvider>
       </MovieProvider>
     </WatchProvider>
   </StrictMode>,

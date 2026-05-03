@@ -16,7 +16,7 @@ export default function Watch() {
 
   const [serverIndex, setServerIndex] = useState(0);
 
-  // 🎯 Player URL
+  // Player URL
   const playerUrl = useMemo(() => {
     const current = servers[serverIndex];
 
@@ -25,7 +25,7 @@ export default function Watch() {
       : current.tv(id, seasonNumber, episodeNumber);
   }, [serverIndex, type, id, seasonNumber, episodeNumber]);
 
-  // ✅ Only scroll (no auto server change)
+  // Only scroll (no auto server change)
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [id, episodeNumber]);
