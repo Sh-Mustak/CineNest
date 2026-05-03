@@ -68,32 +68,36 @@ function ToastItem({ id, message, type = "default", onRemove }) {
 
   const typeStyles = {
     success: {
-      bg: "#f0fdf4",
-      border: "#bbf7d0",
-      icon: "#16a34a",
-      bar: "#16a34a",
-      text: "#14532d",
+      bg: "#1a0c0c",
+      border: "#e60a0d44",
+      icon: "#e60a0d",
+      bar: "#e60a0d",
+      text: "#f8f5f5",
+      iconBg: "#e60a0d18",
     },
     error: {
-      bg: "#fef2f2",
-      border: "#fecaca",
-      icon: "#dc2626",
-      bar: "#dc2626",
-      text: "#7f1d1d",
+      bg: "#1a0c0c",
+      border: "#e60a0d66",
+      icon: "#e60a0d",
+      bar: "#e60a0d",
+      text: "#f8f5f5",
+      iconBg: "#e60a0d22",
     },
     warning: {
-      bg: "#fffbeb",
-      border: "#fde68a",
-      icon: "#d97706",
-      bar: "#d97706",
-      text: "#78350f",
+      bg: "#1a0c0c",
+      border: "#e60a0d44",
+      icon: "#ff6b6b",
+      bar: "#ff6b6b",
+      text: "#f8f5f5",
+      iconBg: "#e60a0d18",
     },
     default: {
-      bg: "#ffffff",
-      border: "#e2e8f0",
-      icon: "#6366f1",
-      bar: "#6366f1",
-      text: "#1e293b",
+      bg: "#1a0c0c",
+      border: "#e60a0d33",
+      icon: "#e60a0d",
+      bar: "#e60a0d",
+      text: "#f8f5f5",
+      iconBg: "#e60a0d18",
     },
   };
 
@@ -103,12 +107,12 @@ function ToastItem({ id, message, type = "default", onRemove }) {
     <>
       <style>{`
         @keyframes toast-in {
-          from { opacity: 0; transform: translateX(110%) scale(0.92); }
-          to   { opacity: 1; transform: translateX(0) scale(1); }
+          from { opacity: 0; transform: translateY(20px) scale(0.95); }
+          to   { opacity: 1; transform: translateY(0) scale(1); }
         }
         @keyframes toast-out {
-          from { opacity: 1; transform: translateX(0) scale(1); max-height: 100px; margin-bottom: 10px; }
-          to   { opacity: 0; transform: translateX(110%) scale(0.92); max-height: 0; margin-bottom: 0; }
+          from { opacity: 1; transform: translateY(0) scale(1); max-height: 120px; margin-bottom: 10px; }
+          to   { opacity: 0; transform: translateY(20px) scale(0.95); max-height: 0; margin-bottom: 0; }
         }
         .toast-item {
           animation: toast-in 0.35s cubic-bezier(0.21, 1.02, 0.73, 1) forwards;
@@ -131,7 +135,7 @@ function ToastItem({ id, message, type = "default", onRemove }) {
         }
         .toast-close-btn:hover {
           opacity: 1;
-          background: rgba(0,0,0,0.08);
+          background: rgba(230,10,13,0.15);
         }
       `}</style>
 
@@ -144,20 +148,32 @@ function ToastItem({ id, message, type = "default", onRemove }) {
           border: `1px solid ${s.border}`,
           borderRadius: "14px",
           padding: "14px 16px 0",
-          minWidth: "340px",
-          maxWidth: "420px",
-          boxShadow: "0 8px 24px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06)",
+          width: "100%",
+          boxShadow: "0 8px 32px rgba(230,10,13,0.15), 0 2px 8px rgba(0,0,0,0.4)",
           overflow: "hidden",
           marginBottom: "10px",
           fontFamily: "'Inter', system-ui, sans-serif",
+          boxSizing: "border-box",
         }}
       >
         <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", paddingBottom: "12px" }}>
-          <span style={{ color: s.icon, marginTop: "1px", flexShrink: 0 }}>
+          <span
+            style={{
+              color: s.icon,
+              marginTop: "1px",
+              flexShrink: 0,
+              background: s.iconBg,
+              borderRadius: "8px",
+              padding: "4px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             {icons[type] || icons.default}
           </span>
 
-          <span style={{ fontSize: "14px", fontWeight: 500, color: s.text, flex: 1, lineHeight: "1.5" }}>
+          <span style={{ fontSize: "14px", fontWeight: 500, color: s.text, flex: 1, lineHeight: "1.5", wordBreak: "break-word" }}>
             {message}
           </span>
 
@@ -194,7 +210,7 @@ export default function Toast() {
     const message = typeof toast === "string" ? toast : toast.message;
     const type = typeof toast === "object" ? toast.type : "default";
     const id = ++counterRef.current;
-    setToasts((prev) => [...prev, { id, message, type }]);
+    setToasts([{ id, message, type }]);
   }, [toast]);
 
   const removeToast = (id) => {
@@ -204,23 +220,31 @@ export default function Toast() {
   if (!toasts.length) return null;
 
   return (
-    <div
-      style={{
-        position: "fixed",
-        top: "20px",
-        right: "20px",
-        zIndex: 9999,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-end",
-        pointerEvents: "none",
-      }}
-    >
-      {toasts.map((t) => (
-        <div key={t.id} style={{ pointerEvents: "auto" }}>
-          <ToastItem id={t.id} message={t.message} type={t.type} onRemove={removeToast} />
-        </div>
-      ))}
-    </div>
+    <>
+      <style>{`
+        .toast-container {
+          position: fixed;
+          bottom: 24px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 9999;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          pointer-events: none;
+          width: 420px;
+          max-width: calc(100vw - 32px);
+        }
+        .toast-container > * {
+          pointer-events: auto;
+          width: 100%;
+        }
+      `}</style>
+      <div className="toast-container">
+        {toasts.map((t) => (
+          <ToastItem key={t.id} id={t.id} message={t.message} type={t.type} onRemove={removeToast} />
+        ))}
+      </div>
+    </>
   );
 }
