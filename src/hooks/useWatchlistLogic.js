@@ -24,7 +24,8 @@ export const useWatchlistLogic = () => {
           {
             id: movie.id,
             title: movie.title,
-            poster: movie.poster_path,
+            poster_path: movie.poster_path,
+            media_type: movie.media_type,
           },
         ];
       }

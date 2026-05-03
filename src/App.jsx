@@ -3,6 +3,7 @@ import "./App.css";
 import BottomNav from "./components/layout/BottomNav";
 import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
+import Toast from "./components/ui/Toast";
 import Home from "./pages/Home";
 import Movies from "./pages/Movies";
 import Search from "./pages/Search";
@@ -32,6 +33,7 @@ function App() {
 
         <BottomNav />
         <Footer />
+        <Toast />
       </Router>
     </>
   );
