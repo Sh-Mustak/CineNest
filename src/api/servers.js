@@ -191,4 +191,10 @@ export const servers = [
   movie: (id) => `https://megaembed.com/embed/movie/${id}`,
   tv: (id, s, e) => `https://megaembed.com/embed/tv/${id}/${s}/${e}`,
 },
+  {
+  name: "EzVidApi",
+  movie: (id) => `https://ezvidapi.com/movie/${id}`,
+  tv: (id, s, e) => `https://ezvidapi.com/tv/${id}?season=${s}&episode=${e}`,
+},
+  
 ];
