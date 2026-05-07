@@ -43,10 +43,10 @@ export const servers = [
   name: "CineSrc",
 
   movie: (id) =>
-    `https://cinesrc.st/embed/movie/${id}?autoplay=true&color=%23e50914&autonext=true`,
+    `https://cinesrc.st/embed/movie/${id}`,
 
   tv: (id, s, e) =>
-    `https://cinesrc.st/embed/tv/${id}?s=${s}&e=${e}&autoplay=true&autonext=true&autoskip=true`,
+    `https://cinesrc.st/embed/tv/${id}?s=${s}&e=${e}`,
 },
   {
     name: "VidZee",
@@ -160,4 +160,35 @@ export const servers = [
     tv: (id, s, e, apiIndex = 0) =>
       `https://vidsrc.wtf/api/${[1, 2, 3, 4][apiIndex]}/tv/?id=${id}&s=${s}&e=${e}&color=ffffff`,
   },
+  // Standard (scraped sources)
+{
+  name: "Rive",
+  movie: (id) => `https://www.rivestream.app/embed?type=movie&id=${id}`,
+  tv: (id, s, e) => `https://www.rivestream.app/embed?type=tv&id=${id}&season=${s}&episode=${e}`,
+},
+
+  {
+  name: "111Movies",
+  movie: (id) => `https://www.111movies.net/movie/${id}`,
+  tv: (id, s, e) => `https://www.111movies.net/tv/${id}/${s}/${e}`,
+},
+{
+  name: "VidSrcMov",
+  movie: (id) => `https://vidsrc.mov/embed/movie/${id}`,
+  tv: (id, s, e) => `https://vidsrc.mov/embed/tv/${id}/${s}/${e}`,
+},{
+  name: "EmbedMaster",
+  movie: (id) => `https://embedmaster.link/movie/${id}`,
+  tv: (id, s, e) => `https://embedmaster.link/{id}/${s}/${e}`,
+},
+{
+  name: "VidSrcIcu",
+  movie: (id) => `https://vidsrc.icu/embed/movie/${id}`,
+  tv: (id, s, e) => `https://vidsrc.icu//embed/tv/${id}/${s}/${e}`,
+},
+  {
+  name: "MegaEmbed",
+  movie: (id) => `https://megaembed.com/embed/movie/${id}`,
+  tv: (id, s, e) => `https://megaembed.com/embed/tv/${id}/${s}/${e}`,
+},
 ];
