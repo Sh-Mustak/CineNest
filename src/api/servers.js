@@ -179,7 +179,7 @@ export const servers = [
 },{
   name: "EmbedMaster",
   movie: (id) => `https://embedmaster.link/movie/${id}`,
-  tv: (id, s, e) => `https://embedmaster.link/{id}/${s}/${e}`,
+  tv: (id, s, e) => `https://embedmaster.link/${id}/${s}/${e}`,
 },
 {
   name: "VidSrcIcu",
