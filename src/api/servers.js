@@ -63,6 +63,11 @@ export const servers = [
   tv: (id, s, e) => `https://player.autoembed.app/embed/tv/${id}/${s}/${e}`,
 },
   {
+  name: "AnyEmbed",
+  movie: (id) => `https://anyembed.com/embed/tmdb-movie-${id}`,
+  tv: (id, s, e) => `https://anyembed.com/embed/tmdb-tv-${id}-${s}-${e}`,
+},
+  {
     name: "VidZee",
 
     movie: (id) =>
