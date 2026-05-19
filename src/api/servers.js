@@ -57,7 +57,11 @@ export const servers = [
     tv: (id, s, e) =>
       `https://cinesrc.st/embed/tv/${id}?s=${s}&e=${e}`,
   },
-
+{
+  name: "AutoEmbedApp",
+  movie: (id) => `https://player.autoembed.app/embed/movie/${id}`,
+  tv: (id, s, e) => `https://player.autoembed.app/embed/tv/${id}/${s}/${e}`,
+},
   {
     name: "VidZee",
 
