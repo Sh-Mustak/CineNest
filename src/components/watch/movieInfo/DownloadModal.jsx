@@ -38,7 +38,7 @@ export default function DownloadModal({ mediaDetails, onClose }) {
         {/* iframe */}
         <div className="flex-1 overflow-hidden" style={{ minHeight: "60vh" }}>
           <iframe
-            src={`https://dl.vidsrc.vip/movie/${mediaDetails?.id}`}
+          src={`https://vidvault.ru/movie/${mediaDetails?.id}`}
             className="w-full h-full"
             style={{ border: "none", minHeight: "60vh" }}
           />
