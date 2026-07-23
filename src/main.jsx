@@ -5,6 +5,17 @@ import { MovieProvider } from "./context/MovieContext.jsx";
 import { WatchProvider } from "./context/WatchContex.jsx";
 import { WatchlistProvider } from "./context/WatchlistContext.jsx";
 import "./index.css";
+import {account} from "./appwrite"
+
+
+account
+    .get()
+    .then((user)=>{
+        console.log("Connected...",user)
+      })
+    .catch((error)=>{
+        console.log("Connection..")
+      })
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
