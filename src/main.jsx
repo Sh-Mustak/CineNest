@@ -14,7 +14,7 @@ account
         console.log("Connected...",user)
       })
     .catch((error)=>{
-        console.log("Connection..")
+        console.log("Connection..",error)
       })
 
 createRoot(document.getElementById("root")).render(
