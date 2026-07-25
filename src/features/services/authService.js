@@ -16,9 +16,17 @@ class AuthService{
             password
         );
     }
-    async logout(){}
-    async getCurrentUser(){}
-    async sendVerification(){}
-    async forgotPassword(){}
+    async logout(){
+        return await account.deleteSession("current");
+    }
+    async getCurrentUser(){
+        return await account.get();
+    }
+    async sendVerification(url){
+        return await account.createVerification(url);
+    }
+    async forgotPassword(email, url){
+        return await account.createRecovery(email, url);
+    }
 }
 export default new AuthService();
