@@ -10,9 +10,10 @@ import Search from "./pages/Search";
 import TvShows from "./pages/TvShows";
 import Watch from "./pages/Watch";
 import WatchList from "./pages/WatchList";
+import Register from "./features/auth/pages/Register";
 
 function App() {
-  return (
+  return (  
     <>
       <Router>
         <Navbar />
@@ -28,6 +29,8 @@ function App() {
             <Route path="/search" element={<Search />} />
 
             <Route path="/watchlist" element={<WatchList />} />
+            {/* AUTH */}
+            <Route path="/register" element={<Register />} />
           </Routes>
         </div>
 
