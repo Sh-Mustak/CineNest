@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 const RegisterForm = () => {
   const [loading, setLoading] = useState(false);
 
+
   const {
     register,
     handleSubmit,
@@ -86,7 +87,7 @@ const RegisterForm = () => {
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-lg bg-amber-500 py-3 font-semibold text-black hover:bg-amber-400 disabled:opacity-60"
+        className="w-full rounded-lg bg-amber-500 py-3 mt-4 font-semibold text-black hover:bg-amber-400 disabled:opacity-60"
       >
         {loading ? "Creating Account..." : "Create Account"}
       </button>

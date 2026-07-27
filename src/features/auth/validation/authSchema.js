@@ -10,3 +10,8 @@ export const registerSchema = z.object({
         .max(100, "Password must be at most 100 characters")
 
 })
+
+export const loginSchema = registerSchema.pick({
+    email: true,
+    password: true
+})

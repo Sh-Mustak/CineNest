@@ -19,9 +19,9 @@ class AuthService{
     async logout(){
         return await account.deleteSession("current");
     }
-    // async getCurrentUser(){
-    //     // return await account.get();
-    // }
+    async getCurrentUser(){
+        return await account.get();
+    }
     async sendVerification(url){
         return await account.createVerification(url);
     }

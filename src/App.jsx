@@ -11,6 +11,7 @@ import TvShows from "./pages/TvShows";
 import Watch from "./pages/Watch";
 import WatchList from "./pages/WatchList";
 import Register from "./features/auth/pages/Register";
+import Login from "./features/auth/pages/Login";
 
 function App() {
   return (  
@@ -31,6 +32,7 @@ function App() {
             <Route path="/watchlist" element={<WatchList />} />
             {/* AUTH */}
             <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </div>
 
