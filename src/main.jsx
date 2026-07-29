@@ -6,6 +6,7 @@ import { WatchProvider } from "./context/WatchContex.jsx";
 import { WatchlistProvider } from "./context/WatchlistContext.jsx";
 import "./index.css";
 import {account} from "./appwrite"
+import AuthProvider from "./context/AppwriteContext/AuthProvider.jsx";
 
 
 account
@@ -19,6 +20,7 @@ account
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+    <AuthProvider>
     <WatchProvider>
       <MovieProvider>
         <WatchlistProvider>
@@ -26,5 +28,6 @@ createRoot(document.getElementById("root")).render(
         </WatchlistProvider>
       </MovieProvider>
     </WatchProvider>
+    </AuthProvider>
   </StrictMode>,
 );
