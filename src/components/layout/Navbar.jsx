@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import SearchInput from "./SearchInput";
+import AuthMenu from "../../features/auth/components/AuthMenu";
+
 
 function CineNestLogo() {
   return (
@@ -82,11 +84,12 @@ export default function Navbar() {
           <div className="flex items-center gap-2 ml-auto md:ml-0">
             <SearchInput />
             {/* Profile Icon */}
-            <button className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white hover:bg-primary/80 active:scale-95 transition-all duration-200 shadow-lg shadow-primary/30">
+            {/* <button className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white hover:bg-primary/80 active:scale-95 transition-all duration-200 shadow-lg shadow-primary/30">
               <span className="material-symbols-outlined" style={{ fontSize: "20px" }}>
                 account_circle
               </span>
-            </button>
+            </button> */}
+            <AuthMenu/>
             {/* Hamburger — mobile only */}
             <button
               onClick={HandleMenu}

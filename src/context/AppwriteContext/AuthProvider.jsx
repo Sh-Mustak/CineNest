@@ -12,6 +12,7 @@ const AuthProvider = ({children}) => {
                 const currentUser = await authService.getCurrentUser(); 
                 setUser(currentUser);
             }
+            // eslint-disable-next-line no-unused-vars
             catch(error){
                 setUser(null)   
             }

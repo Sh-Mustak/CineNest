@@ -4,10 +4,12 @@ import { loginSchema } from "../validation/authSchema";
 import authService from "../services/authService";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 const LoginForm = () => {
 const [loading, setLoading] = useState(false);
 const navigate = useNavigate();
+const {setUser} = useAuth();
 
 const {
 register,
@@ -21,7 +23,8 @@ const onSubmit = async (data) => {
 try {
 setLoading(true);
 await authService.login(data);
-console.log("Login successful");
+const user = await authService.getCurrentUser();
+setUser(user);
 navigate("/"); // Redirect to home page after successful login
 } catch (error) {
 console.error("Error logging in:", error);
