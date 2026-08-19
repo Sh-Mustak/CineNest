@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import SearchInput from "./SearchInput";
 import AuthMenu from "../../features/auth/components/AuthMenu";
@@ -20,25 +19,21 @@ function CineNestLogo() {
 const navLinks = [
   {
     label: "Home",
-    mobileLabel: "Home",
     to: "/",
     icon: "home",
   },
   {
     label: "Movies",
-    mobileLabel: "Movies",
     to: "/movies",
     icon: "movie",
   },
   {
-    label: "TV Shows",
-    mobileLabel: "TV",
+    label: "TV",
     to: "/tvshows",
     icon: "tv",
   },
   {
-    label: "Watchlist",
-    mobileLabel: "My List",
+    label: "My List",
     to: "/watchlist",
     icon: "bookmark",
   },
@@ -47,18 +42,9 @@ const navLinks = [
 export default function Navbar() {
   const location = useLocation();
 
-  // Prevent mobile bottom navigation from overlapping page content
-  useEffect(() => {
-    const isMobile = window.innerWidth < 768;
-
-    if (isMobile) {
-      document.body.style.paddingBottom = "72px";
-    }
-
-    return () => {
-      document.body.style.paddingBottom = "";
-    };
-  }, []);
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
 
   return (
     <>
@@ -68,26 +54,32 @@ export default function Navbar() {
         rel="stylesheet"
       />
 
-      {/* ================= DESKTOP / MOBILE TOP NAVBAR ================= */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-[#0a0505]/90 backdrop-blur-xl border-b border-primary/10">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between">
+      {/* =========================
+          TOP NAVBAR
+      ========================== */}
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-primary/10 bg-[#0a0505]/90 backdrop-blur-xl">
+        <div className="mx-auto flex h-16 sm:h-20 max-w-[1440px] items-center px-4 sm:px-6">
 
-          {/* Logo */}
+          {/* =========================
+              LOGO
+          ========================== */}
           <CineNestLogo />
 
-          {/* ================= DESKTOP NAV LINKS ================= */}
-          <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+          {/* =========================
+              DESKTOP NAVIGATION
+          ========================== */}
+          <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
             {navLinks.map((link) => {
-              const isActive = location.pathname === link.to;
+              const active = isActive(link.to);
 
               return (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`transition-colors text-sm font-medium pb-1 border-b-2 ${
-                    isActive
-                      ? "text-primary border-primary font-semibold"
-                      : "text-slate-400 hover:text-white border-transparent"
+                  className={`border-b-2 pb-1 text-sm font-medium transition-colors ${
+                    active
+                      ? "border-primary font-semibold text-primary"
+                      : "border-transparent text-slate-400 hover:text-white"
                   }`}
                 >
                   {link.label}
@@ -96,75 +88,97 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* ================= RIGHT SIDE ================= */}
-          <div className="flex items-center gap-2 ml-auto">
+          {/* =========================
+              RIGHT SIDE
+          ========================== */}
+          <div className="ml-auto flex items-center gap-2 sm:gap-3">
 
-            {/* Desktop Search */}
+            {/* SEARCH
+                Keep your existing search feature.
+                It is hidden on very small screens only
+                if SearchInput itself is too wide.
+            */}
             <div className="hidden sm:block">
               <SearchInput />
             </div>
 
-            {/* Mobile Search Icon */}
-            <Link
-              to="/search"
-              className="sm:hidden flex items-center justify-center w-9 h-9 rounded-full bg-white/5 border border-white/10 text-zinc-300 hover:text-white hover:bg-white/10 transition active:scale-95"
-            >
-              <span
-                className="material-symbols-outlined"
-                style={{ fontSize: "21px" }}
-              >
-                search
-              </span>
-            </Link>
-
-            {/* Profile */}
+            {/* AUTH / PROFILE */}
             <AuthMenu />
 
           </div>
         </div>
       </nav>
 
-      {/* ================= MOBILE BOTTOM NAVIGATION ================= */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-[100] bg-[#0a0505]/95 backdrop-blur-xl border-t border-primary/10">
+      {/* =========================
+          MOBILE BOTTOM NAVIGATION
+      ========================== */}
+      <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-[#0a0505]/95 backdrop-blur-xl md:hidden">
 
-        <div className="h-[68px] grid grid-cols-4">
+        <div className="mx-auto grid h-[68px] max-w-md grid-cols-4">
 
           {navLinks.map((link) => {
-            const isActive = location.pathname === link.to;
+            const active = isActive(link.to);
 
             return (
               <Link
                 key={link.to}
                 to={link.to}
-                className={`relative flex flex-col items-center justify-center gap-1 transition-all ${
-                  isActive
+                className={`flex flex-col items-center justify-center gap-1 transition-colors ${
+                  active
                     ? "text-primary"
-                    : "text-zinc-500 hover:text-zinc-300"
+                    : "text-zinc-500 hover:text-white"
                 }`}
               >
-
-                {/* Active indicator */}
-                {isActive && (
-                  <span className="absolute top-0 w-8 h-[2px] bg-primary rounded-full" />
-                )}
-
-                <span
-                  className="material-symbols-outlined"
-                  style={{ fontSize: "21px" }}
+                <div
+                  className={`flex h-8 w-10 items-center justify-center rounded-xl transition-all ${
+                    active ? "bg-primary/10" : ""
+                  }`}
                 >
-                  {link.icon}
-                </span>
+                  <span
+                    className="material-symbols-outlined"
+                    style={{ fontSize: "21px" }}
+                  >
+                    {link.icon}
+                  </span>
+                </div>
 
-                <span className="text-[10px] font-medium tracking-wide">
-                  {link.mobileLabel}
+                <span className="text-[10px] font-medium">
+                  {link.label}
                 </span>
-
               </Link>
             );
           })}
 
         </div>
       </nav>
+
+      {/* =========================
+          MOBILE SEARCH BUTTON
+      ========================== */}
+
+      {/* 
+        IMPORTANT:
+
+        We are NOT creating a new search system here.
+
+        Your existing SearchInput remains the actual search
+        implementation.
+
+        If your SearchInput component is already responsive,
+        we can simply show it on mobile here as well.
+      */}
+
+      <div className="fixed bottom-[78px] right-4 z-40 sm:hidden">
+        <div className="rounded-full border border-white/10 bg-[#111]/95 p-1 shadow-xl backdrop-blur-xl">
+          <SearchInput />
+        </div>
+      </div>
+
+      {/* 
+        Extra bottom spacing so page content doesn't get
+        hidden behind the mobile bottom navigation.
+      */}
+      <div className="h-[68px] md:hidden" />
     </>
   );
 }
