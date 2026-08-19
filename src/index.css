@@ -282,3 +282,47 @@
   opacity: 0.26;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
 }
+
+/* Base toast */
+.cinenest-toast {
+  background: #171827 !important;
+  color: #c9c9e8 !important;
+  border: 1px solid #2d3048 !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Success toast */
+.cinenest-toast-success {
+  background: #171827 !important;
+  color: #c9c9e8 !important;
+  border: 1px solid #343650 !important;
+  border-bottom: 3px solid #f43f5e !important;
+}
+
+/* Error toast */
+.cinenest-toast-error {
+  background: #171827 !important;
+  color: #c9c9e8 !important;
+  border: 1px solid #343650 !important;
+  border-bottom: 3px solid #ef4444 !important;
+}
+.cinenest-toast-content {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  max-width: 320px;
+}
+
+.cinenest-toast-title {
+  font-weight: 700;
+  color: #f43f5e;
+
+  /* Don't allow the movie name to become too wide */
+  max-width: 90px;
+
+  /* Show ... when the name is too long */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

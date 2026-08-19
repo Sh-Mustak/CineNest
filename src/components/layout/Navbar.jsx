@@ -1,14 +1,13 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import SearchInput from "./SearchInput";
 import AuthMenu from "../../features/auth/components/AuthMenu";
-
 
 function CineNestLogo() {
   return (
     <Link to="/" className="flex items-center flex-shrink-0">
       <span
-        className="text-[32px] tracking-[4px] leading-none"
+        className="text-[28px] sm:text-[32px] tracking-[3px] sm:tracking-[4px] leading-none"
         style={{ fontFamily: "'Bebas Neue', sans-serif" }}
       >
         <span className="text-white">Cine</span>
@@ -18,52 +17,69 @@ function CineNestLogo() {
   );
 }
 
+const navLinks = [
+  {
+    label: "Home",
+    mobileLabel: "Home",
+    to: "/",
+    icon: "home",
+  },
+  {
+    label: "Movies",
+    mobileLabel: "Movies",
+    to: "/movies",
+    icon: "movie",
+  },
+  {
+    label: "TV Shows",
+    mobileLabel: "TV",
+    to: "/tvshows",
+    icon: "tv",
+  },
+  {
+    label: "Watchlist",
+    mobileLabel: "My List",
+    to: "/watchlist",
+    icon: "bookmark",
+  },
+];
+
 export default function Navbar() {
-  const [openMenu, setOpenMenu] = useState(false);
   const location = useLocation();
 
-  const HandleMenu = () => setOpenMenu(!openMenu);
-
-  // Lock body scroll when drawer is open
+  // Prevent mobile bottom navigation from overlapping page content
   useEffect(() => {
-    if (openMenu) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+      document.body.style.paddingBottom = "72px";
     }
+
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.paddingBottom = "";
     };
-  }, [openMenu]);
-
-  // Close drawer on route change
-  useEffect(() => {
-    setOpenMenu(false);
-  }, [location.pathname]);
-
-  const navLinks = [
-    { label: "Home", to: "/", icon: "home" },
-    { label: "Movies", to: "/movies", icon: "movie" },
-    { label: "Tv Shows", to: "/tvshows", icon: "tv" },
-    { label: "Watchlist", to: "/watchlist", icon: "bookmark" },
-  ];
+  }, []);
 
   return (
     <>
+      {/* Google Font */}
       <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
         rel="stylesheet"
       />
 
-      <nav className="fixed left-0 top-0 w-full z-50 bg-[#0a0505]/70 backdrop-blur-md border-b border-primary/10">
-        <div className="max-w-[1440px] mx-auto px-4 h-20 flex items-center justify-between">
+      {/* ================= DESKTOP / MOBILE TOP NAVBAR ================= */}
+      <nav className="fixed top-0 left-0 w-full z-50 bg-[#0a0505]/90 backdrop-blur-xl border-b border-primary/10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between">
+
           {/* Logo */}
           <CineNestLogo />
 
-          {/* Desktop Links */}
+          {/* ================= DESKTOP NAV LINKS ================= */}
           <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.to;
+
               return (
                 <Link
                   key={link.to}
@@ -80,142 +96,75 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Right Side */}
-          <div className="flex items-center gap-2 ml-auto md:ml-0">
-            <SearchInput />
-            {/* Profile Icon */}
-            {/* <button className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white hover:bg-primary/80 active:scale-95 transition-all duration-200 shadow-lg shadow-primary/30">
-              <span className="material-symbols-outlined" style={{ fontSize: "20px" }}>
-                account_circle
-              </span>
-            </button> */}
-            <AuthMenu/>
-            {/* Hamburger — mobile only */}
-            <button
-              onClick={HandleMenu}
-              className="flex md:hidden items-center justify-center w-8 h-8 rounded-full bg-primary text-white hover:bg-primary/80 active:scale-95 transition-all duration-200 shadow-lg shadow-primary/30"
+          {/* ================= RIGHT SIDE ================= */}
+          <div className="flex items-center gap-2 ml-auto">
+
+            {/* Desktop Search */}
+            <div className="hidden sm:block">
+              <SearchInput />
+            </div>
+
+            {/* Mobile Search Icon */}
+            <Link
+              to="/search"
+              className="sm:hidden flex items-center justify-center w-9 h-9 rounded-full bg-white/5 border border-white/10 text-zinc-300 hover:text-white hover:bg-white/10 transition active:scale-95"
             >
               <span
-                className="material-symbols-outlined transition-transform duration-300"
-                style={{ fontSize: "20px" }}
+                className="material-symbols-outlined"
+                style={{ fontSize: "21px" }}
               >
-                menu
+                search
               </span>
-            </button>
+            </Link>
+
+            {/* Profile */}
+            <AuthMenu />
+
           </div>
         </div>
       </nav>
 
-      {/* Overlay — z-[60] so it covers the navbar (z-50) too */}
-      <div
-        onClick={HandleMenu}
-        className={`fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
-          openMenu ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-      />
+      {/* ================= MOBILE BOTTOM NAVIGATION ================= */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-[100] bg-[#0a0505]/95 backdrop-blur-xl border-t border-primary/10">
 
-      {/* Right Side Drawer — z-[70] so it sits above the overlay */}
-      <div
-        className={`fixed top-0 right-0 h-full w-72 z-[70] bg-[#0d0d0d] border-l border-white/5 flex flex-col transition-transform duration-300 ease-in-out md:hidden ${
-          openMenu ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        {/* Drawer Header */}
-        <div className="flex items-center justify-between px-5 h-20 border-b border-white/5">
-          <CineNestLogo />
-          <button
-            onClick={HandleMenu}
-            className="flex items-center justify-center w-8 h-8 rounded-full border border-white/10 text-slate-400 hover:text-white hover:border-white/30 active:scale-95 transition-all duration-200"
-          >
-            <span className="material-symbols-outlined" style={{ fontSize: "18px" }}>
-              close
-            </span>
-          </button>
-        </div>
+        <div className="h-[68px] grid grid-cols-4">
 
-        {/* Scrollable content */}
-        <div className="flex-1 overflow-y-auto py-4">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.to;
 
-          {/* BROWSE section */}
-          <div className="px-4 mb-2">
-            <p className="text-[10px] font-semibold tracking-widest text-slate-500 uppercase px-2 mb-2">
-              Browse
-            </p>
-            <div className="flex flex-col gap-1">
-              {navLinks.slice(0, 3).map((link) => {
-                const isActive = location.pathname === link.to;
-                return (
-                  <Link
-                    key={link.to}
-                    to={link.to}
-                    onClick={HandleMenu}
-                    className={`flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200 ${
-                      isActive
-                        ? "bg-primary/15 text-primary"
-                        : "text-slate-300 hover:text-white hover:bg-white/5"
-                    }`}
-                  >
-                    <div
-                      className={`flex items-center justify-center w-9 h-9 rounded-lg ${
-                        isActive ? "bg-primary/20" : "bg-white/5"
-                      }`}
-                    >
-                      <span
-                        className="material-symbols-outlined"
-                        style={{ fontSize: "18px" }}
-                      >
-                        {link.icon}
-                      </span>
-                    </div>
-                    <span className="text-sm font-medium">{link.label}</span>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`relative flex flex-col items-center justify-center gap-1 transition-all ${
+                  isActive
+                    ? "text-primary"
+                    : "text-zinc-500 hover:text-zinc-300"
+                }`}
+              >
 
-          <div className="mx-4 my-3 border-t border-white/5" />
+                {/* Active indicator */}
+                {isActive && (
+                  <span className="absolute top-0 w-8 h-[2px] bg-primary rounded-full" />
+                )}
 
-          {/* ACCOUNT section */}
-          <div className="px-4">
-            <p className="text-[10px] font-semibold tracking-widest text-slate-500 uppercase px-2 mb-2">
-              Account
-            </p>
-            <div className="flex flex-col gap-1">
-              {navLinks.slice(3).map((link) => {
-                const isActive = location.pathname === link.to;
-                return (
-                  <Link
-                    key={link.to}
-                    to={link.to}
-                    onClick={HandleMenu}
-                    className={`flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200 ${
-                      isActive
-                        ? "bg-primary/15 text-primary"
-                        : "text-slate-300 hover:text-white hover:bg-white/5"
-                    }`}
-                  >
-                    <div
-                      className={`flex items-center justify-center w-9 h-9 rounded-lg ${
-                        isActive ? "bg-primary/20" : "bg-white/5"
-                      }`}
-                    >
-                      <span
-                        className="material-symbols-outlined"
-                        style={{ fontSize: "18px" }}
-                      >
-                        {link.icon}
-                      </span>
-                    </div>
-                    <span className="text-sm font-medium">{link.label}</span>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: "21px" }}
+                >
+                  {link.icon}
+                </span>
+
+                <span className="text-[10px] font-medium tracking-wide">
+                  {link.mobileLabel}
+                </span>
+
+              </Link>
+            );
+          })}
 
         </div>
-      </div>
+      </nav>
     </>
   );
 }

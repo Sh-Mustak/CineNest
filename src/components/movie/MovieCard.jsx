@@ -1,21 +1,38 @@
 import { Link } from "react-router-dom";
-import { useWatchlistContext } from "../../context/useWatchlistContext";
 import { prefetchMovie } from "../../services/prefetchMovie";
 import { getImageUrl } from "../../utils/helper";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../features/auth/hooks/useAuth";
+import requireAuth from "../../features/auth/services/requireAuth";
+import useWatchlist from "../../features/auth/hooks/useWatchlist";
+
 
 export default function MovieCard({ movie, fullWidth }) {
+  const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
   const type = movie?.media_type;
-
-  const { watchlist, toggleWatchlist, showToast } = useWatchlistContext();
-
-  const isSaved = watchlist?.some((item) => item.id === movie.id);
-
-  const handleWatchlist = (e) => {
+  const { isInWatchlist, addMovie, removeMovie, } = useWatchlist();
+  
+  const handleWatchlist = async(e) => {
     e.preventDefault();
-
-    toggleWatchlist(movie);
-
-    showToast(isSaved ? "Removed from Watchlist 🗑️" : "Added to Watchlist ❤️");
+    const allowed = requireAuth({ isAuthenticated: isAuthenticated, navigate }); 
+    
+    if (!allowed) return;
+  
+    if (!isInWatchlist(movie.id)) {
+      try {
+        await addMovie(movie);
+        
+      } catch (error) {
+        console.error("Error adding movie to watchlist:", error);
+      }
+    } else {
+      try {
+        await removeMovie(movie.id);
+      } catch (error) {
+        console.error("Error removing movie from watchlist:", error);
+      }
+    }
   };
 
   return (
@@ -59,7 +76,7 @@ export default function MovieCard({ movie, fullWidth }) {
           className="bg-black/70 backdrop-blur-md p-3 rounded-full text-white shadow-lg hover:scale-110 transition flex items-center justify-center"
         >
           <span className="material-symbols-outlined text-sm">
-            {isSaved ? "bookmark_remove" : "bookmark_add"}
+            {isInWatchlist(movie.id) ? "bookmark_added" : "bookmark_add"}
           </span>
         </button>
       </div>
