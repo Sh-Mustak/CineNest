@@ -2,7 +2,7 @@
 
 export default function HeroBackground({ slides = [] }) {
   return (
-    <div className="absolute inset-0 z-0 mt-20">
+    <div className="absolute inset-0 z-0">
       {slides.map((movie, i) => (
         <div
           key={movie.id ?? i}

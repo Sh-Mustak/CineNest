@@ -54,11 +54,9 @@ export default function Navbar() {
         rel="stylesheet"
       />
 
-      {/* =====================================================
-          TOP NAVBAR
-      ====================================================== */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-primary/10 bg-[#0a0505]/90 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 sm:h-20 max-w-[1440px] items-center px-4 sm:px-6">
+      {/* ================= DESKTOP / MOBILE TOP NAVBAR ================= */}
+      <nav className="fixed top-0 left-0 w-full z-50 bg-[#0a0505]/90 backdrop-blur-xl border-b border-primary/10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between">
 
           {/* =================================================
               LOGO
