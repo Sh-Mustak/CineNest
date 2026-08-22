@@ -42,7 +42,7 @@ export default function Movies() {
   }, []);
 
   return (
-    <div className="mx-auto px-4 py-8 md:mt-15">
+    <div className="mx-auto px-4 md:py-8 lg:py-8 md:mt-15 lg:mt-15">
 
       <FilterToggle
         open={open}
