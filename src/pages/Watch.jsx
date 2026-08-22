@@ -42,7 +42,7 @@ export default function Watch() {
   };
 
   return (
-    <main className="max-w-[1440px] mx-auto px-3 pt-6 pb-20 md:mt-15">
+    <main className="max-w-[1440px] mx-auto px-3 pb-20 md:mt-15">
       {/* Video */}
       <VideoPlayer playerUrl={playerUrl} />
 

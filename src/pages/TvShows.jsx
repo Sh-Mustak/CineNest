@@ -45,7 +45,7 @@ export default function TvShows() {
   }, []);
 
   return (
-    <div className="mx-auto px-4 py-8 mt-15">
+    <div className="mx-auto px-4 py-8 md:mt-15">
 
       {/* Toggle button */}
       <FilterToggle

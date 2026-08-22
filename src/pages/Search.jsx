@@ -37,7 +37,7 @@ export default function Search() {
 
   return (
     <div className="min-h-screen bg-zinc-950">
-      <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 mt-22">
+      <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8 md:mt-15">
 
         {/* ── Header ── */}
         <div className="mb-10">
