@@ -36,7 +36,7 @@ export default function HeroBackground({ slides = [] }) {
         className="absolute inset-0 z-[1] pointer-events-none"
         style={{
           background: `
-      linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.60) 40%, rgba(0,0,0,0.15) 65%, transparent 100%),
+      linear-gradient(to right, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.50) 40%, rgba(0,0,0,0.15) 65%, transparent 100%),
       linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.20) 40%, transparent 100%)
     `,
         }}

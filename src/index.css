@@ -6,7 +6,6 @@
   --color-background-light: #f8f5f5;
   /* --color-background-dark: #0a0505; */
   --color-background-dark: #0b0b0f;
-
   --color-card-dark: #1a0c0c;
 
   /* Font */
@@ -212,19 +211,20 @@
 .hero-overlay-bottom {
   background: linear-gradient(
     to top,
-    rgba(10, 5, 5, 1) 0%,
-    rgba(10, 5, 5, 0.72) 28%,
-    rgba(0, 0, 0, 0.1) 65%,
+    rgba(11, 11, 15, 1) 0%,
+    rgba(11, 11, 15, 0.52) 28%,
+    rgba(11, 11, 15, 0.1) 65%,
     transparent 100%
   );
 }
+
 @media (max-width: 767px) {
   .hero-overlay-bottom {
     background: linear-gradient(
       to top,
-      rgba(10, 5, 5, 1) 0%,
-      rgba(10, 5, 5, 0.9) 42%,
-      rgba(0, 0, 0, 0.35) 72%,
+      rgba(11, 11, 15, 1) 0%,
+      rgba(11, 11, 15, 0.9) 42%,
+      rgba(11, 11, 15, 0.35) 72%,
       transparent 100%
     );
   }

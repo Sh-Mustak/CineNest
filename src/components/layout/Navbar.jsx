@@ -55,7 +55,7 @@ export default function Navbar() {
       />
 
       {/* ================= DESKTOP / MOBILE TOP NAVBAR ================= */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-background-dark backdrop-blur-xl border-b border-primary/10">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-background-dark  border-b border-primary/10">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between">
 
           {/* =================================================
@@ -77,7 +77,7 @@ export default function Navbar() {
                   className={`border-b-2 pb-1 text-sm font-medium transition-colors ${
                     active
                       ? "border-primary font-semibold text-primary"
-                      : "border-transparent text-slate-400 hover:text-white"
+                      : "border-transparent text-white hover:text-white"
                   }`}
                 >
                   {link.label}
