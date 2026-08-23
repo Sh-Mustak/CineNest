@@ -27,7 +27,7 @@ export default function WatchList() {
   // Not authenticated
   if (!isAuthenticated) {
     return (
-      <main className="min-h-screen bg-[#0b0b0f] px-4 pt-28 pb-16 text-amber-50 sm:px-6 lg:px-10">
+      <main className="min-h-screen bg-[#0b0b0f] px-4 md:pt-20 lg:pt-20 pb-16 text-red-50 sm:px-6 lg:px-10">
         <div className="mx-auto flex min-h-[60vh] max-w-7xl items-center justify-center">
           <div className="text-center">
             <div className="mb-6 text-6xl">🔒</div>
@@ -49,7 +49,7 @@ export default function WatchList() {
   // Loading
   if (loading) {
     return (
-      <main className="min-h-screen bg-[#0b0b0f] px-4 pt-28 pb-16 text-amber-50 sm:px-6 lg:px-10">
+      <main className="min-h-screen bg-[#0b0b0f] px-4 md:pt-20 lg:pt-20 pb-16 text-amber-50 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10">
             <div className="mb-3 h-10 w-48 animate-pulse rounded bg-white/10" />
@@ -106,7 +106,7 @@ export default function WatchList() {
   }
 
   return (
-    <main className="min-h-screen bg-[#0b0b0f] px-4 pt-28 pb-16 text-amber-50 sm:px-6 lg:px-10">
+    <main className="min-h-screen bg-[#0b0b0f] px-4 md:pt-20 lg:pt-20 pb-16 text-red-50 sm:px-6 lg:px-10">
       <div className="mx-auto max-w-7xl">
 
         {/* Header */}
@@ -115,7 +115,7 @@ export default function WatchList() {
 
             <div>
               <div className="mb-2 flex items-center gap-3">
-                <span className="h-8 w-1 rounded-full bg-amber-400" />
+                <span className="h-8 w-1 rounded-full bg-primary" />
 
                 <h1 className="text-3xl font-bold sm:text-4xl">
                   My Watchlist
