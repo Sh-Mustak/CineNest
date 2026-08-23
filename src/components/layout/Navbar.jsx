@@ -55,7 +55,7 @@ export default function Navbar() {
       />
 
       {/* ================= DESKTOP / MOBILE TOP NAVBAR ================= */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-[#0a0505]/90 backdrop-blur-xl border-b border-primary/10">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-background-dark backdrop-blur-xl border-b border-primary/10">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between">
 
           {/* =================================================

@@ -15,7 +15,7 @@ export default function BottomNav() {
   return (
     <nav
       style={{ height: "56px", minHeight: "56px", maxHeight: "56px" }}
-      className="fixed bottom-0 left-0 w-full z-50 md:hidden bg-[#0a0505]/90 backdrop-blur-md border-t border-white/10"
+      className="fixed bottom-0 left-0 w-full z-50 md:hidden bg-background-dark backdrop-blur-md border-t border-white/10"
     >
       <div
         style={{ height: "56px" }}
