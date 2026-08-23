@@ -30,7 +30,9 @@ export default function WatchList() {
       <main className="min-h-screen bg-[#0b0b0f] px-4 md:pt-20 lg:pt-20 pb-16 text-red-50 sm:px-6 lg:px-10">
         <div className="mx-auto flex min-h-[60vh] max-w-7xl items-center justify-center">
           <div className="text-center">
-            <div className="mb-6 text-6xl">🔒</div>
+            <div className="  text-6xl text-primary">
+              <span className="material-symbols-outlined"  style={{ fontSize: "50px" }}>lock</span>
+          </div>
 
             <h1 className="mb-3 text-3xl font-bold sm:text-4xl">
               Your Watchlist
