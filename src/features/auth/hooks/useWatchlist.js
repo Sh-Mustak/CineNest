@@ -84,7 +84,22 @@ export default function useWatchlist() {
             throw err; 
         }
     }
+    const getWatchlist = async () => {
+        if(!isAuthenticated || !user) {
+            setWatchlist([]);
+            return;
+        }
+        try{
+            setLoading(true);
+            const userWatchlist = await watchlistService.getUserWatchlist(user.$id);
+            setWatchlist(userWatchlist);
+        } catch (error) {
+            console.error("Error fetching watchlist:", error);
+        } finally {
+            setLoading(false);
+        }
+    }
 
-    return { watchlist, loading, isInWatchlist, addMovie, removeMovie, };
+    return { watchlist, loading, isInWatchlist, addMovie, removeMovie, getWatchlist };
 }
 

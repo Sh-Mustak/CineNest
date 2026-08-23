@@ -7,7 +7,7 @@ import requireAuth from "../../features/auth/services/requireAuth";
 import useWatchlist from "../../features/auth/hooks/useWatchlist";
 
 
-export default function MovieCard({ movie, fullWidth }) {
+export default function MovieCard({ movie, fullWidth, }) {
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
   const type = movie?.media_type;
@@ -48,7 +48,7 @@ export default function MovieCard({ movie, fullWidth }) {
         <div className="relative aspect-[2/3] rounded-md overflow-hidden bg-slate-800 shadow-lg transition-all duration-300 group-hover:shadow-2xl">
           {/* Poster */}
           <img
-            src={getImageUrl(movie.poster_path)}
+            src={getImageUrl(movie.poster_path || movie.posterPath)}
             alt={movie.title}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
@@ -76,7 +76,7 @@ export default function MovieCard({ movie, fullWidth }) {
           className="bg-black/70 backdrop-blur-md p-3 rounded-full text-white shadow-lg hover:scale-110 transition flex items-center justify-center"
         >
           <span className="material-symbols-outlined text-sm">
-            {isInWatchlist(movie.id) ? "bookmark_added" : "bookmark_add"}
+            {isInWatchlist(movie.id || movie.movieId ) ? "bookmark_remove" : "bookmark_add"}
           </span>
         </button>
       </div>
