@@ -41,7 +41,7 @@ export default function MovieCard({ movie, fullWidth, }) {
     >
       {/* IMAGE (ONLY NAVIGATION) */}
       <Link
-        to={`/watch/${type}/${movie.id}`}
+        to={`/watch/${type}/${movie.id || movie.movieId}`}
         onMouseEnter={() => prefetchMovie(type, movie.id)}
         onClick={() => sessionStorage.setItem("homeScroll", window.scrollY)}
       >
