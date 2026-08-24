@@ -10,7 +10,7 @@ import useWatchlist from "../../features/auth/hooks/useWatchlist";
 export default function MovieCard({ movie, fullWidth, }) {
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
-  const type = movie?.media_type;
+  const type = movie?.media_type || movie?.mediaType;
   const { isInWatchlist, addMovie, removeMovie, } = useWatchlist();
   
   const handleWatchlist = async(e) => {
@@ -19,7 +19,7 @@ export default function MovieCard({ movie, fullWidth, }) {
     
     if (!allowed) return;
   
-    if (!isInWatchlist(movie.id)) {
+    if (!isInWatchlist(movie.id || movie.movieId)) {
       try {
         await addMovie(movie);
         
@@ -28,7 +28,7 @@ export default function MovieCard({ movie, fullWidth, }) {
       }
     } else {
       try {
-        await removeMovie(movie.id);
+        await removeMovie(movie.id || movie.movieId);
       } catch (error) {
         console.error("Error removing movie from watchlist:", error);
       }
@@ -42,7 +42,7 @@ export default function MovieCard({ movie, fullWidth, }) {
       {/* IMAGE (ONLY NAVIGATION) */}
       <Link
         to={`/watch/${type}/${movie.id || movie.movieId}`}
-        onMouseEnter={() => prefetchMovie(type, movie.id)}
+        onMouseEnter={() => prefetchMovie(type, movie.id || movie.movieId)}
         onClick={() => sessionStorage.setItem("homeScroll", window.scrollY)}
       >
         <div className="relative aspect-[2/3] rounded-md overflow-hidden bg-slate-800 shadow-lg transition-all duration-300 group-hover:shadow-2xl">
