@@ -43,7 +43,7 @@ const RegisterForm = () => {
 
       // Tell the user what happened
       toast.success("Account created successfully! Please login.");
-      toast.error("Unable to create your account. Please try again.")
+      
 
       // Go to login page
       navigate("/");
