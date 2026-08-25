@@ -6,10 +6,12 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import ProfileService from "../../profile/services/profileService";
+import useAuth from "../hooks/useAuth";
 
 const RegisterForm = () => {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const {setUser} = useAuth()
 
   const navigate = useNavigate();
 
@@ -27,16 +29,21 @@ const RegisterForm = () => {
       setLoading(true);
 
       // create appwrite authentication account
-      const user = await authService.register(data);
+      await authService.register(data);
 
       // Login immediately
       await authService.login(data)
+
+      const user = authService.getCurrentUser()
 
       // create CineNest profile
       await ProfileService.createProfile({
         userId: user.$id,
         displayName: user.name
       })
+
+      setUser(user)
+
 
       // Clear form
       reset();
