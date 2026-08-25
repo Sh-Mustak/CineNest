@@ -29,12 +29,11 @@ const RegisterForm = () => {
       setLoading(true);
 
       // create appwrite authentication account
-      await authService.register(data);
+      const user = await authService.register(data);
 
       // Login immediately
       await authService.login(data)
 
-      const user = await authService.getCurrentUser()
 
       // create CineNest profile
       await ProfileService.createProfile({
@@ -49,7 +48,7 @@ const RegisterForm = () => {
       reset();
 
       // Tell the user what happened
-      toast.success("Account created successfully! Please login.");
+      toast.success("Account created successfully");
       
 
       // Go to login page
