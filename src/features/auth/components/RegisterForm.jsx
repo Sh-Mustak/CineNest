@@ -5,6 +5,7 @@ import authService from "../services/authService";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import ProfileService from "../../profile/services/profileService";
 
 const RegisterForm = () => {
   const [loading, setLoading] = useState(false);
@@ -25,16 +26,27 @@ const RegisterForm = () => {
     try {
       setLoading(true);
 
-      await authService.register(data);
+      // create appwrite authentication account
+      const user = await authService.register(data);
+
+      // Login immediately
+      await authService.login(data)
+
+      // create CineNest profile
+      await ProfileService.createProfile({
+        userId: user.$id,
+        displayName: user.name
+      })
 
       // Clear form
       reset();
 
       // Tell the user what happened
       toast.success("Account created successfully! Please login.");
+      toast.error("Unable to create your account. Please try again.")
 
       // Go to login page
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       console.error("Error registering user:", error);
 
