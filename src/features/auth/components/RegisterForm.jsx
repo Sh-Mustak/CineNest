@@ -34,7 +34,7 @@ const RegisterForm = () => {
       // Login immediately
       await authService.login(data)
 
-      const user = authService.getCurrentUser()
+      const user = await authService.getCurrentUser()
 
       // create CineNest profile
       await ProfileService.createProfile({
