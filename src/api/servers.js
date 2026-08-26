@@ -48,7 +48,7 @@ export const servers = [
       `https://vidlux.online/embed/tv/${id}/${s}/${e}?color=3b82f6&autoplay=true`,
   },
   {
-  name: "NHD Embed",
+  name: "NHD",
 
   movie: (id) =>
     `https://nhdapi.st/movie/${id}`,
@@ -67,7 +67,7 @@ export const servers = [
       `https://cinesrc.st/embed/tv/${id}?s=${s}&e=${e}`,
   },
 {
-  name: "AutoEmbedApp",
+  name: "AutoEmbed",
   movie: (id) => `https://player.autoembed.app/embed/movie/${id}`,
   tv: (id, s, e) => `https://player.autoembed.app/embed/tv/${id}/${s}/${e}`,
 },
@@ -75,7 +75,7 @@ export const servers = [
   name: "AnyEmbed",
   movie: (id) => `https://anyembed.xyz/embed/tmdb-movie-${id}`,
   tv: (id, s, e) => `https://anyembed.xyz/embed/tmdb-tv-${id}-${s}-${e}`,
-},
+  },
   {
     name: "VidZee",
 
@@ -114,26 +114,6 @@ export const servers = [
 
     tv: (id, s, e) =>
       `https://player.embed-api.stream/?id=${id}&s=${s}&e=${e}&autoplay=true&nextButton=true`,
-  },
-
-  {
-    name: "Vembed",
-
-    movie: (id) =>
-      `https://vembed.click/play/${id}`,
-
-    tv: (id, s, e) =>
-      `https://vembed.click/play/${id}_${s}_${e}`,
-  },
-
-  {
-    name: "StreamMafia",
-
-    movie: (id) =>
-      `https://embed.streammafia.to/embed/movie/${id}`,
-
-    tv: (id, s, e) =>
-      `https://embed.streammafia.to/embed/tv/${id}/${s}/${e}`,
   },
 
   {
@@ -186,15 +166,6 @@ export const servers = [
       `https://www.2embed.cc/embedtv/${id}&s=${s}&e=${e}`,
   },
 
-  {
-    name: "GoDriver",
-
-    movie: (id) =>
-      `https://godriveplayer.com/player.php?tmdb=${id}`,
-
-    tv: (id, s, e) =>
-      `https://godriveplayer.com/player.php?type=series&tmdb=${id}&season=${s}&episode=${e}`,
-  },
 
   {
     name: "Multiembed",
@@ -226,40 +197,48 @@ export const servers = [
       `https://autoembed.co/tv/tmdb/${id}-${s}-${e}`,
   },
 
-  {
-    name: "SmashyStream",
 
-    movie: (id) =>
-      `https://embed.smashystream.com/playere.php?tmdb=${id}`,
+ {
+  name: "Viduki MS",
 
-    tv: (id, s, e) =>
-      `https://embed.smashystream.com/playere.php?tmdb=${id}&season=${s}&episode=${e}`,
-  },
+  movie: (id) =>
+    `https://viduki.net/1/movie/${id}?color=3b82f6`,
 
-  {
-    name: "SrcWtf",
+  tv: (id, s, e) =>
+    `https://viduki.net/1/tv/${id}/${s}/${e}?color=3b82f6`,
+},
 
-    apis: [1, 2, 3, 4],
-    currentApi: 0,
+{
+  name: "Viduki ML",
 
-    movie: (id, apiIndex = 0) =>
-      `https://vidsrc.wtf/api/${[1, 2, 3, 4][apiIndex]}/movie/?id=${id}&color=ffffff`,
+  movie: (id) =>
+    `https://viduki.net/2/movie/${id}?color=3b82f6`,
 
-    tv: (id, s, e, apiIndex = 0) =>
-      `https://vidsrc.wtf/api/${[1, 2, 3, 4][apiIndex]}/tv/?id=${id}&s=${s}&e=${e}&color=ffffff`,
-  },
+  tv: (id, s, e) =>
+    `https://viduki.net/2/tv/${id}/${s}/${e}?color=3b82f6`,
+},
+
+{
+  name: "Viduki ME",
+
+  movie: (id) =>
+    `https://viduki.net/3/movie/${id}?color=3b82f6`,
+
+  tv: (id, s, e) =>
+    `https://viduki.net/3/tv/${id}/${s}/${e}?color=3b82f6`,
+},
+
+{
+  name: "Viduki Pro",
+
+  movie: (id) =>
+    `https://viduki.net/4/movie/${id}?color=3b82f6`,
+
+  tv: (id, s, e) =>
+    `https://viduki.net/4/tv/${id}/${s}/${e}?color=3b82f6`,
+},
 
   // STANDARD SERVERS
-
-  {
-    name: "Rive",
-
-    movie: (id) =>
-      `https://www.rivestream.app/embed?type=movie&id=${id}`,
-
-    tv: (id, s, e) =>
-      `https://www.rivestream.app/embed?type=tv&id=${id}&season=${s}&episode=${e}`,
-  },
 
   {
     name: "111Movies",
@@ -310,13 +289,5 @@ export const servers = [
     tv: (id, s, e) =>
       `https://megaembed.com/embed/tv/${id}/${s}/${e}`,
   },
-{
-  name: "EzVidApi",
 
-  movie: (id) =>
-    `https://ezvidapi.com/embed/movie/${id}`,
-
-  tv: (id, s, e) =>
-    `https://ezvidapi.com/embed/tv/${id}/${s}/${e}`,
-},
 ];
