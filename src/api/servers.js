@@ -47,6 +47,15 @@ export const servers = [
     tv: (id, s, e) =>
       `https://vidlux.online/embed/tv/${id}/${s}/${e}?color=3b82f6&autoplay=true`,
   },
+  {
+  name: "NHD Embed",
+
+  movie: (id) =>
+    `https://nhdapi.st/movie/${id}`,
+
+  tv: (id, s, e) =>
+    `https://nhdapi.st/tv/${id}/${s}/${e}`,
+  },
 
   {
     name: "CineSrc",
