@@ -10,7 +10,12 @@ export const servers = [
   },
 
   {
-    name: "Vidrock",
+    name: "VidrockR",
+    movie: (id) => `https://vidrock.ru/movie/${id}`,
+    tv: (id, s, e) => `https://vidrock.ru/tv/${id}/${s}/${e}`,
+  },
+   {
+    name: "VidrockN",
     movie: (id) => `https://vidrock.net/movie/${id}`,
     tv: (id, s, e) => `https://vidrock.net/tv/${id}/${s}/${e}`,
   },
