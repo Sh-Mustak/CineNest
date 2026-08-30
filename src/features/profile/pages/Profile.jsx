@@ -37,7 +37,7 @@ const Profile = () => {
   const currentProfile = updatedProfile || profile;
 
   return (
-    <main className="min-h-screen bg-zinc-950 px-4 pb-20 pt-22">
+    <main className="min-h-screen bg-zinc-950 px-4 pb-20  md:pt-22 lg:pt-22">
       <div className="mx-auto max-w-4xl">
 
         {!editing ? (

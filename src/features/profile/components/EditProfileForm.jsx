@@ -57,7 +57,7 @@ const EditProfileForm = ({ profile, onUpdated, onCancel }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-5">
+    <form onSubmit={handleSubmit(onSubmit)} className="md:mt-8 lg:mt-8 space-y-5">
       {/* Display Name */}
       <div>
         <label className="mb-1 block text-sm font-medium text-zinc-300">
