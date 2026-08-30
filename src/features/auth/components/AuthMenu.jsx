@@ -166,12 +166,12 @@ const AuthMenu = () => {
 
         {/* Avatar */}
         <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white font-semibold text-sm">
-          {profile.displayName ?.charAt(0)?.toUpperCase() || "U"}
+          {profile?.displayName ?.charAt(0)?.toUpperCase() || "U"}
         </div>
 
         {/* Desktop Name */}
         <span className="hidden lg:block max-w-24 truncate text-sm font-medium text-white">
-          {profile.displayName}
+          {profile?.displayName}
         </span>
 
         {/* Desktop Arrow */}
@@ -203,13 +203,13 @@ const AuthMenu = () => {
             <div className="flex items-center gap-3">
 
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-white font-semibold">
-                {profile.displayName?.charAt(0)?.toUpperCase() || "U"}
+                {profile?.displayName?.charAt(0)?.toUpperCase() || "U"}
               </div>
 
               <div className="min-w-0">
 
                 <p className="truncate text-sm font-semibold text-white">
-                  {profile.displayName}
+                  {profile?.displayName}
                 </p>
 
                 <p className="truncate text-xs text-zinc-500">
