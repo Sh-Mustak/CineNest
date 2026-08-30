@@ -161,7 +161,7 @@ const AuthMenu = () => {
       {/* Profile Button */}
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-1.5 py-1.5 hover:bg-white/10 transition active:scale-95"
+        className="flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-1.5 py-1.5 hover:bg-white/10 transition active:scale-95"
       >
 
         {/* Avatar */}
@@ -170,9 +170,9 @@ const AuthMenu = () => {
         </div>
 
         {/* Desktop Name */}
-        <span className="hidden lg:block max-w-24 truncate text-sm font-medium text-white">
+        {/* <span className="hidden lg:block max-w-24 truncate text-sm font-medium text-white">
           {profile?.displayName}
-        </span>
+        </span> */}
 
         {/* Desktop Arrow */}
         <span
@@ -188,7 +188,7 @@ const AuthMenu = () => {
       {/* ================= DROPDOWN ================= */}
 
       <div
-        className={`absolute right-0 top-[calc(100%+10px)] w-64 origin-top-right transition-all duration-200 ${
+        className={`absolute right-0 top-[calc(100%+21px)] w-64 origin-top-right transition-all duration-200 ${
           open
             ? "visible scale-100 opacity-100"
             : "invisible scale-95 opacity-0 pointer-events-none"
