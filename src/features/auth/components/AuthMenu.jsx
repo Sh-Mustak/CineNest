@@ -1,15 +1,17 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { useProfile } from "../../profile/hooks/useProfile";
 import authService from "../services/authService";
 
 const AuthMenu = () => {
   const { user, loading, setUser } = useAuth();
+  const {profile} = useProfile();
   const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
   const menuRef = useRef(null);
-
+  
   // Close when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -164,12 +166,12 @@ const AuthMenu = () => {
 
         {/* Avatar */}
         <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white font-semibold text-sm">
-          {user.name?.charAt(0)?.toUpperCase() || "U"}
+          {profile.displayName ?.charAt(0)?.toUpperCase() || "U"}
         </div>
 
         {/* Desktop Name */}
         <span className="hidden lg:block max-w-24 truncate text-sm font-medium text-white">
-          {user.name}
+          {profile.displayName}
         </span>
 
         {/* Desktop Arrow */}
@@ -201,13 +203,13 @@ const AuthMenu = () => {
             <div className="flex items-center gap-3">
 
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-white font-semibold">
-                {user.name?.charAt(0)?.toUpperCase() || "U"}
+                {profile.displayName?.charAt(0)?.toUpperCase() || "U"}
               </div>
 
               <div className="min-w-0">
 
                 <p className="truncate text-sm font-semibold text-white">
-                  {user.name}
+                  {profile.displayName}
                 </p>
 
                 <p className="truncate text-xs text-zinc-500">

@@ -43,16 +43,35 @@ class WatchlistService {
         throw error;
       }
     }
-    async getUserWatchlist({userId}) {
+    async getUserWatchlist(userId) {
         try{
             const response = await tableDB.listRows({
                 databaseId: DATABASE_ID,
                 tableId: COLLECTION_ID,
-                Query: Query.equal("userId", userId),
+                queries: [
+                    Query.equal("userId", userId),
+                ],
             });
             return response.rows;
         } catch (error) {
             console.error("Error fetching user watchlist:", error);
+            throw error;
+        }
+    }
+        async getWatchlistCount({ userId }) {
+        try {
+            const response = await tableDB.listRows({
+                databaseId: DATABASE_ID,
+                tableId: COLLECTION_ID,
+                queries: [
+                    Query.equal("userId", userId),
+                ],
+                total: true,
+            });
+
+            return response.total;
+        } catch (error) {
+            console.error("Error fetching watchlist count:", error);
             throw error;
         }
     }

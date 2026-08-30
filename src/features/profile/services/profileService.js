@@ -25,7 +25,7 @@ class ProfileService {
         }
     }
 
-    async getProfileByUserId(userId){
+    async getProfileByUserId({userId}){
         try{
             const response = await tableDB.listRows({
                 databaseId: DATABASE_ID,

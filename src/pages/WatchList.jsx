@@ -7,7 +7,6 @@ import useWatchlist from "../features/auth/hooks/useWatchlist";
 export default function WatchList() {
   const { isAuthenticated } = useAuth();
   const { watchlist, loading } = useWatchlist();
-  console.log("Watchlist:", watchlist); // Log the watchlist to check its contents
 
   const [search, setSearch] = useState("");
 

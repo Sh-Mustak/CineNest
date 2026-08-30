@@ -19,6 +19,7 @@ import Watch from "./pages/Watch";
 import WatchList from "./pages/WatchList";
 import Register from "./features/auth/pages/Register";
 import Login from "./features/auth/pages/Login";
+import Profile from "./features/profile/pages/Profile"
 
 
 function AppLayout() {
@@ -40,6 +41,7 @@ function AppLayout() {
           <Route path="/watch/:type/:id" element={<Watch />} />
           <Route path="/search" element={<Search />} />
           <Route path="/watchlist" element={<WatchList />} />
+          <Route path="/profile" element={<Profile/>} />
 
           {/* AUTH */}
           <Route path="/register" element={<Register />} />
