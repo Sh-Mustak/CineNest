@@ -9,12 +9,15 @@ import { useWatchContext } from "../context/useWatchContext";
 import { useMediaDetails } from "../hooks/useMediaDetails";
 import { createWatchTabs } from "../utils/watchTabs";
 
+
 export default function Watch() {
   const { type, id } = useParams();
   const { seasonNumber, episodeNumber } = useWatchContext();
   const { data, loading } = useMediaDetails(type, id);
 
   const [serverIndex, setServerIndex] = useState(0);
+
+  
 
   // Player URL
   const playerUrl = useMemo(() => {
@@ -42,7 +45,7 @@ export default function Watch() {
   };
 
   return (
-    <main className="max-w-[1440px] mx-auto px-3 pb-20 md:mt-15">
+    <main className="max-w-[1440px] mx-auto px-3 pb-20 md:mt-22 lg:mt-22">
       {/* Video */}
       <VideoPlayer playerUrl={playerUrl} />
 

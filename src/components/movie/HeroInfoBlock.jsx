@@ -97,26 +97,42 @@ export default function HeroInfoBlock({ movie, infoRef }) {
 
       {/* ── CTA Buttons ───────────────────────────────────── */}
       <div className="flex items-center gap-2 flex-wrap">
-        <Link
-          to={`/watch/${movie?.mediaType}/${movie.id}`}
-          className="bg-primary hover:bg-primary/90 text-white px-3 py-2.5 rounded-md font-bold flex items-center gap-1 text-sm transition-all active:scale-95 hover:scale-105"
-        >
-          <span
-            className="material-symbols-outlined text-[18px]"
-            style={{ fontVariationSettings: "'FILL' 1" }}
-          >
-            play_arrow
-          </span>
-          Watch Now
-        </Link>
+  <Link
+    to={`/watch/${movie?.mediaType}/${movie.id}`}
+    className="bg-primary hover:bg-primary/90 text-white py-2 px-1.5 rounded-md font-bold flex items-center  text-sm transition-all active:scale-95 hover:scale-105"
+  >
+    <span
+      className="material-symbols-outlined"
+      style={{
+        fontVariationSettings: "'FILL' 0",
+        marginLeft: "-8px",
+        
+      }}
+    >
+      play_arrow
+    </span>
 
-        <button onClick={handleWatchlist} className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm text-white px-3 py-2.5 rounded-md font-bold flex items-center gap-1 text-sm transition-all">
-          <span className="material-symbols-outlined text-sm">
-            {isInWatchlist(movie.id || movie.movieId ) ? "bookmark_remove" : "bookmark_add"}
-          </span>
-          { isInWatchlist(movie.id || movie.movieId) ? "Remove from Watchlist" : "Add to Watchlist"   }
-        </button>
-      </div>
+    <div className="text-">
+      Watch Now
+    </div>
+  </Link>
+
+  <button
+    onClick={handleWatchlist}
+    className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm text-white py-2 px-1.5 rounded-md font-bold flex items-center gap-1 text-sm transition-all"
+  >
+    <span 
+    className="material-symbols-outlined text-sm"
+    
+
+    >
+      {isInWatchlist(movie.id || movie.movieId)
+        ? "bookmark_remove"
+        : "bookmark_add"}
+      
+    </span>
+  </button>
+</div>
     </div>
   );
 }
