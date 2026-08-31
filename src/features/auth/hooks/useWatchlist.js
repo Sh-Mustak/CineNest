@@ -43,7 +43,7 @@ export default function useWatchlist() {
               const newRow = await watchlistService.addmovieToWatchlist({
                 userId: user.$id,
                 movieId: String(movie.id),
-                mediaType: movie.media_type,
+                mediaType: movie.media_type || movie.mediaType,
                 title: movie.title || movie.name,
                 posterPath: movie.poster_path,
               });

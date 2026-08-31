@@ -1,6 +1,37 @@
 import { Link } from "react-router-dom";
+import useAuth from "../../features/auth/hooks/useAuth";
+import useWatchlist from "../../features/auth/hooks/useWatchlist";
+import requireAuth from "../../features/auth/services/requireAuth";
+import {useNavigate} from "react-router-dom"
+
 export default function HeroInfoBlock({ movie, infoRef }) {
+  const navigate = useNavigate()
+  const { addMovie, removeMovie, isInWatchlist} = useWatchlist();
+  const { isAuthenticated} = useAuth();
   if (!movie) return null;
+  
+ 
+    const handleWatchlist = async(e) => {
+    e.preventDefault();
+    const allowed = requireAuth({ isAuthenticated: isAuthenticated, navigate }); 
+    
+    if (!allowed) return;
+  
+    if (!isInWatchlist(movie.id || movie.movieId)) {
+      try {
+        await addMovie(movie);
+        
+      } catch (error) {
+        console.error("Error adding movie to watchlist:", error);
+      }
+    } else {
+      try {
+        await removeMovie(movie.id || movie.movieId);
+      } catch (error) {
+        console.error("Error removing movie from watchlist:", error);
+      }
+    }
+  };
 
   return (
     <div
@@ -79,9 +110,11 @@ export default function HeroInfoBlock({ movie, infoRef }) {
           Watch Now
         </Link>
 
-        <button className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm text-white px-3 py-2.5 rounded-md font-bold flex items-center gap-1 text-sm transition-all">
-          <span className="material-symbols-outlined text-[18px]">add</span>
-          My Watchlist
+        <button onClick={handleWatchlist} className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm text-white px-3 py-2.5 rounded-md font-bold flex items-center gap-1 text-sm transition-all">
+          <span className="material-symbols-outlined text-sm">
+            {isInWatchlist(movie.id || movie.movieId ) ? "bookmark_remove" : "bookmark_add"}
+          </span>
+          { isInWatchlist(movie.id || movie.movieId) ? "Remove from Watchlist" : "Add to Watchlist"   }
         </button>
       </div>
     </div>

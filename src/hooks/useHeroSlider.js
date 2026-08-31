@@ -20,7 +20,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 
-const SLIDE_DURATION = 6000;
+const SLIDE_DURATION = 10000;
 
 // ── Pure DOM helper — switches background from prevIdx → nextIdx ──
 // Called from event handlers only (never inside useEffect).
