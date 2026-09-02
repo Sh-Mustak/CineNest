@@ -4,13 +4,10 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
-
 import "./App.css";
-
 import BottomNav from "./components/layout/BottomNav";
 import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
-
 import Home from "./pages/Home";
 import Movies from "./pages/Movies";
 import Search from "./pages/Search";

@@ -4,14 +4,14 @@ import { getImageUrl } from "../../utils/helper";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../features/auth/hooks/useAuth";
 import requireAuth from "../../features/auth/services/requireAuth";
-import useWatchlist from "../../features/auth/hooks/useWatchlist";
+import { useWatchlistContext } from "../../context/AppwriteContext/useWatchlistContext";
 
 
 export default function MovieCard({ movie, fullWidth, }) {
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
   const type = movie?.media_type || movie?.mediaType;
-  const { isInWatchlist, addMovie, removeMovie, } = useWatchlist();
+  const { isInWatchlist, addMovie, removeMovie, } = useWatchlistContext();
   
   const handleWatchlist = async(e) => {
     e.preventDefault();

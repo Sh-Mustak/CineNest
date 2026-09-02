@@ -44,7 +44,7 @@ class WatchlistService {
       }
     }
     async getUserWatchlist(userId) {
-        try{
+        try {
             const response = await tableDB.listRows({
                 databaseId: DATABASE_ID,
                 tableId: COLLECTION_ID,
@@ -52,6 +52,7 @@ class WatchlistService {
                     Query.equal("userId", userId),
                 ],
             });
+
             return response.rows;
         } catch (error) {
             console.error("Error fetching user watchlist:", error);

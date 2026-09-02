@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import {useState, useEffect} from "react";
-import useAuth from "./useAuth";
+import useAuth from "../../auth/hooks/useAuth";
 import watchlistService from "../../../features/watchlist/services/watchlistServices";
 import WatchlistToast from "../../../components/ui/WatchlistToast";
 import {toast} from "sonner";
@@ -10,8 +10,6 @@ export default function useWatchlist() {
     const {user, isAuthenticated} = useAuth();
     const [watchlist, setWatchlist] = useState([]);
     const [loading, setLoading] = useState(false);
-
-
 
     useEffect(() => {
         const loadWatchlist = async () => {

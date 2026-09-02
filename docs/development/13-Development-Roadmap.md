@@ -35,10 +35,10 @@ The project follows these principles:
 | Milestone             | Status     |
 | --------------------- | ---------- |
 | Project Planning      | ✅ Complete |
-| Appwrite Setup        | ⏳ Pending  |
-| Authentication        | ⏳ Pending  |
-| User Profile          | ⏳ Pending  |
-| Watchlist             | ⏳ Pending  |
+| Appwrite Setup        | ✅ Complete |
+| Authentication        | ✅ Complete  |
+| User Profile          | ✅ Complete  |
+| Watchlist             | ✅ Complete  |
 | Favorites             | ⏳ Pending  |
 | Watch History         | ⏳ Pending  |
 | Reviews               | ⏳ Pending  |

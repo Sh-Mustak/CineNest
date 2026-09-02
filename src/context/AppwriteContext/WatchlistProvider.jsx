@@ -1,5 +1,5 @@
 import { WatchlistContext } from "./WatchlistContextDefinition";
-import useWatchlist from "../../features/auth/hooks/useWatchlist";
+import useWatchlist from "../../features/watchlist/hooks/useWatchlist";
 
 
 export default function WatchlistProvider({ children }) {

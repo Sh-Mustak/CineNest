@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../features/auth/hooks/useAuth";
-import useWatchlist from "../../features/auth/hooks/useWatchlist";
+import { useWatchlistContext } from "../../context/AppwriteContext/useWatchlistContext";
 import requireAuth from "../../features/auth/services/requireAuth";
 import {useNavigate} from "react-router-dom"
 
 export default function HeroInfoBlock({ movie, infoRef }) {
   const navigate = useNavigate()
-  const { addMovie, removeMovie, isInWatchlist} = useWatchlist();
+  const { addMovie, removeMovie, isInWatchlist} = useWatchlistContext();
   const { isAuthenticated} = useAuth();
   if (!movie) return null;
   

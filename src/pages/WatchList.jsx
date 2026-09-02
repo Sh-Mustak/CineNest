@@ -1,14 +1,13 @@
 import { useMemo, useState } from "react";
 import MovieCard from "../components/movie/MovieCard";
-
 import useAuth from "../features/auth/hooks/useAuth";
-import useWatchlist from "../features/auth/hooks/useWatchlist";
+import {useWatchlistContext} from "../context/AppwriteContext/useWatchlistContext"
 
 export default function WatchList() {
   const { isAuthenticated } = useAuth();
-  const { watchlist, loading } = useWatchlist();
-
+  const { watchlist, loading } = useWatchlistContext();
   const [search, setSearch] = useState("");
+  
 
   // Filter watchlist based on search text
   const filteredWatchlist = useMemo(() => {
@@ -22,6 +21,7 @@ export default function WatchList() {
         .includes(search.toLowerCase())
     );
   }, [watchlist, search]);
+  console.log(filteredWatchlist)
 
   // Not authenticated
   if (!isAuthenticated) {
@@ -174,13 +174,10 @@ export default function WatchList() {
           /* Movie Grid */
           <section>
             <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-              {filteredWatchlist.map((item) => (
+            {filteredWatchlist.map((item) => (
                 <MovieCard
-                  key={item.id}
+                  key={item.movieId}
                   movie={item}
-                  type={item.media_type}
-                  imagePath={item.poster_path}
-                  
                 />
               ))}
             </div>
