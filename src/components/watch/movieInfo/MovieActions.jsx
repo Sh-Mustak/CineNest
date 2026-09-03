@@ -10,7 +10,6 @@ import { useParams } from "react-router-dom";
 export default function MovieActions({ mediaDetails }) {
   const [showDownload, setShowDownload] = useState(false);
   const navigate = useNavigate();
-
   const {
     addMovie,
     removeMovie,
@@ -22,7 +21,7 @@ export default function MovieActions({ mediaDetails }) {
 
   useScrollLock(showDownload);
 
-  const inWatchlist = isInWatchlist(mediaDetails.id);
+  const inWatchlist = isInWatchlist(mediaDetails?.id);
 
   const handleWatchlist = async (e) => {
     e.preventDefault();
@@ -41,7 +40,7 @@ export default function MovieActions({ mediaDetails }) {
           mediaType: type,
         });
       } else {
-        await removeMovie(mediaDetails.id);
+        await removeMovie(mediaDetails?.id);
       }
     } catch (error) {
       console.error(
